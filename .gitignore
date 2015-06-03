@@ -6,4 +6,4 @@
 .Rproj.user
 
 # exclude follower lists
-data/follower_lists/*
+data/followers_lists/*
