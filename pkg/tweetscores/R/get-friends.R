@@ -34,8 +34,6 @@
 
 getFriends <- function(screen_name=NULL, oauth_folder, cursor=-1, user_id=NULL, verbose=TRUE, sleep=1){
 
-  require(rjson); require(ROAuth)
-
   ## create list of credentials
   creds <- list.files(oauth_folder, full.names=T)
   ## open a random credential
@@ -112,19 +110,17 @@ getFriends <- function(screen_name=NULL, oauth_folder, cursor=-1, user_id=NULL, 
 }
 
 getLimitFriends <- function(my_oauth){
-  require(rjson); require(ROAuth)
   url <- "https://api.twitter.com/1.1/application/rate_limit_status.json"
   params <- list(resources = "friends,application")
   response <- my_oauth$OAuthRequest(URL=url, params=params, method="GET",
                                     cainfo=system.file("CurlSSL", "cacert.pem", package = "RCurl"))
-  return(unlist(fromJSON(response)$resources$friends$`/friends/ids`['remaining']))
+  return(unlist(rjson::fromJSON(response)$resources$friends$`/friends/ids`['remaining']))
 }
 
 getLimitRate <- function(my_oauth){
-  require(rjson); require(ROAuth)
   url <- "https://api.twitter.com/1.1/application/rate_limit_status.json"
   params <- list(resources = "followers,application")
   response <- my_oauth$OAuthRequest(URL=url, params=params, method="GET",
                                     cainfo=system.file("CurlSSL", "cacert.pem", package = "RCurl"))
-  return(unlist(fromJSON(response)$resources$application$`/application/rate_limit_status`[['remaining']]))
+  return(unlist(rjson::fromJSON(response)$resources$application$`/application/rate_limit_status`[['remaining']]))
 }

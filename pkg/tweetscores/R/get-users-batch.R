@@ -14,7 +14,7 @@
 #'
 #' @param screen_names user names of the Twitter users
 #'
-#' @param id ids of Twitter users
+#' @param ids ids of Twitter users
 #'
 #' @param include_entities if "true", returned data will include most
 #' recent tweet
@@ -29,7 +29,8 @@
 #'
 #' @examples \dontrun{
 #' ## Download user data for users "p_barbera" and "barackobama"
-#'  userdata <- getUsersBatch(screen_names=c("p_barbera", "BarackObama"), oauth_folder="~/Dropbox/credentials")
+#'  userdata <- getUsersBatch(screen_names=c("p_barbera", "BarackObama"),
+#'    oauth_folder="~/Dropbox/credentials")
 #' }
 #'
 
@@ -56,7 +57,7 @@ getUsersBatch <- function(ids=NULL, screen_names=NULL, oauth_folder, include_ent
     # if error is found, go to next loop iteration
     if (inherits(error, 'error')){ next }
 
-    if (!is.null(output)){ out <- lapply(tmp, function(x) writeLines(toJSON(x), con=conn)) }
+    if (!is.null(output)){ out <- lapply(tmp, function(x) writeLines(RJSONIO::toJSON(x), con=conn)) }
 
     users.df[[i]] <- data.frame(
       id_str = unlist(lapply(tmp, '[[', 'id_str')),

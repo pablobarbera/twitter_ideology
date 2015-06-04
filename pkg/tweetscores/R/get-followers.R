@@ -110,10 +110,9 @@ getFollowers <- function(screen_name=NULL, oauth_folder, cursor=-1, user_id=NULL
 }
 
 getLimitFollowers <- function(my_oauth){
-  require(rjson); require(ROAuth)
   url <- "https://api.twitter.com/1.1/application/rate_limit_status.json"
   params <- list(resources = "followers,application")
   response <- my_oauth$OAuthRequest(URL=url, params=params, method="GET",
                                     cainfo=system.file("CurlSSL", "cacert.pem", package = "RCurl"))
-  return(unlist(fromJSON(response)$resources$followers$`/followers/ids`[['remaining']]))
+  return(unlist(rjson::fromJSON(response)$resources$followers$`/followers/ids`[['remaining']]))
 }

@@ -8,6 +8,8 @@ getUsersBatch(ids = NULL, screen_names = NULL, oauth_folder,
   include_entities = "false", verbose = TRUE, output = NULL)
 }
 \arguments{
+\item{ids}{ids of Twitter users}
+
 \item{screen_names}{user names of the Twitter users}
 
 \item{oauth_folder}{folder where OAuth tokens are stored.}
@@ -19,8 +21,6 @@ recent tweet}
 
 \item{output}{If not \code{NULL}, will write user data in raw JSON format
 to that file}
-
-\item{id}{ids of Twitter users}
 }
 \description{
 \code{getUsers} connects to the REST API of Twitter and returns user
@@ -30,7 +30,8 @@ screen names or user IDs
 \examples{
 \dontrun{
 ## Download user data for users "p_barbera" and "barackobama"
- userdata <- getUsersBatch(screen_names=c("p_barbera", "BarackObama"), oauth_folder="~/Dropbox/credentials")
+ userdata <- getUsersBatch(screen_names=c("p_barbera", "BarackObama"),
+   oauth_folder="~/Dropbox/credentials")
 }
 }
 \author{
