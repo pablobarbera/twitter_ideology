@@ -17,7 +17,8 @@ scrapeCongressData <- function(){
                             "congress-legislators/master/legislators-current.yaml")), 'text')
   congress <- yaml::yaml.load(txt)
   congress <- data.frame(
-    id = unlistCongress(congress, c('id', 'bioguide')),
+    id = unlistCongress(congress, c('id', 'thomas')),
+    bioid = unlistCongress(congress, c('id', 'bioguide')),
     name = unlistCongress(congress, c('name', 'official_full')),
     gender = unlistCongress(congress, c('bio', 'gender')),
     type = unlist(lapply(congress, function(x)
