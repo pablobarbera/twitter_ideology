@@ -13,7 +13,7 @@
 
 scrapeCongressData <- function(){
   ## Downloading Congress data
-  txt <- content(httr::GET(paste0("https://raw.githubusercontent.com/unitedstates/",
+  txt <- httr::content(httr::GET(paste0("https://raw.githubusercontent.com/unitedstates/",
                             "congress-legislators/master/legislators-current.yaml")), 'text')
   congress <- yaml::yaml.load(txt)
   congress <- data.frame(
@@ -26,7 +26,7 @@ scrapeCongressData <- function(){
       x$terms[[length(x$terms)]]$party)),
     stringsAsFactors=F)
   ## Downloading List of Social Media Accounts
-  txt <- content(httr::GET(paste0("https://raw.githubusercontent.com/unitedstates/",
+  txt <- httr::content(httr::GET(paste0("https://raw.githubusercontent.com/unitedstates/",
                             "congress-legislators/master/legislators-social-media.yaml")), 'text')
   sm <- yaml::yaml.load(txt)
   sm <- data.frame(

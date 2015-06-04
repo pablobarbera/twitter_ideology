@@ -124,7 +124,7 @@ getUsers <- function(oauth_folder="~/credentials", screen_names=NULL,
   sig <- httr::sign_oauth1.0(app, token=my_oauth$oauthKey,
                              token_secret=my_oauth$oauthSecret)
   query <- lapply(params, function(x) URLencode(as.character(x)))
-  url.data <- httr::GET(url, query=query, config(token=sig[["token"]]))
+  url.data <- httr::GET(url, query=query, httr::config(token=sig[["token"]]))
   json.data <- httr::content(url.data)
   return(json.data)
 }
