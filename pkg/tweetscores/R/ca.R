@@ -19,12 +19,14 @@
 #' @param supcol Indices of supplementary columns.
 #' @param subsetrow Row indices of subset.
 #' @param subsetcol Column indices of subset.
+#' @param verbose shows additional ouput about token usage in console
 #'
 #'
 #'
 CA <- function (obj, nd = NA, suprow = NA, supcol = NA, subsetrow = NA,
-                subsetcol = NA)
+                subsetcol = NA, verbose=TRUE)
 {
+  if (verbose) cat("Preparing matrix object...\n")
   nd0 <- nd
   I <- dim(obj)[1]
   J <- dim(obj)[2]
@@ -111,6 +113,7 @@ CA <- function (obj, nd = NA, suprow = NA, supcol = NA, subsetrow = NA,
       }
     }
   }
+  if (verbose) cat("Standardizing matrix...\n")
   if (is.na(nd) | nd > nd.max)
     nd <- nd.max
   n <- sum(N)
@@ -132,6 +135,7 @@ CA <- function (obj, nd = NA, suprow = NA, supcol = NA, subsetrow = NA,
     rn <- rn[subsetrowt]
   }
   #chimat <- S^2 * n
+  if (verbose) cat("Computing SVD...\n")
   dec <- svd(S)
   sv <- dec$d[1:nd.max]
   u <- dec$u
@@ -185,6 +189,7 @@ CA <- function (obj, nd = NA, suprow = NA, supcol = NA, subsetrow = NA,
   else cchidist <- cachidist
   phi <- as.matrix(u[, 1:nd])/sqrt(rm)
   gam <- as.matrix(v[, 1:nd])/sqrt(cm)
+  if (verbose) cat("Projecting rows...\n")
   if (!is.na(suprow[1])) {
     cs <- cm
     gam.00 <- gam
@@ -206,6 +211,7 @@ CA <- function (obj, nd = NA, suprow = NA, supcol = NA, subsetrow = NA,
     rin0[-suprow] <- rin
     rin <- rin0
   }
+  if (verbose) cat("Projecting columns...\n")
   if (!is.na(supcol[1])) {
     rs <- rm
     phi.00 <- phi
@@ -240,5 +246,6 @@ CA <- function (obj, nd = NA, suprow = NA, supcol = NA, subsetrow = NA,
                     rowsup = suprow, colnames = cn, colmass = cm, coldist = cchidist,
                     colinertia = cin, colcoord = gam, colsup = supcol, call = match.call())
   class(ca.output) <- "ca"
+  if (verbose) cat("Done!\n")
   return(ca.output)
 }

@@ -5,7 +5,7 @@
 \title{Simple (efficient) correspondence analysis}
 \usage{
 CA(obj, nd = NA, suprow = NA, supcol = NA, subsetrow = NA,
-  subsetcol = NA)
+  subsetcol = NA, verbose = TRUE)
 }
 \arguments{
 \item{obj}{Matrix with two-way frequency table}
@@ -20,6 +20,8 @@ possible dimensions are included.}
 \item{subsetrow}{Row indices of subset.}
 
 \item{subsetcol}{Column indices of subset.}
+
+\item{verbose}{shows additional ouput about token usage in console}
 }
 \description{
 \code{CA} is a modified version of the \code{ca} function in the
