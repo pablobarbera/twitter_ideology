@@ -24,10 +24,11 @@ supplementaryRows <- function(res, points){
                   byrow = TRUE)
   ## missing values
   supcol <- which(is.na(res$colmass))
+  res$colmass[supcol] <- mean(res$colmass, na.rm=TRUE)
   ## adapted from CA package
-  cs <- res$colmass[-supcol]
-  gam.00 <- res$colcoord[-supcol,]
-  SR <- (as.matrix(points)*1)[,-supcol]
+  cs <- res$colmass
+  gam.00 <- res$colcoord
+  SR <- (as.matrix(points)*1)
   rs.sum <- rowSums(points)
   base2 <- t(SR/matrix(rs.sum, nrow = nrow(SR), ncol = ncol(SR)))
   cs.0 <- matrix(cs, nrow = nrow(base2), ncol = ncol(base2))
