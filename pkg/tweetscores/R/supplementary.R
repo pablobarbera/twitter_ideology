@@ -22,10 +22,12 @@
 supplementaryRows <- function(res, points){
   svphi <- matrix(res$sv[1:res$nd], nrow = nrow(points), ncol = res$nd,
                   byrow = TRUE)
+  ## missing values
+  supcol <- which(is.na(res$colmass))
   ## adapted from CA package
-  cs <- res$colmasses
-  gam.00 <- res$colcoords
-  SR <- as.matrix(points)*1
+  cs <- res$colmass[-supcol]
+  gam.00 <- res$colcoord[-supcol,]
+  SR <- (as.matrix(points)*1)[,-supcol]
   rs.sum <- rowSums(points)
   base2 <- t(SR/matrix(rs.sum, nrow = nrow(SR), ncol = ncol(SR)))
   cs.0 <- matrix(cs, nrow = nrow(base2), ncol = ncol(base2))
