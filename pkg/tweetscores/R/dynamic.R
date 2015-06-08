@@ -14,7 +14,9 @@
 #'
 #'
 getCreated <- function(id){
-  tweetscores::dict$created_at[tail(which(id > tweetscores::dict$id_str),n=1)]
+  created <- tweetscores::dict$created_at[tail(which(id > tweetscores::dict$id_str),n=1)]
+  if (length(created)==0 & id<2998851){ created = as.Date("2007-01-01") }
+  return(created)
 }
 
 
@@ -36,11 +38,11 @@ estimateDateBreaks <- function(followers, seed=777){
   n <- min(c(10000, length(followers)))
   set.seed(seed)
   # take random sample of size n and sort it
-  breaks <- sort(sample(1:length(followers), n))
+  breaks <- sort(sample(1:length(followers), n, replace=FALSE))
   # for that random sample of users, estimate creation dates
-  dates_sample <- unlist(as.numeric(followers[breaks]), getCreated)
+  dates_sample <- unlist(sapply(as.numeric(followers[breaks]), getCreated))
 
-  return(list(breaks, dates_sample))
+  return(list(breaks=breaks, dates_sample=as.Date(dates_sample)))
 }
 
 #' @rdname estimatePastFollowers
@@ -51,7 +53,6 @@ estimateDateBreaks <- function(followers, seed=777){
 #' in the past
 #'
 #' @param followers List of followers
-#' @param res output of correspondence analysis
 #' @param breaks user IDs that indicate potential date breaks
 #' @param dates_sample dates in which the user IDs specified in
 #' \code{breaks} were created
@@ -59,7 +60,7 @@ estimateDateBreaks <- function(followers, seed=777){
 #' @param verbose outputs additional information on the console
 #'
 #'
-estimatePastFollowers <- function(followers, res, breaks, dates_sample, date, verbose=TRUE){
+estimatePastFollowers <- function(followers, breaks, dates_sample, date, verbose=TRUE){
 
   # print date
   if (verbose) cat(as.character(date), "-- ")
@@ -68,12 +69,9 @@ estimatePastFollowers <- function(followers, res, breaks, dates_sample, date, ve
   thr <- breaks[tail(which(dates_sample > date), n=1)]
   # sample followers until that point
   sbs <- followers[thr:length(followers)]
-  if (verbose) cat(length(sbs), 'followers -- ')
-  # and find points for correspondence analysis
-  points <- (res$rownames %in% sbs)*1
-  if (verbose) cat(sum(points), 'points -- ')
+  if (verbose) cat(length(sbs), 'followers\n')
 
-  return(points)
+  return(sbs)
 
 }
 
