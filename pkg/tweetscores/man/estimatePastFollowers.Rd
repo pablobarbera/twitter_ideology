@@ -5,13 +5,10 @@
 \title{Estimates the follower list of a given user at a point in time
 in the past}
 \usage{
-estimatePastFollowers(followers, res, breaks, dates_sample, date,
-  verbose = TRUE)
+estimatePastFollowers(followers, breaks, dates_sample, date, verbose = TRUE)
 }
 \arguments{
 \item{followers}{List of followers}
-
-\item{res}{output of correspondence analysis}
 
 \item{breaks}{user IDs that indicate potential date breaks}
 
