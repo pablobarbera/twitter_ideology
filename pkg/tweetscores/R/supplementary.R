@@ -60,12 +60,16 @@ supplementaryRows <- function(res, points){
 #'
 
 supplementaryColumns <- function(res, points){
-  ## from CA package
+  ## adapted from CA package
   sv <- res$sv
   rs <- res$rowmass
   phi.00 <- res$rowcoord
   nd <- res$nd0
-  SC <- matrix(points, ncol=1)
+  #SC <- matrix(points, ncol=1)
+  if (is.numeric(points)){ ncols <- 1}
+  if (is.matrix(points)){ ncols <- nrow(points)}
+  SC <- matrix(points, ncol=ncols)
+
   nd <- res$nd
   supcol <- ncol(SC)
 
@@ -74,7 +78,7 @@ supplementaryColumns <- function(res, points){
   base2 <- SC/matrix(cs.sum, nrow=nrow(SC),
                      ncol=ncol(SC), byrow=TRUE)
   rs.0 <- matrix(rs, nrow = nrow(base2), ncol = ncol(base2))
-  svgam <- matrix(sv[1:nd], nrow = length(supcol), ncol = nd,
+  svgam <- matrix(sv[1:nd], nrow = supcol, ncol = nd,
                   byrow = TRUE)
   base2 <- base2 - rs.0
   gam2 <- (as.matrix(t(base2)) %*% phi.00)/svgam
