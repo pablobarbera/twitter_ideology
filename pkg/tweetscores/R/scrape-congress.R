@@ -33,9 +33,11 @@ scrapeCongressData <- function(){
   sm <- data.frame(
     id = unlistCongress(sm, c('id', 'thomas')),
     twitter = unlistCongress(sm, c('social', 'twitter')),
+    facebook = unlistCongress(sm, c('social', 'facebook')),
+    youtube = unlistCongress(sm, c('social', 'youtube')),
     stringsAsFactors=F)
   ## merging
-  df <- merge(congress, sm)
+  df <- merge(congress, sm, all.x=TRUE)
   return(df)
 }
 
