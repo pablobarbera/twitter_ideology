@@ -1,5 +1,6 @@
 # History files
 .Rhistory
+.Rapp.history
 
 # Example code in package build process
 *-Ex.R
@@ -7,3 +8,8 @@
 
 # exclude follower lists
 data/followers_lists/*
+
+# exclude large .rdata files
+*.rdata
+# temp files
+primary/_test/*
