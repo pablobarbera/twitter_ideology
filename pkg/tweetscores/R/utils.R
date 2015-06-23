@@ -67,7 +67,7 @@ metropolis.logit <- function(y,
     cat(chains, "chains, keeping", length(keep),
         "iterations out of", iters, "\n")
   }
-  return(results)
+  return(list(samples=pars.samples, Rhat=results[,"Rhat"], n.eff=results[,"n.eff"]))
 }
 
 lpd.ml <- function(pars, alpha, gamma, phi, mu_beta, sigma_beta, y){
@@ -106,6 +106,6 @@ ml.logit <- function(y,
     cat("\n")
     print(results)
   }
-  return(results)
+  return(list(samples=pars.samples, Rhat=results[,"Rhat"], n.eff=results[,"n.eff"]))
 }
 

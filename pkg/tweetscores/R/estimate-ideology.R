@@ -21,7 +21,7 @@
 #' to the R console with information about progress of the sampler.
 #'
 #' @param method "MCMC" (default) for the Metropolis algorithm described in the paper.
-#' "ML" will use simple maximum likelihood estimation to compute the point estimate.
+#' "MLE" will use simple maximum likelihood estimation to compute the point estimate.
 #' Note that the standard error for the ML method is likely to be wrong.
 #'
 #' @param iters number of iterations of the metropolis algorithm. Default is 5000
@@ -64,9 +64,10 @@ estimateIdeology <- function(user, friends, verbose=TRUE, method="MCMC",
     results <- metropolis.logit(y, iters=iters, n.warmup=n.warmup,
                                 thin=thin, verbose=verbose, ...)
   }
-  if (method=="ML"){
+  if (method=="MLE"){
     results <- ml.logit(y, iters=iters, n.warmup=n.warmup,
                                 thin=thin, verbose=verbose, ...)
   }
+  attr(results, "class") <- "twideology"
   return(results)
 }
