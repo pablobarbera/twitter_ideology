@@ -3,7 +3,7 @@
 #'
 #' @title
 #' Scrape the list of Twitter accounts for Members of US Congress from
-#  unitedstates GitHub account
+#' the unitedstates GitHub account
 #'
 #'
 #' @examples \dontrun{

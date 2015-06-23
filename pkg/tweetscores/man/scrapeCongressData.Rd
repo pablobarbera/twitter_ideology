@@ -2,12 +2,14 @@
 % Please edit documentation in R/scrape-congress.R
 \name{scrapeCongressData}
 \alias{scrapeCongressData}
-\title{Scrape the list of Twitter accounts for Members of US Congress from}
+\title{Scrape the list of Twitter accounts for Members of US Congress from
+the unitedstates GitHub account}
 \usage{
 scrapeCongressData()
 }
 \description{
 Scrape the list of Twitter accounts for Members of US Congress from
+the unitedstates GitHub account
 }
 \examples{
 \dontrun{

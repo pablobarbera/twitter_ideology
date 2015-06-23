@@ -17,7 +17,7 @@ to be estimated follows}
 to the R console with information about progress of the sampler.}
 
 \item{method}{"MCMC" (default) for the Metropolis algorithm described in the paper.
-"ML" will use simple maximum likelihood estimation to compute the point estimate.
+"MLE" will use simple maximum likelihood estimation to compute the point estimate.
 Note that the standard error for the ML method is likely to be wrong.}
 
 \item{iters}{number of iterations of the metropolis algorithm. Default is 5000}
