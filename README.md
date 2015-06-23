@@ -15,8 +15,6 @@ As an application of the method, in June 2015 I wrote a blog post on The Monkey 
 
 Finally, this repository also contains an R package (`tweetscores`) with several functions to facilitate the application of this method to future research. The rest of this README file provides a tutorial of how to use it.
 
-## Tutorial: Estimating Ideological Positions with Twitter Data
-
 <h3>Authentication</h3>
 <p>In order to download data from Twitter’s API, the first step is to create an authentication token. In order to do so, it’s necessary to follow these steps:</p>
 <p>1 - Go to apps.twitter.com and sign in 2 - Click on “Create New App” 3 - Fill name, description, and website (it can be anything, even google.com), and make sure you leave ‘Callback URL’ empty 4 - Agree to user conditions 5 - Copy consumer key and consumer secret and paste below</p>
@@ -45,4 +43,63 @@ install.packages(toInstall, repos = &quot;http://cran.r-project.org&quot;)
 library(devtools)
 install_github(&quot;pablobarbera/twitter_ideology/pkg/tweetscores&quot;)</code></pre>
 </div>
+<div id="estimating-the-ideological-positions-of-a-us-twitter-user" class="section level3">
+<h3>Estimating the ideological positions of a US Twitter user</h3>
+<p>We can now go ahead and estimate ideology for any Twitter users in the US. In order to do so, the package includes pre-estimated ideology for political accounts and media outlets, so here we’re just replicating the second stage in the estimation – that is, estimating a user’s ideology based on the accounts they follow.</p>
+<pre class="r"><code># load package
+library(tweetscores)</code></pre>
+<pre class="r"><code># downloading friends of a user
+user &lt;- &quot;p_barbera&quot;
+friends &lt;- getFriends(screen_name=user, oauth_folder=&quot;~/Dropbox/credentials/twitter&quot;)</code></pre>
+<pre><code>## /Users/pablobarbera/Dropbox/credentials/twitter/oauth_token_32 
+## 15  API calls left
+## 1065 friends. Next cursor:  0 
+## 14  API calls left</code></pre>
+<pre class="r"><code># estimate ideology with MCMC method
+results &lt;- estimateIdeology(user, friends)</code></pre>
+<pre><code>## p_barbera follows 11 elites: nytimes maddow caitlindewey carr2n fivethirtyeight NickKristof nytgraphics nytimesbits NYTimeskrugman nytlabs thecaucus</code></pre>
+<pre><code>
+## Chain 1
+  |=================================================================| 100%
+## Chain 2
+  |=================================================================| 100%
+</code></pre>
+<p>Once we have this set of estimates, we can analyze them with a series of built-in functions.</p>
+<pre class="r"><code># summarizing results
+summary(results)</code></pre>
+<pre><code>##        mean   sd  2.5%   25%   50%   75% 97.5% Rhat n.eff
+## beta  -2.30 0.57 -3.37 -2.72 -2.25 -1.92 -1.26 1.02   200
+## theta -1.78 0.30 -2.28 -1.99 -1.82 -1.59 -1.11 1.00   200</code></pre>
+<pre class="r"><code># assessing chain convergence using a trace plot
+tracePlot(results, &quot;theta&quot;)</code></pre>
+<p align="center"><img src="trace.png" width="650px"/></p>
+<pre class="r"><code># comparing with other ideology estimates
+plot(results)</code></pre>
+<p align="center"><img src="plot.png" width="650px"/></p>
+</div>
+<div id="faster-ideology-estimation" class="section level3">
+<h3>Faster ideology estimation</h3>
+<p>The previous function relies on a metropolis-hastings sampling algorithm to estimate ideology. However, we can also use maximum likelihood estimation to compute the distribution of the latent parameters. This method is much faster, since it’s not sampling from the posterior distribution of the parameters, but it will tend to give smaller standard errors. However, overall the results should be almost identical.</p>
+<pre class="r"><code># faster estimation using maximum likelihood
+results &lt;- estimateIdeology(user, friends, method=&quot;MLE&quot;)</code></pre>
+<pre><code>## p_barbera follows 11 elites: nytimes maddow caitlindewey carr2n fivethirtyeight NickKristof nytgraphics nytimesbits NYTimeskrugman nytlabs thecaucus</code></pre>
+<pre class="r"><code>summary(results)</code></pre>
+<pre><code>##        mean   sd  2.5%   25%   50%   75% 97.5% Rhat n.eff
+## beta  -2.30 0.57 -3.37 -2.72 -2.25 -1.92 -1.26 1.02   200
+## theta -1.78 0.30 -2.28 -1.99 -1.82 -1.59 -1.11 1.00   200</code></pre>
+</div>
+<div id="additional-functions" class="section level3">
+<h3>Additional functions</h3>
+<p>The package also contains additional functions that I use in my research, and I’m providing here in case they are useful:</p>
+<ul>
+<li><code>scrapeCongressData</code> is a scraper of the list of Twitter accounts for Members of the US congress from the <code>unitedstates</code> Github account.</li>
+<li><code>getUsersBatch</code> scrapes user information for more than 100 Twitter users from Twitter’s REST API.</li>
+<li><code>getFollower</code> scrapes followers lists from Twitter’ REST API.</li>
+<li><code>CA</code> is a modified version of the <code>ca</code> function in the <code>ca</code> package (available on CRAN) that computes simple correspondence analysis with a much lower memory usage.</li>
+<li><code>supplementaryColumns</code> and <code>supplementaryRows</code> takes additional columns of a follower matrix and projects them to the latent ideological space using the parameters of an already-fitted correspondence analysis model.</li>
+<li><code>getCreated</code> returns the approximate date in which a Twitter account was created based on its Twitter ID. In combination with <code>estimatePastFollowers</code> and <code>estimateDateBreaks</code>, it can be used to infer past Twitter follower networks.</li>
+</ul>
+</div>
 
+
+</div>
