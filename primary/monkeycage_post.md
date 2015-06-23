@@ -9,7 +9,7 @@ The intuition behind this method is simple: Citizens prefer to follow on Twitter
 
 The figure below displays the ideological scores of all declared and rumored major primary candidates as of June 1, estimated using their Twitter networks applying this method. To facilitate its interpretation, I have also indicated the location of a few major news outlets, as well as the distribution of ideological scores for all Twitter users (in black) and for Republican and Democratic members of Congress (in red and blue). The results are consistent with <a href="https://www.crowdpac.com/elections/2016-presidential-election">other existing ideology scores</a>, but they also yield some new and unexpected insights.
 
-<p align="center"><img src="img/primary-candidates-densities.png" width="500px"/></p>
+<p align="center"><img src="img/primary-candidates-densities.png" width="650px"/></p>
 
 On the left, it shows the low viability of Sanders's campaign: Only around 5 percent of Twitter users hold more liberal positions than his. The same applies to Warren, which perhaps contributed to her decision not to run this season. Clinton still holds a centrist position in the Democratic Party, not significantly different from President Obama's, despite her efforts to win over progressive voters. Interestingly, former Republican senator Lincoln Chafee appears to be as liberal as Clinton; a finding that is not unexpected given his <a href="https://en.wikipedia.org/wiki/Political_positions_of_Lincoln_Chafee">current policy positions</a> and his endorsement of Barack Obama for president in 2008.
 
