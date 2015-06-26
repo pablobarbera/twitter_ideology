@@ -75,7 +75,7 @@ getFriends <- function(screen_name=NULL, oauth_folder, cursor=-1, user_id=NULL, 
     ## one API call less
     limit <- limit - 1
     ## trying to parse JSON data
-    json.data <- rjson::fromJSON(url.data, unexpected.escape = "skip")
+    json.data <- jsonlite::fromJSON(url.data)
     if (length(json.data$error)!=0){
       if (verbose){cat(url.data)}
       stop("error! Last cursor: ", cursor)
@@ -114,7 +114,7 @@ getLimitFriends <- function(my_oauth){
   params <- list(resources = "friends,application")
   response <- my_oauth$OAuthRequest(URL=url, params=params, method="GET",
                                     cainfo=system.file("CurlSSL", "cacert.pem", package = "RCurl"))
-  return(unlist(rjson::fromJSON(response)$resources$friends$`/friends/ids`['remaining']))
+  return(unlist(jsonlite::fromJSON(response)$resources$friends$`/friends/ids`['remaining']))
 }
 
 getLimitRate <- function(my_oauth){
@@ -122,5 +122,5 @@ getLimitRate <- function(my_oauth){
   params <- list(resources = "followers,application")
   response <- my_oauth$OAuthRequest(URL=url, params=params, method="GET",
                                     cainfo=system.file("CurlSSL", "cacert.pem", package = "RCurl"))
-  return(unlist(rjson::fromJSON(response)$resources$application$`/application/rate_limit_status`[['remaining']]))
+  return(unlist(jsonlite::fromJSON(response)$resources$application$`/application/rate_limit_status`[['remaining']]))
 }

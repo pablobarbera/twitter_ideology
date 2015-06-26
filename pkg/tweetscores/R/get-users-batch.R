@@ -57,7 +57,7 @@ getUsersBatch <- function(ids=NULL, screen_names=NULL, oauth_folder, include_ent
     # if error is found, go to next loop iteration
     if (inherits(error, 'error')){ next }
 
-    if (!is.null(output)){ out <- lapply(tmp, function(x) writeLines(RJSONIO::toJSON(x), con=conn)) }
+    if (!is.null(output)){ out <- lapply(tmp, function(x) writeLines(jsonlite::toJSON(x), con=conn)) }
 
     users.df[[i]] <- data.frame(
       id_str = unlist(lapply(tmp, '[[', 'id_str')),
@@ -135,6 +135,6 @@ getLimitUsers <- function(my_oauth){
   params <- list(resources = "users,application")
   response <- my_oauth$OAuthRequest(URL=url, params=params, method="GET",
                                     cainfo=system.file("CurlSSL", "cacert.pem", package = "RCurl"))
-  return(unlist(rjson::fromJSON(response)$resources$users$`/users/lookup`[['remaining']]))
+  return(unlist(jsonlite::fromJSON(response)$resources$users$`/users/lookup`[['remaining']]))
 
 }

@@ -4,10 +4,12 @@
 \alias{summary.twideology}
 \title{Displays summary of estimated ideology}
 \usage{
-\method{summary}{twideology}(results)
+\method{summary}{twideology}(object, ...)
 }
 \arguments{
-\item{object}{of class 'twideology'}
+\item{object}{object of class 'twideology'}
+
+\item{...}{ignored}
 }
 \description{
 Displays summary of estimated ideology

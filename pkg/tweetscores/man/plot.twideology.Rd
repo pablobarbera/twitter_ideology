@@ -4,10 +4,12 @@
 \alias{plot.twideology}
 \title{Displays estimated ideology with other reference ideal points}
 \usage{
-\method{plot}{twideology}(results)
+\method{plot}{twideology}(x, ...)
 }
 \arguments{
-\item{object}{of class 'twideology'}
+\item{x}{object of class 'twideology'}
+
+\item{...}{ignored}
 }
 \description{
 Displays estimated ideology with other reference ideal points

@@ -7,9 +7,9 @@
 tracePlot(results, par = "theta")
 }
 \arguments{
-\item{par}{parameter for which trace plot is to be displayed}
+\item{results}{object of class 'twideology'}
 
-\item{object}{of class 'twideology'}
+\item{par}{parameter for which trace plot is to be displayed}
 }
 \description{
 Displays trace plots of MCMC chains
