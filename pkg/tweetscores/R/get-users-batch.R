@@ -42,7 +42,7 @@ getUsersBatch <- function(ids=NULL, screen_names=NULL, oauth_folder, include_ent
   users.df <- list()
   i <- 1
   while (length(left.ids)>0){
-    cat(i, "--", length(left.ids), 'users left\n')
+    message(i, "--", length(left.ids), ' users left')
     ids.tmp <- sample(left.ids, min(c(100, length(left.ids))))
 
     if (!is.null(ids)){
@@ -87,14 +87,14 @@ getUsers <- function(oauth_folder="~/credentials", screen_names=NULL,
   creds <- list.files(oauth_folder, full.names=T)
   ## open a random credential
   cr <- sample(creds, 1)
-  if (verbose) cat(cr, "\n")
+  if (verbose) message(cr)
   load(cr)
   ## while rate limit is 0, open a new one
   limit <- getLimitUsers(my_oauth)
-  if (verbose) cat(limit, " hits left\n")
+  if (verbose) message(limit, " hits left")
   while (limit==0){
     cr <- sample(creds, 1)
-    if (verbose) cat(cr, "\n")
+    if (verbose) message(cr)
     load(cr)
     Sys.sleep(1)
     # sleep for 5 minutes if limit rate is less than 100
@@ -103,7 +103,7 @@ getUsers <- function(oauth_folder="~/credentials", screen_names=NULL,
       Sys.sleep(300)
     }
     limit <- getLimitUsers(my_oauth)
-    if (verbose) cat(limit, " hits left\n")
+    if (verbose) message(limit, " hits left")
   }
   ## url to call
   url <- "https://api.twitter.com/1.1/users/lookup.json"

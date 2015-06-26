@@ -62,10 +62,10 @@ metropolis.logit <- function(y,
   # reporting summary statistics
   results <- round(R2WinBUGS::monitor(pars.samples), 2)
   if (verbose==TRUE) {
-    cat("\n")
+    message("")
     print(results)
-    cat(chains, "chains, keeping", length(keep),
-        "iterations out of", iters, "\n")
+    message(chains, " chains, keeping ", length(keep),
+        " iterations out of ", iters)
   }
   return(list(samples=pars.samples, Rhat=results[,"Rhat"], n.eff=results[,"n.eff"]))
 }
@@ -102,8 +102,8 @@ ml.logit <- function(y,
   pars.samples[,,"theta"] <- rnorm(sims*chains, res$par[2], sds[2])
   # reporting summary statistics
   results <- round(R2WinBUGS::monitor(pars.samples), 2)
-  if (verbose==TRUE) {
-    cat("\n")
+  if (verbose) {
+    message("")
     print(results)
   }
   return(list(samples=pars.samples, Rhat=results[,"Rhat"], n.eff=results[,"n.eff"]))

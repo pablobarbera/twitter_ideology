@@ -59,8 +59,8 @@ estimateIdeology <- function(user, friends, verbose=TRUE, method="MCMC",
   if (sum(y)==0){
     stop("User follows 0 elites!")
   }
-  cat(user, "follows", sum(y), "elites:",
-      tweetscores::posterior_samples$screen_name[tweetscores::posterior_samples$id %in% friends], "\n")
+  message(user, " follows ", sum(y), " elites: ",
+      tweetscores::posterior_samples$screen_name[tweetscores::posterior_samples$id %in% friends])
   # estimation
   if (method=="MCMC"){
     results <- metropolis.logit(y, iters=iters, n.warmup=n.warmup,
