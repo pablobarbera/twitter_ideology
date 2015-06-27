@@ -11,7 +11,8 @@ estimateIdeology(user, friends, verbose = TRUE, method = "MCMC",
 \item{user}{screen name of user for which ideology is to be estimated.}
 
 \item{friends}{vector of user IDs that the user for which ideology wants
-to be estimated follows}
+to be estimated follows. If missing, \code{\link{getFriends}} is called for
+the value of \code{user}.}
 
 \item{verbose}{logical, default is \code{TRUE}, which generates some output
 to the R console with information about progress of the sampler.}

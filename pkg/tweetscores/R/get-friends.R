@@ -38,14 +38,14 @@ getFriends <- function(screen_name=NULL, oauth_folder, cursor=-1, user_id=NULL, 
   creds <- list.files(oauth_folder, full.names=T)
   ## open a random credential
   cr <- sample(creds, 1)
-  if (verbose){cat(cr, "\n")}
+  if (verbose){message(cr)}
   load(cr)
   ## while rate limit is 0, open a new one
   limit <- getLimitFriends(my_oauth)
-  if (verbose){cat(limit, " API calls left\n")}
+  if (verbose){message(limit, " API calls left")}
   while (limit==0){
     cr <- sample(creds, 1)
-    if (verbose){cat(cr, "\n")}
+    if (verbose){message(cr)}
     load(cr)
     Sys.sleep(sleep)
     # sleep for 5 minutes if limit rate is less than 100
@@ -54,7 +54,7 @@ getFriends <- function(screen_name=NULL, oauth_folder, cursor=-1, user_id=NULL, 
       Sys.sleep(300)
     }
     limit <- getLimitFriends(my_oauth)
-    if (verbose){cat(limit, " API calls left\n")}
+    if (verbose){message(limit, " API calls left")}
   }
   ## url to call
   url <- "https://api.twitter.com/1.1/friends/ids.json"
@@ -75,9 +75,9 @@ getFriends <- function(screen_name=NULL, oauth_folder, cursor=-1, user_id=NULL, 
     ## one API call less
     limit <- limit - 1
     ## trying to parse JSON data
-    json.data <- rjson::fromJSON(url.data, unexpected.escape = "skip")
+    json.data <- jsonlite::fromJSON(url.data)
     if (length(json.data$error)!=0){
-      if (verbose){cat(url.data)}
+      if (verbose){message(url.data)}
       stop("error! Last cursor: ", cursor)
     }
     ## adding new IDS
@@ -88,13 +88,13 @@ getFriends <- function(screen_name=NULL, oauth_folder, cursor=-1, user_id=NULL, 
     ## next cursor
     cursor <- json.data$next_cursor_str
     ## giving info
-    cat(length(friends), "friends. Next cursor: ", cursor, "\n")
+    message(length(friends), " friends. Next cursor: ", cursor)
 
     ## changing oauth token if we hit the limit
-    if (verbose){cat(limit, " API calls left\n")}
+    if (verbose){message(limit, " API calls left")}
     while (limit==0){
       cr <- sample(creds, 1)
-      if (verbose){cat(cr, "\n")}
+      if (verbose){ message(cr)}
       load(cr)
       Sys.sleep(sleep)
       # sleep for 5 minutes if limit rate is less than 100
@@ -103,7 +103,7 @@ getFriends <- function(screen_name=NULL, oauth_folder, cursor=-1, user_id=NULL, 
         Sys.sleep(300)
       }
       limit <- getLimitFriends(my_oauth)
-      if (verbose){cat(limit, " API calls left\n")}
+      if (verbose){message(limit, " API calls left")}
     }
   }
   return(friends)
@@ -114,7 +114,7 @@ getLimitFriends <- function(my_oauth){
   params <- list(resources = "friends,application")
   response <- my_oauth$OAuthRequest(URL=url, params=params, method="GET",
                                     cainfo=system.file("CurlSSL", "cacert.pem", package = "RCurl"))
-  return(unlist(rjson::fromJSON(response)$resources$friends$`/friends/ids`['remaining']))
+  return(unlist(jsonlite::fromJSON(response)$resources$friends$`/friends/ids`['remaining']))
 }
 
 getLimitRate <- function(my_oauth){
@@ -122,5 +122,5 @@ getLimitRate <- function(my_oauth){
   params <- list(resources = "followers,application")
   response <- my_oauth$OAuthRequest(URL=url, params=params, method="GET",
                                     cainfo=system.file("CurlSSL", "cacert.pem", package = "RCurl"))
-  return(unlist(rjson::fromJSON(response)$resources$application$`/application/rate_limit_status`[['remaining']]))
+  return(unlist(jsonlite::fromJSON(response)$resources$application$`/application/rate_limit_status`[['remaining']]))
 }

@@ -42,8 +42,7 @@ my_oauth &lt;- OAuthFactory$new(consumerKey=consumerKey, consumerSecret=consumer
 <div id="installing-tweetscores-package" class="section level3">
 <h3>Installing the <code>tweetscores</code> package</h3>
 <p>The following code will install the <code>tweetscores</code> package, as well as all other R packages necessary for the functions to run.</p>
-<pre class="r"><code>toInstall &lt;- c(&quot;ggplot2&quot;, &quot;scales&quot;, &quot;R2WinBUGS&quot;, &quot;devtools&quot;, &quot;yaml&quot;, &quot;httr&quot;, &quot;jsonlite&quot;,
-               &quot;rjson&quot;, &quot;RJSONIO&quot;)
+<pre class="r"><code>toInstall &lt;- c(&quot;ggplot2&quot;, &quot;scales&quot;, &quot;R2WinBUGS&quot;, &quot;devtools&quot;, &quot;yaml&quot;, &quot;httr&quot;, &quot;RJSONIO&quot;)
 install.packages(toInstall, repos = &quot;http://cran.r-project.org&quot;)
 library(devtools)
 install_github(&quot;pablobarbera/twitter_ideology/pkg/tweetscores&quot;)</code></pre>

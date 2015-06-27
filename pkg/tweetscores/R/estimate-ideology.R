@@ -15,7 +15,8 @@
 #' @param user screen name of user for which ideology is to be estimated.
 #'
 #' @param friends vector of user IDs that the user for which ideology wants
-#' to be estimated follows
+#' to be estimated follows. If missing, \code{\link{getFriends}} is called for 
+#' the value of \code{user}.
 #'
 #' @param verbose logical, default is \code{TRUE}, which generates some output
 #' to the R console with information about progress of the sampler.
@@ -50,15 +51,16 @@
 
 estimateIdeology <- function(user, friends, verbose=TRUE, method="MCMC",
                               iters=5000, n.warmup=1000, thin=20, ...){
-
+  if(missing(friends))
+    friends <- getFriends(user)
   # getting row of adjacency matrix
   y <- tweetscores::posterior_samples$id %in% friends
   # info message
   if (sum(y)==0){
     stop("User follows 0 elites!")
   }
-  cat(user, "follows", sum(y), "elites:",
-      tweetscores::posterior_samples$screen_name[tweetscores::posterior_samples$id %in% friends], "\n")
+  message(user, " follows ", sum(y), " elites: ",
+      tweetscores::posterior_samples$screen_name[tweetscores::posterior_samples$id %in% friends])
   # estimation
   if (method=="MCMC"){
     results <- metropolis.logit(y, iters=iters, n.warmup=n.warmup,
@@ -68,6 +70,7 @@ estimateIdeology <- function(user, friends, verbose=TRUE, method="MCMC",
     results <- ml.logit(y, iters=iters, n.warmup=n.warmup,
                                 thin=thin, verbose=verbose, ...)
   }
+  results$user <- user
   attr(results, "class") <- "twideology"
   return(results)
 }

@@ -63,13 +63,13 @@ estimateDateBreaks <- function(followers, seed=777){
 estimatePastFollowers <- function(followers, breaks, dates_sample, date, verbose=TRUE){
 
   # print date
-  if (verbose) cat(as.character(date), "-- ")
+  if (verbose) message(as.character(date), " -- ")
 
   # find relevant break in followers list: oldest follower created at `date`
   thr <- breaks[tail(which(dates_sample > date), n=1)]
   # sample followers until that point
   sbs <- followers[thr:length(followers)]
-  if (verbose) cat(length(sbs), 'followers\n')
+  if (verbose) message(length(sbs), ' followers')
 
   return(sbs)
 

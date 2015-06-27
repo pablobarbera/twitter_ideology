@@ -42,7 +42,7 @@ getUsersBatch <- function(ids=NULL, screen_names=NULL, oauth_folder, include_ent
   users.df <- list()
   i <- 1
   while (length(left.ids)>0){
-    cat(i, "--", length(left.ids), 'users left\n')
+    message(i, "--", length(left.ids), ' users left')
     ids.tmp <- sample(left.ids, min(c(100, length(left.ids))))
 
     if (!is.null(ids)){
@@ -57,7 +57,7 @@ getUsersBatch <- function(ids=NULL, screen_names=NULL, oauth_folder, include_ent
     # if error is found, go to next loop iteration
     if (inherits(error, 'error')){ next }
 
-    if (!is.null(output)){ out <- lapply(tmp, function(x) writeLines(RJSONIO::toJSON(x), con=conn)) }
+    if (!is.null(output)){ out <- lapply(tmp, function(x) writeLines(jsonlite::toJSON(x), con=conn)) }
 
     users.df[[i]] <- data.frame(
       id_str = unlist(lapply(tmp, '[[', 'id_str')),
@@ -87,14 +87,14 @@ getUsers <- function(oauth_folder="~/credentials", screen_names=NULL,
   creds <- list.files(oauth_folder, full.names=T)
   ## open a random credential
   cr <- sample(creds, 1)
-  if (verbose) cat(cr, "\n")
+  if (verbose) message(cr)
   load(cr)
   ## while rate limit is 0, open a new one
   limit <- getLimitUsers(my_oauth)
-  if (verbose) cat(limit, " hits left\n")
+  if (verbose) message(limit, " hits left")
   while (limit==0){
     cr <- sample(creds, 1)
-    if (verbose) cat(cr, "\n")
+    if (verbose) message(cr)
     load(cr)
     Sys.sleep(1)
     # sleep for 5 minutes if limit rate is less than 100
@@ -103,7 +103,7 @@ getUsers <- function(oauth_folder="~/credentials", screen_names=NULL,
       Sys.sleep(300)
     }
     limit <- getLimitUsers(my_oauth)
-    if (verbose) cat(limit, " hits left\n")
+    if (verbose) message(limit, " hits left")
   }
   ## url to call
   url <- "https://api.twitter.com/1.1/users/lookup.json"
@@ -135,6 +135,6 @@ getLimitUsers <- function(my_oauth){
   params <- list(resources = "users,application")
   response <- my_oauth$OAuthRequest(URL=url, params=params, method="GET",
                                     cainfo=system.file("CurlSSL", "cacert.pem", package = "RCurl"))
-  return(unlist(rjson::fromJSON(response)$resources$users$`/users/lookup`[['remaining']]))
+  return(unlist(jsonlite::fromJSON(response)$resources$users$`/users/lookup`[['remaining']]))
 
 }

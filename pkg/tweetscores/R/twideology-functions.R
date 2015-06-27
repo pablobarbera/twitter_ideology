@@ -1,14 +1,17 @@
 #' @rdname plot.twideology
 #' @export
 #'
+#' @import ggplot2
+#'
 #' @title
 #' Displays estimated ideology with other reference ideal points
 #'
 #' @author
 #' Pablo Barbera \email{pablo.barbera@@nyu.edu}
 #'
-#' @param object of class 'twideology'
+#' @param x object of class 'twideology'
 #'
+#' @param ... ignored
 #'
 #' @examples \dontrun{
 #' ## download list of friends for a given user
@@ -22,21 +25,18 @@
 #' }
 #'
 
-plot.twideology <- function(results){
-  require(ggplot2)
+plot.twideology <- function(x, ...){
   # loading reference data
-  data(refdata)
-  data <- refdata
+  data <- tweetscores::refdata
   # computing credible interval for user
-  theta.lo <- quantile(results$samples[,,2], .025)
-  theta <- mean(results$samples[,,2])
-  theta.hi <- quantile(results$samples[,,2], .975)
-  data <- rbind(data, c(user, theta, theta.lo, theta.hi))
+  theta.lo <- quantile(x$samples[,,2], .025)
+  theta <- mean(x$samples[,,2])
+  theta.hi <- quantile(x$samples[,,2], .975)
+  data <- rbind(data, c(paste0("@",x$user), theta, theta.lo, theta.hi))
   data$phi <- as.numeric(data$phi)
   data$phi.lo <- as.numeric(data$phi.lo)
   data$phi.hi <- as.numeric(data$phi.hi)
   # preparing plot
-  library(ggplot2)
   p <- ggplot(data, aes(y=reorder(screenName, -phi), x=phi))
   pq <- p + geom_point(size=1.25) +
     geom_segment(width=.5, aes(x=phi.lo, xend=phi.hi, y=reorder(screenName, -phi),
@@ -58,8 +58,9 @@ plot.twideology <- function(results){
 #' @author
 #' Pablo Barbera \email{pablo.barbera@@nyu.edu}
 #'
-#' @param object of class 'twideology'
+#' @param object object of class 'twideology'
 #'
+#' @param ... ignored
 #'
 #' @examples \dontrun{
 #' ## download list of friends for a given user
@@ -75,8 +76,8 @@ plot.twideology <- function(results){
 #' }
 #'
 
-summary.twideology <- function(results){
-  print(round(R2WinBUGS::monitor(results$samples), 2))
+summary.twideology <- function(object, ...){
+  print(round(R2WinBUGS::monitor(object$samples), 2))
 }
 
 #' @rdname tracePlot
@@ -88,7 +89,7 @@ summary.twideology <- function(results){
 #' @author
 #' Pablo Barbera \email{pablo.barbera@@nyu.edu}
 #'
-#' @param object of class 'twideology'
+#' @param results object of class 'twideology'
 #'
 #' @param par parameter for which trace plot is to be displayed
 #'
