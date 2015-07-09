@@ -19,7 +19,9 @@
 #' @param include_entities if "true", returned data will include most
 #' recent tweet
 #'
-#' @param oauth_folder folder where OAuth tokens are stored.
+#' @param oauth_folder folder where OAuth tokens are stored. It can also be the name
+#' of a file that contains the token, or a csv file with the format: consumer_key, 
+#' consumer_secret,access_token,access_token_secret.
 #'
 #' @param verbose shows additional ouput about token usage in console
 #'
@@ -83,19 +85,14 @@ getUsersBatch <- function(ids=NULL, screen_names=NULL, oauth_folder, include_ent
 getUsers <- function(oauth_folder="~/credentials", screen_names=NULL,
                      id=NULL, include_entities="true", verbose=FALSE){
 
-  ## create list of credentials
-  creds <- list.files(oauth_folder, full.names=T)
-  ## open a random credential
-  cr <- sample(creds, 1)
-  if (verbose) message(cr)
-  load(cr)
+  ## loading credentials
+  my_oauth <- getOAuth(oauth_folder, verbose=verbose)
+  
   ## while rate limit is 0, open a new one
   limit <- getLimitUsers(my_oauth)
   if (verbose) message(limit, " hits left")
   while (limit==0){
-    cr <- sample(creds, 1)
-    if (verbose) message(cr)
-    load(cr)
+    my_oauth <- getOAuth(oauth_folder, verbose=verbose)
     Sys.sleep(1)
     # sleep for 5 minutes if limit rate is less than 100
     rate.limit <- getLimitRate(my_oauth)
@@ -130,11 +127,4 @@ getUsers <- function(oauth_folder="~/credentials", screen_names=NULL,
 }
 
 
-getLimitUsers <- function(my_oauth){
-  url <- "https://api.twitter.com/1.1/application/rate_limit_status.json"
-  params <- list(resources = "users,application")
-  response <- my_oauth$OAuthRequest(URL=url, params=params, method="GET",
-                                    cainfo=system.file("CurlSSL", "cacert.pem", package = "RCurl"))
-  return(unlist(jsonlite::fromJSON(response)$resources$users$`/users/lookup`[['remaining']]))
 
-}

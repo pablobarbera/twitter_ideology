@@ -11,7 +11,9 @@ getFollowers(screen_name = NULL, oauth_folder, cursor = -1,
 \item{screen_name}{user name of the Twitter user for which their followers
 will be downloaded}
 
-\item{oauth_folder}{folder where OAuth tokens are stored.}
+\item{oauth_folder}{folder where OAuth tokens are stored. It can also be the name
+of a file that contains the token, or a csv file with the format: consumer_key,
+consumer_secret,access_token,access_token_secret.}
 
 \item{cursor}{See \url{https://dev.twitter.com/docs/api/1.1/get/followers/ids}}
 

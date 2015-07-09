@@ -12,7 +12,9 @@ getUsersBatch(ids = NULL, screen_names = NULL, oauth_folder,
 
 \item{screen_names}{user names of the Twitter users}
 
-\item{oauth_folder}{folder where OAuth tokens are stored.}
+\item{oauth_folder}{folder where OAuth tokens are stored. It can also be the name
+of a file that contains the token, or a csv file with the format: consumer_key,
+consumer_secret,access_token,access_token_secret.}
 
 \item{include_entities}{if "true", returned data will include most
 recent tweet}

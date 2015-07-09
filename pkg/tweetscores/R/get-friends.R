@@ -15,7 +15,9 @@
 #' @param screen_name user name of the Twitter user for which their friends
 #' will be downloaded
 #'
-#' @param oauth_folder folder where OAuth tokens are stored.
+#' @param oauth_folder folder where OAuth tokens are stored. It can also be the name
+#' of a file that contains the token, or a csv file with the format: consumer_key, 
+#' consumer_secret,access_token,access_token_secret.
 #'
 #' @param cursor See \url{https://dev.twitter.com/docs/api/1.1/get/friends/ids}
 #'
@@ -34,19 +36,14 @@
 
 getFriends <- function(screen_name=NULL, oauth_folder, cursor=-1, user_id=NULL, verbose=TRUE, sleep=1){
 
-  ## create list of credentials
-  creds <- list.files(oauth_folder, full.names=T)
-  ## open a random credential
-  cr <- sample(creds, 1)
-  if (verbose){message(cr)}
-  load(cr)
+  ## loading credentials
+  my_oauth <- getOAuth(oauth_folder, verbose=verbose)
+
   ## while rate limit is 0, open a new one
   limit <- getLimitFriends(my_oauth)
   if (verbose){message(limit, " API calls left")}
   while (limit==0){
-    cr <- sample(creds, 1)
-    if (verbose){message(cr)}
-    load(cr)
+    my_oauth <- getOAuth(oauth_folder, verbose=verbose)
     Sys.sleep(sleep)
     # sleep for 5 minutes if limit rate is less than 100
     rate.limit <- getLimitRate(my_oauth)
@@ -93,13 +90,11 @@ getFriends <- function(screen_name=NULL, oauth_folder, cursor=-1, user_id=NULL, 
     ## changing oauth token if we hit the limit
     if (verbose){message(limit, " API calls left")}
     while (limit==0){
-      cr <- sample(creds, 1)
-      if (verbose){ message(cr)}
-      load(cr)
+      my_oauth <- getOAuth(oauth_folder, verbose=verbose)
       Sys.sleep(sleep)
-      # sleep for 5 minutes if limit rate is less than 100
+      # sleep for 5 minutes if limit rate is less than 50
       rate.limit <- getLimitRate(my_oauth)
-      if (rate.limit<100){
+      if (rate.limit<50){
         Sys.sleep(300)
       }
       limit <- getLimitFriends(my_oauth)
@@ -109,18 +104,3 @@ getFriends <- function(screen_name=NULL, oauth_folder, cursor=-1, user_id=NULL, 
   return(friends)
 }
 
-getLimitFriends <- function(my_oauth){
-  url <- "https://api.twitter.com/1.1/application/rate_limit_status.json"
-  params <- list(resources = "friends,application")
-  response <- my_oauth$OAuthRequest(URL=url, params=params, method="GET",
-                                    cainfo=system.file("CurlSSL", "cacert.pem", package = "RCurl"))
-  return(unlist(jsonlite::fromJSON(response)$resources$friends$`/friends/ids`['remaining']))
-}
-
-getLimitRate <- function(my_oauth){
-  url <- "https://api.twitter.com/1.1/application/rate_limit_status.json"
-  params <- list(resources = "followers,application")
-  response <- my_oauth$OAuthRequest(URL=url, params=params, method="GET",
-                                    cainfo=system.file("CurlSSL", "cacert.pem", package = "RCurl"))
-  return(unlist(jsonlite::fromJSON(response)$resources$application$`/application/rate_limit_status`[['remaining']]))
-}
