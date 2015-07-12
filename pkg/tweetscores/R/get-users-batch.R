@@ -5,7 +5,7 @@
 #' Returns user data for a vector of Twitter user IDs or screen_names
 #'
 #' @description
-#' \code{getUsers} connects to the REST API of Twitter and returns user
+#' \code{getUsersBatch} connects to the REST API of Twitter and returns user
 #' objects (user information) for Twitter users, based on their
 #' screen names or user IDs
 #'
@@ -81,6 +81,38 @@ getUsersBatch <- function(ids=NULL, screen_names=NULL, oauth_folder, include_ent
   return(users.df)
 }
 
+#' @rdname getUsers
+#' @export
+#'
+#' @title
+#' Returns user data for a vector of up to 100 Twitter user IDs or screen_names
+#'
+#' @description
+#' \code{getUsers} connects to the REST API of Twitter and returns user
+#' objects (user information) for Twitter users, based on their
+#' screen names or user IDs, for up to 100 users
+#'
+#' @author
+#' Pablo Barbera \email{pablo.barbera@@nyu.edu}
+#'
+#' @param screen_names user names of the Twitter users
+#'
+#' @param ids ids of Twitter users
+#'
+#' @param include_entities if "true", returned data will include most
+#' recent tweet
+#'
+#' @param oauth_folder folder where OAuth tokens are stored. It can also be the name
+#' of a file that contains the token, or a csv file with the format: consumer_key, 
+#' consumer_secret,access_token,access_token_secret.
+#'
+#' @param verbose shows additional ouput about token usage in console
+#'
+#' @examples \dontrun{
+#' ## Download user data for users "p_barbera" and "barackobama"
+#'  userdata <- getUsers(screen_names=c("p_barbera", "BarackObama"),
+#'    oauth_folder="~/Dropbox/credentials")
+#' }
 
 getUsers <- function(oauth_folder="~/credentials", screen_names=NULL,
                      id=NULL, include_entities="true", verbose=FALSE){
