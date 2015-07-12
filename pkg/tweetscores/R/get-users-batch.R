@@ -150,10 +150,13 @@ getUsers <- function(oauth_folder="~/credentials", screen_names=NULL,
   options("httr_oauth_cache"=FALSE)
   app <- httr::oauth_app("twitter", key = my_oauth$consumerKey,
                          secret = my_oauth$consumerSecret)
-  sig <- httr::sign_oauth1.0(app, token=my_oauth$oauthKey,
-                             token_secret=my_oauth$oauthSecret)
+  credentials <- list(oauth_token = my_oauth$oauthKey, 
+                      oauth_token_secret = my_oauth$oauthSecret)
+  twitter_token <- httr::Token1.0$new(endpoint = NULL, params = list(as_header = TRUE), 
+                                app = app, credentials = credentials)
+
   query <- lapply(params, function(x) URLencode(as.character(x)))
-  url.data <- httr::GET(url, query=query, httr::config(token=sig[["token"]]))
+  url.data <- httr::GET(url, query=query, httr::config(token=twitter_token))
   json.data <- httr::content(url.data)
   return(json.data)
 }
