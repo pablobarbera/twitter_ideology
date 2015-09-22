@@ -45,7 +45,8 @@ estimateIdeology2 <- function(user, friends, verbose=TRUE){
     stop("User follows 0 elites!")
   }
   message(user, " follows ", sum(y), " elites: ",
-      tweetscores::refdataCA$colname[tweetscores::refdataCA$id %in% friends])
+      paste(tweetscores::refdataCA$colname[
+        tweetscores::refdataCA$id %in% friends], collapse=", "))
   # estimation
   values <- supplementaryRows(tweetscores::refdataCA, y)
   # normalizing
