@@ -44,3 +44,14 @@ NULL
 #' @name dict
 #' @usage data(dict)
 NULL
+
+#' Column coordinates from correspondence analysis
+#'
+#' List that contains output from correspondence analysis model in
+#' Barbera et al, 2015, Psychological Science
+#'
+#' @docType data
+#' @keywords datasets
+#' @name refdataCA
+#' @usage data(refdataCA)
+NULL

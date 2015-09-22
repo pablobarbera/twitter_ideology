@@ -115,7 +115,7 @@ getUsersBatch <- function(ids=NULL, screen_names=NULL, oauth_folder, include_ent
 #' }
 
 getUsers <- function(oauth_folder="~/credentials", screen_names=NULL,
-                     id=NULL, include_entities="true", verbose=FALSE){
+                     ids=NULL, include_entities="true", verbose=FALSE){
 
   ## loading credentials
   my_oauth <- getOAuth(oauth_folder, verbose=verbose)
@@ -142,8 +142,8 @@ getUsers <- function(oauth_folder="~/credentials", screen_names=NULL,
     screen_names <- paste(screen_names, collapse=",")
     params <- list(screen_name = screen_names, include_entities=include_entities)
   }
-  if (!is.null(id)){
-    ids <- paste(id, collapse=",")
+  if (!is.null(ids)){
+    ids <- paste(ids, collapse=",")
     params <- list(user_id=ids, include_entities=include_entities)
   }
 

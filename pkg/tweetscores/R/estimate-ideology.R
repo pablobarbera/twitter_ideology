@@ -1,11 +1,11 @@
-#' @rdname estimate.ideology
+#' @rdname estimateIdeology
 #' @export
 #'
 #' @title
 #' Estimates ideology for a given Twitter user
 #'
 #' @description
-#' \code{estimate.ideology} estimates ideology for a given user using the
+#' \code{estimateIdeology} estimates ideology for a given user using the
 #' Metropolis algorithm developed in Barbera, 2013. It takes as argument
 #' of the function a list of user IDs indicating who a given user follows.
 #'
@@ -41,10 +41,10 @@
 #' ## download list of friends for a given user
 #'  friends <- getFriends(screen_name = "p_barbera", oauth_folder="oauth")
 #' ## estimating ideology
-#'  results <- estimate.ideology(friends)
+#'  results <- estimateIdeology(friends)
 #'  results['theta', 'mean']
 #' ## estimating ideology using ML (fast) method
-#'  results <- estimate.ideology(friends, method="ML")
+#'  results <- estimateIdeology(friends, method="ML")
 #'  results['theta', 'mean']
 #' }
 #'

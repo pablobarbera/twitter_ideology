@@ -4,7 +4,7 @@
 \alias{getUsers}
 \title{Returns user data for a vector of up to 100 Twitter user IDs or screen_names}
 \usage{
-getUsers(oauth_folder = "~/credentials", screen_names = NULL, id = NULL,
+getUsers(oauth_folder = "~/credentials", screen_names = NULL, ids = NULL,
   include_entities = "true", verbose = FALSE)
 }
 \arguments{
@@ -14,12 +14,12 @@ consumer_secret,access_token,access_token_secret.}
 
 \item{screen_names}{user names of the Twitter users}
 
+\item{ids}{ids of Twitter users}
+
 \item{include_entities}{if "true", returned data will include most
 recent tweet}
 
 \item{verbose}{shows additional ouput about token usage in console}
-
-\item{ids}{ids of Twitter users}
 }
 \description{
 \code{getUsers} connects to the REST API of Twitter and returns user
