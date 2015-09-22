@@ -93,6 +93,21 @@ NickKristof nytgraphics nytimesbits NYTimeskrugman nytlabs thecaucus</code></pre
 ## beta  -2.30 0.57 -3.37 -2.72 -2.25 -1.92 -1.26 1.02   200
 ## theta -1.78 0.30 -2.28 -1.99 -1.82 -1.59 -1.11 1.00   200</code></pre>
 </div>
+<div id="estimation-using-ca" class="section level3">
+<h3>Estimation using correspondence analysis</h3>
+<p>One limitation of the previous method is that users need to follow at least one political account. To partially overcome this problem, in a recently published <a href="http://pss.sagepub.com/cgi/content/long/0956797615594620v1">article</a> in Psychological Science, we add a third stage to the model where we add additional accounts (not necessarily political) followed predominantely by liberal or by conservative users, under the assumption that if other users also follow this same set of accounts, they are also likely to be liberal or conservative. To reduce computational costs, we rely on correspondence analysis to project all users onto the latent ideological space (see <a href="http://www.pablobarbera.com/static/PSS-supplementary-materials.pdf">Supplementary Materials</a>), and then we normalize all the estimates so that they follow a normal distribution with mean zero and standard deviation one. This package also includes a function that reproduces the last stage in the estimation, after all the additional accounts have been added:
+</p>
+<pre class="r"><code># estimation using correspondence analysis
+results &lt;- estimateIdeology2(user, friends)</code></pre>
+<pre><code>## p_barbera follows 22 elites: andersoncooper, billclinton, BreakingNews, 
+## cnnbrk, davidaxelrod, Gawker, HillaryClinton, maddow, MaddowBlog, mashable, mattyglesias,
+## NateSilver538, NickKristof, nytimes, NYTimeskrugman, repjoecrowley, RonanFarrow, 
+## SCOTUSblog, StephenAtHome, TheDailyShow, TheEconomist, UniteBlue</code></pre>
+<pre class="r"><code>results</code></pre>
+<pre><code>## [1] -1.06158</code></pre>
+</div>
+
+
 <div id="additional-functions" class="section level3">
 <h3>Additional functions</h3>
 <p>The package also contains additional functions that I use in my research, which I’m providing here in case they are useful:</p>
