@@ -10,6 +10,5 @@
 data/followers_lists/*
 
 # exclude large .rdata files
-*.rdata
 # temp files
 primary/_test/*
