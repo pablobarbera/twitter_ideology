@@ -20,7 +20,7 @@ us <- us[us$followers_count>5000,]
 
 # first check if there's any list of followers already downloaded to 'outfolder'
 accounts.done <- gsub(".rdata", "", list.files(outfolder))
-accounts.left <- us$screen_name[tolower(d$screen_name) %in% tolower(accounts.done) == FALSE]
+accounts.left <- us$screen_name[tolower(us$screen_name) %in% tolower(accounts.done) == FALSE]
 accounts.left <- accounts.left[!is.na(accounts.left)]
 
 # loop over the rest of accounts, downloading follower lists from API
