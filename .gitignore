@@ -12,3 +12,4 @@ data/followers_lists/*
 # exclude large .rdata files
 # temp files
 primary/_test/*
+2016-election/data/*
