@@ -77,3 +77,13 @@ getLimitUsers <- function(my_oauth){
   return(unlist(jsonlite::fromJSON(response)$resources$users$`/users/lookup`[['remaining']]))
 
 }
+
+getLimitSearch <- function(my_oauth){
+    require(rjson); require(ROAuth)
+    url <- "https://api.twitter.com/1.1/application/rate_limit_status.json"
+    params <- list(resources = "search")
+    response <- my_oauth$OAuthRequest(URL=url, params=params, method="GET", 
+        cainfo=system.file("CurlSSL", "cacert.pem", package = "RCurl"))
+    return(unlist(fromJSON(response)$resources$search$`/search/tweets`[['remaining']]))
+
+}
