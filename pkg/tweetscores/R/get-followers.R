@@ -61,10 +61,10 @@ getFollowers <- function(screen_name=NULL, oauth_folder, cursor=-1, user_id=NULL
   while (cursor!=0){
     ## making API call
     if (!is.null(screen_name)){
-      params <- list(screen_name = screen_name, cursor = cursor)
+      params <- list(screen_name = screen_name, cursor = cursor, stringify_ids="true")
     }
     if (!is.null(user_id)){
-      params <- list(user_id = user_id, cursor = cursor)
+      params <- list(user_id = user_id, cursor = cursor, stringify_ids="true")
     }
     url.data <- my_oauth$OAuthRequest(URL=url, params=params, method="GET",
                                       cainfo=system.file("CurlSSL", "cacert.pem", package = "RCurl"))
