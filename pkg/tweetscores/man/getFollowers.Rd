@@ -5,7 +5,7 @@
 \title{Returns the list of user IDs that correspond to a given user's follower}
 \usage{
 getFollowers(screen_name = NULL, oauth_folder, cursor = -1,
-  user_id = NULL, verbose = TRUE, sleep = 1)
+  user_id = NULL, verbose = TRUE, sleep = 1, file = NULL)
 }
 \arguments{
 \item{screen_name}{user name of the Twitter user for which their followers
@@ -23,6 +23,9 @@ downloaded}
 \item{verbose}{If \code{TRUE}, prints information about API calls on console}
 
 \item{sleep}{Number of seconds to sleep between API calls.}
+
+\item{If}{not \code{NULL}, will store followers list in file instead of in
+memory (useful for users with many followers in computer with low RAM memory).}
 }
 \description{
 \code{getFollowers} connects to the REST API of Twitter and returns the

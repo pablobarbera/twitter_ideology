@@ -28,13 +28,16 @@
 #'
 #' @param sleep Number of seconds to sleep between API calls.
 #'
+#' @param If not \code{NULL}, will store followers list in file instead of in
+#' memory (useful for users with many followers in computer with low RAM memory).
+#'
 #' @examples \dontrun{
 #' ## Download list of followers of user "p_barbera"
 #'  followers <- getFollowers(screen_name="p_barbera", oauth_folder="oauth")
 #' }
 #'
 
-getFollowers <- function(screen_name=NULL, oauth_folder, cursor=-1, user_id=NULL, verbose=TRUE, sleep=1){
+getFollowers <- function(screen_name=NULL, oauth_folder, cursor=-1, user_id=NULL, verbose=TRUE, sleep=1, file=NULL){
 
   ## loading credentials
   my_oauth <- getOAuth(oauth_folder, verbose=verbose)
@@ -56,7 +59,11 @@ getFollowers <- function(screen_name=NULL, oauth_folder, cursor=-1, user_id=NULL
   ## url to call
   url <- "https://api.twitter.com/1.1/followers/ids.json"
   ## empty list for followers
-  followers <- c()
+  if (is.null(file)) followers <- c()
+  if (!is.null(file)){
+    con <- file(file, "a")
+    count <- 0
+  }
   ## while there's more data to download...
   while (cursor!=0){
     ## making API call
@@ -78,14 +85,22 @@ getFollowers <- function(screen_name=NULL, oauth_folder, cursor=-1, user_id=NULL
       stop("error! Last cursor: ", cursor)
     }
     ## adding new IDS
-    followers <- c(followers, as.character(json.data$ids))
+    if (is.null(file)) followers <- c(followers, as.character(json.data$ids))
+    if (!is.null(file)){
+      followers <- as.character(json.data$ids)
+      writeLines(followers, con=con)
+    }
 
     ## previous cursor
     prev_cursor <- json.data$previous_cursor_str
     ## next cursor
     cursor <- json.data$next_cursor_str
     ## giving info
-    message(length(followers), " followers. Next cursor: ", cursor)
+    if (is.null(file)) message(length(followers), " followers. Next cursor: ", cursor)
+    if (!is.null(file)){
+      count <- count + length(followers)
+      message(count, " followers. Next cursor: ", cursor)
+    }
 
     ## changing oauth token if we hit the limit
     if (verbose){message(limit, " API calls left")}
@@ -101,7 +116,8 @@ getFollowers <- function(screen_name=NULL, oauth_folder, cursor=-1, user_id=NULL
       if (verbose){message(limit, " API calls left")}
     }
   }
-  return(followers)
+  if (is.null(file)) return(followers)
+  if (!is.null(file)) close(con)
 }
 
 
