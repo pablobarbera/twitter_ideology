@@ -67,7 +67,9 @@ supplementaryColumns <- function(res, points){
   nd <- res$nd0
   #SC <- matrix(points, ncol=1)
   if (is.numeric(points)){ ncols <- 1}
-  if (is.matrix(points)){ ncols <- nrow(points)}
+  if (is.matrix(points) || class(points)=="ngCMatrix"){ 
+    ncols <- ncol(points)
+  }
   SC <- matrix(points, ncol=ncols)
 
   nd <- res$nd
