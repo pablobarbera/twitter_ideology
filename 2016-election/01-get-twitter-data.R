@@ -14,7 +14,7 @@ oauth_folder <- '~/Dropbox/credentials/twitter'
 ## scraping list of social media accounts for Members of the US Congress
 ## from 'unitedstates' GitHub account
 congress <- scrapeCongressData()
-write.csv(congress, file='data/congress-social-media.csv', row.names=FALSE)
+write.csv(congress, file='data/congress-social-media-20160605.csv', row.names=FALSE)
 
 ## preparing to download follower lists
 accounts <- congress$twitter[!is.na(congress$twitter)]
@@ -23,7 +23,7 @@ accounts <- congress$twitter[!is.na(congress$twitter)]
 
 # DEMOCRATS: Hillary Clinton, Bernie Sanders, Martin O'Malley, 
 # Lincoln Chafee, Jim Webb
-dems <- c('HillaryClinton', 'SenSanders', "MartinOMalley",
+dems <- c('HillaryClinton', 'BernieSanders', "MartinOMalley",
     "LincolnChafee", "JimWebbUSA")
 
 # Ben Carson, Ted Cruz, Carly Fiorina, Lindsey Graham,
@@ -76,7 +76,7 @@ users$type[users$twitter %in% tolower(interest_groups)] <- "Interest groups"
 table(users$type, exclude=NULL)
 table(users$party, exclude=NULL)
 
-write.csv(users, file='data/accounts-twitter-data.csv',
+write.csv(users, file='data/accounts-twitter-data-20160606.csv',
     row.names=FALSE)
 
 ## keeping only accounts with 1000+ followers
