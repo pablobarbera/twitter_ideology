@@ -23,6 +23,12 @@
 #' @param verbose logical, default is \code{TRUE}, which generates some output
 #' to the R console with information about progress of the sampler.
 #'
+#' @param exact logical, default is \code{FALSE}, which adds some random noise
+#' (from a normal distribution with mean 0 and standard deviation 0.05) to avoid
+#' spikes in distribution of ideal points. See
+#' \url{https://github.com/pablobarbera/echo_chambers/blob/master/02_estimation/11-second-stage.r}
+#' for details.
+#'
 #' @return The function returns a matrix with summary statistics of the posterior
 #' distribution of the two estimated parameters, beta (political interest) and
 #' theta (ideology).
@@ -35,7 +41,7 @@
 #' }
 #'
 
-estimateIdeology2 <- function(user, friends, verbose=TRUE){
+estimateIdeology2 <- function(user, friends, verbose=TRUE, exact=FALSE){
   if(missing(friends))
     friends <- getFriends(user)
   # getting row of adjacency matrix
@@ -53,7 +59,7 @@ estimateIdeology2 <- function(user, friends, verbose=TRUE){
   theta <- tweetscores::refdataCA$qs$theta[which.min(abs(values[1] - (tweetscores::refdataCA$qs$value)))]
   # adding random noise 
   # see https://github.com/pablobarbera/echo_chambers/blob/master/02_estimation/11-second-stage.r
-  theta <- theta + rnorm(1, 0, 0.05)
+  if (!exact) theta <- theta + rnorm(1, 0, 0.05)
 
   return(theta)
 }

@@ -5,8 +5,17 @@ Version: 0.1.1
 Date: 2016-06-20
 Author: Pablo Barbera <pablo.barbera@nyu.edu>
 Maintainer: Pablo Barbera <pablo.barbera@nyu.edu>
-Description: This package provides a series of functions to collect and analyze Twitter data, and to estimate the ideological positions of Twitter users with the method described in Barbera (2015, Political Analysis).
+Description: This package provides a series of functions to collect and analyze
+    Twitter data, and to estimate the ideological positions of Twitter users with
+    the method described in Barbera (2015, Political Analysis).
 License: GPL-2
 LazyData: TRUE
-Depends: R2WinBUGS
-Imports: yaml, httr, jsonlite, ROAuth, ggplot2
+Depends:
+    R2WinBUGS
+Imports:
+    yaml,
+    httr,
+    jsonlite,
+    ROAuth,
+    ggplot2
+RoxygenNote: 5.0.1
