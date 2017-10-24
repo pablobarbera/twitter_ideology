@@ -5,16 +5,17 @@
 #' Scrape the list of Twitter accounts for Members of US Congress from
 #' the unitedstates GitHub account
 #'
+#' @param commit Commit from which data will be pulled
 #'
 #' @examples \dontrun{
 #'  congress <- scrapeCongressData()
 #' }
 #'
 
-scrapeCongressData <- function(){
+scrapeCongressData <- function(commit="master"){
   ## Downloading Congress data
   txt <- httr::content(httr::GET(paste0("https://raw.githubusercontent.com/unitedstates/",
-                            "congress-legislators/master/legislators-current.yaml")), 'text')
+                            "congress-legislators/", commit, "/legislators-current.yaml")), 'text')
   congress <- yaml::yaml.load(txt)
   congress <- data.frame(
     id = unlistCongress(congress, c('id', 'thomas')),
@@ -28,10 +29,10 @@ scrapeCongressData <- function(){
     stringsAsFactors=F)
   ## Downloading List of Social Media Accounts
   txt <- httr::content(httr::GET(paste0("https://raw.githubusercontent.com/unitedstates/",
-                            "congress-legislators/master/legislators-social-media.yaml")), 'text')
+                            "congress-legislators/", commit, "/legislators-social-media.yaml")), 'text')
   sm <- yaml::yaml.load(txt)
   sm <- data.frame(
-    id = unlistCongress(sm, c('id', 'thomas')),
+    bioid = unlistCongress(sm, c('id', 'bioguide')),
     twitter = unlistCongress(sm, c('social', 'twitter')),
     facebook = unlistCongress(sm, c('social', 'facebook')),
     youtube = unlistCongress(sm, c('social', 'youtube')),
