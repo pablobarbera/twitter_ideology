@@ -46,7 +46,7 @@
 #'
 
 getTimeline <- function(filename, n=3200, oauth, screen_name=NULL,
-    id=NULL, since_id=NULL, trim_user="true", sleep=.5, verbose=FALSE){
+    id=NULL, since_id=NULL, trim_user="false", sleep=.5, verbose=FALSE){
 
     ## loading credentials
     my_oauth <- getOAuth(oauth, verbose=verbose)
@@ -94,7 +94,7 @@ getTimeline <- function(filename, n=3200, oauth, screen_name=NULL,
     limit <- limit - 1
     ## changing oauth token if we hit the limit
     if (verbose) message(limit, " hits left")
-    cr_old <- cr
+    cr_old <- my_oauth
     while (limit==0){
         my_oauth <- getOAuth(oauth, verbose=verbose)
         Sys.sleep(sleep)
@@ -106,7 +106,7 @@ getTimeline <- function(filename, n=3200, oauth, screen_name=NULL,
         limit <- getLimitTimeline(my_oauth)
         if (verbose) message(limit, " hits left")
     }
-    if (cr != cr_old) {
+    if (!all.equal(my_oauth, cr_old)) {
         app <- httr::oauth_app("twitter", key = my_oauth$consumerKey,
             secret = my_oauth$consumerSecret)
         credentials <- list(oauth_token = my_oauth$oauthKey, oauth_token_secret = my_oauth$oauthSecret)
@@ -151,7 +151,7 @@ getTimeline <- function(filename, n=3200, oauth, screen_name=NULL,
         limit <- limit - 1
         ## changing oauth token if we hit the limit
         message(limit, " hits left")
-        cr_old <- cr
+        cr_old <- my_oauth
         while (limit==0){
             my_oauth <- getOAuth(oauth, verbose=verbose)
             Sys.sleep(sleep)
@@ -163,7 +163,7 @@ getTimeline <- function(filename, n=3200, oauth, screen_name=NULL,
             limit <- getLimitTimeline(my_oauth)
             message(limit, " hits left")
         }
-        if (cr != cr_old) {
+        if (all.equal(my_oauth, cr_old)) {
             app <- httr::oauth_app("twitter", key = my_oauth$consumerKey,
                 secret = my_oauth$consumerSecret)
             credentials <- list(oauth_token = my_oauth$oauthKey, oauth_token_secret = my_oauth$oauthSecret)
