@@ -20,7 +20,9 @@
 #'
 #' @param n maximum number of tweets to be downloaded
 #'
-#' @param oauth_folder folder where OAuth tokens are stored.
+#' @param oauth One of the following: either a list with details for an access token
+#' (see example below), a folder where OAuth tokens are stored, or a csv file
+#' with the format: consumer_key, consumer_secret, access_token, access_token_secret.
 #'
 #' @param until limit for the most recent tweet. The function will then
 #' returns tweets created before this date. Date should be formatted as
@@ -42,23 +44,28 @@
 #' rate limits
 #'
 #' @examples \dontrun{
+#' ## Creating OAuth token
+#'  my_oauth <- list(consumer_key = "CONSUMER_KEY",
+#'    consumer_secret = "CONSUMER_SECRET",
+#'    access_token="ACCESS_TOKEN",
+#'    access_token_secret = "ACCESS_TOKEN_SECRET")
 #' ## Download recent tweets by user "p_barbera"
 #'  searchTweets(q="twitter", filename="twitter-tweets.json",
-#'    n=200, oauth_folder="oauth")
+#'    n=200, oauth=my_oauth)
 #' }
 #'
 
-searchTweets <- function(q, filename, n=200, oauth_folder="~/credentials",
+searchTweets <- function(q, filename, n=200, oauth="~/credentials",
     until=NULL, since_id=NULL, result_type="recent", lang=NULL, sleep=.5, verbose=FALSE){
 
     ## loading credentials
-    my_oauth <- getOAuth(oauth_folder, verbose=verbose)
+    my_oauth <- getOAuth(oauth, verbose=verbose)
 
     ## while rate limit is 0, open a new one
     limit <- getLimitSearch(my_oauth)
     if (verbose) message(limit, " hits left")
     while (limit==0){
-        my_oauth <- getOAuth(oauth_folder, verbose=verbose)
+        my_oauth <- getOAuth(oauth, verbose=verbose)
         Sys.sleep(sleep)
         # sleep for 5 minutes if limit rate is less than 100
         rate.limit <- getLimitRate(my_oauth)
@@ -100,7 +107,7 @@ searchTweets <- function(q, filename, n=200, oauth_folder="~/credentials",
     ## changing oauth token if we hit the limit
     if (verbose) message(limit, " hits left")
     while (limit==0){
-        my_oauth <- getOAuth(oauth_folder, verbose=verbose)
+        my_oauth <- getOAuth(oauth, verbose=verbose)
         Sys.sleep(sleep)
         # sleep for 5 minutes if limit rate is less than 100
         rate.limit <- getLimitRate(my_oauth)
@@ -135,7 +142,7 @@ searchTweets <- function(q, filename, n=200, oauth_folder="~/credentials",
         ## changing oauth token if we hit the limit
         message(limit, " hits left")
         while (limit==0){
-            my_oauth <- getOAuth(oauth_folder, verbose=verbose)
+            my_oauth <- getOAuth(oauth, verbose=verbose)
             Sys.sleep(sleep)
             # sleep for 5 minutes if limit rate is less than 100
             rate.limit <- getLimitRate(my_oauth)

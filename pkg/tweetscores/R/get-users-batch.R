@@ -19,24 +19,28 @@
 #' @param include_entities if "true", returned data will include most
 #' recent tweet
 #'
-#' @param oauth_folder folder where OAuth tokens are stored. It can also be the name
-#' of a file that contains the token, or a csv file with the format: consumer_key,
-#' consumer_secret,access_token,access_token_secret.
+#' @param oauth One of the following: either a list with details for an access token
+#' (see example below), a folder where OAuth tokens are stored, or a csv file
+#' with the format: consumer_key, consumer_secret, access_token, access_token_secret.
 #'
 #' @param verbose shows additional ouput about token usage in console
 #'
 #' @param output If not \code{NULL}, will write user data in raw JSON format
 #' to that file
 #'
-#'
 #' @examples \dontrun{
+#' ## Creating OAuth token
+#'  my_oauth <- list(consumer_key = "CONSUMER_KEY",
+#'    consumer_secret = "CONSUMER_SECRET",
+#'    access_token="ACCESS_TOKEN",
+#'    access_token_secret = "ACCESS_TOKEN_SECRET")
 #' ## Download user data for users "p_barbera" and "barackobama"
 #'  userdata <- getUsersBatch(screen_names=c("p_barbera", "BarackObama"),
-#'    oauth_folder="~/Dropbox/credentials")
+#'    oauth=my_oauth)
 #' }
 #'
 
-getUsersBatch <- function(ids=NULL, screen_names=NULL, oauth_folder, include_entities="false",
+getUsersBatch <- function(ids=NULL, screen_names=NULL, oauth, include_entities="false",
                           verbose=TRUE, output=NULL){
 
   left.ids <- if (is.null(ids)) {screen_names} else {ids}
@@ -48,11 +52,11 @@ getUsersBatch <- function(ids=NULL, screen_names=NULL, oauth_folder, include_ent
     ids.tmp <- sample(left.ids, min(c(100, length(left.ids))))
 
     if (!is.null(ids)){
-      error <- tryCatch(tmp <- getUsers( oauth_folder, ids = ids.tmp, include_entities=include_entities),
+      error <- tryCatch(tmp <- getUsers( oauth, ids = ids.tmp, include_entities=include_entities),
                         error = function(e) e)
     }
     if (!is.null(screen_names)){
-      error <- tryCatch(tmp <- getUsers( oauth_folder,
+      error <- tryCatch(tmp <- getUsers( oauth,
                                          screen_names = ids.tmp, include_entities=include_entities),
                         error = function(e) e)
     }
@@ -102,29 +106,29 @@ getUsersBatch <- function(ids=NULL, screen_names=NULL, oauth_folder, include_ent
 #' @param include_entities if "true", returned data will include most
 #' recent tweet
 #'
-#' @param oauth_folder folder where OAuth tokens are stored. It can also be the name
-#' of a file that contains the token, or a csv file with the format: consumer_key,
-#' consumer_secret,access_token,access_token_secret.
+#' @param oauth One of the following: either a list with details for an access token
+#' (see example below), a folder where OAuth tokens are stored, or a csv file
+#' with the format: consumer_key, consumer_secret, access_token, access_token_secret.
 #'
 #' @param verbose shows additional ouput about token usage in console
 #'
 #' @examples \dontrun{
 #' ## Download user data for users "p_barbera" and "barackobama"
 #'  userdata <- getUsers(screen_names=c("p_barbera", "BarackObama"),
-#'    oauth_folder="~/Dropbox/credentials")
+#'    oauth="~/Dropbox/credentials")
 #' }
 
-getUsers <- function(oauth_folder="~/credentials", screen_names=NULL,
+getUsers <- function(oauth="~/credentials", screen_names=NULL,
                      ids=NULL, include_entities="true", verbose=FALSE){
 
   ## loading credentials
-  my_oauth <- getOAuth(oauth_folder, verbose=verbose)
+  my_oauth <- getOAuth(oauth, verbose=verbose)
 
   ## while rate limit is 0, open a new one
   limit <- getLimitUsers(my_oauth)
   if (verbose) message(limit, " hits left")
   while (limit==0){
-    my_oauth <- getOAuth(oauth_folder, verbose=verbose)
+    my_oauth <- getOAuth(oauth, verbose=verbose)
     Sys.sleep(1)
     # sleep for 5 minutes if limit rate is less than 100
     rate.limit <- getLimitRate(my_oauth)

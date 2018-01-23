@@ -4,9 +4,9 @@
 \alias{searchTweets}
 \title{Search recent tweets}
 \usage{
-searchTweets(q, filename, n = 200, oauth_folder = "~/credentials",
-  until = NULL, since_id = NULL, result_type = "recent", lang = NULL,
-  sleep = 0.5, verbose = FALSE)
+searchTweets(q, filename, n = 200, oauth = "~/credentials", until = NULL,
+  since_id = NULL, result_type = "recent", lang = NULL, sleep = 0.5,
+  verbose = FALSE)
 }
 \arguments{
 \item{q}{search query to issue to Twitter. It can contain Boolean operators.}
@@ -15,7 +15,9 @@ searchTweets(q, filename, n = 200, oauth_folder = "~/credentials",
 
 \item{n}{maximum number of tweets to be downloaded}
 
-\item{oauth_folder}{folder where OAuth tokens are stored.}
+\item{oauth}{One of the following: either a list with details for an access token
+(see example below), a folder where OAuth tokens are stored, or a csv file
+with the format: consumer_key, consumer_secret, access_token, access_token_secret.}
 
 \item{until}{limit for the most recent tweet. The function will then
 returns tweets created before this date. Date should be formatted as
@@ -45,9 +47,14 @@ the goal of this API endpoint is relevance and not completeness.
 }
 \examples{
 \dontrun{
+## Creating OAuth token
+ my_oauth <- list(consumer_key = "CONSUMER_KEY",
+   consumer_secret = "CONSUMER_SECRET",
+   access_token="ACCESS_TOKEN",
+   access_token_secret = "ACCESS_TOKEN_SECRET")
 ## Download recent tweets by user "p_barbera"
  searchTweets(q="twitter", filename="twitter-tweets.json",
-   n=200, oauth_folder="oauth")
+   n=200, oauth=my_oauth)
 }
 
 }

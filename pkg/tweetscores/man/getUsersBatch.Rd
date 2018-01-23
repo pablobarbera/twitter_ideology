@@ -4,7 +4,7 @@
 \alias{getUsersBatch}
 \title{Returns user data for a vector of Twitter user IDs or screen_names}
 \usage{
-getUsersBatch(ids = NULL, screen_names = NULL, oauth_folder,
+getUsersBatch(ids = NULL, screen_names = NULL, oauth,
   include_entities = "false", verbose = TRUE, output = NULL)
 }
 \arguments{
@@ -12,9 +12,9 @@ getUsersBatch(ids = NULL, screen_names = NULL, oauth_folder,
 
 \item{screen_names}{user names of the Twitter users}
 
-\item{oauth_folder}{folder where OAuth tokens are stored. It can also be the name
-of a file that contains the token, or a csv file with the format: consumer_key,
-consumer_secret,access_token,access_token_secret.}
+\item{oauth}{One of the following: either a list with details for an access token
+(see example below), a folder where OAuth tokens are stored, or a csv file
+with the format: consumer_key, consumer_secret, access_token, access_token_secret.}
 
 \item{include_entities}{if "true", returned data will include most
 recent tweet}
@@ -31,9 +31,14 @@ screen names or user IDs
 }
 \examples{
 \dontrun{
+## Creating OAuth token
+ my_oauth <- list(consumer_key = "CONSUMER_KEY",
+   consumer_secret = "CONSUMER_SECRET",
+   access_token="ACCESS_TOKEN",
+   access_token_secret = "ACCESS_TOKEN_SECRET")
 ## Download user data for users "p_barbera" and "barackobama"
  userdata <- getUsersBatch(screen_names=c("p_barbera", "BarackObama"),
-   oauth_folder="~/Dropbox/credentials")
+   oauth=my_oauth)
 }
 
 }

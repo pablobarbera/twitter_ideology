@@ -4,13 +4,13 @@
 \alias{getUsers}
 \title{Returns user data for a vector of up to 100 Twitter user IDs or screen_names}
 \usage{
-getUsers(oauth_folder = "~/credentials", screen_names = NULL, ids = NULL,
+getUsers(oauth = "~/credentials", screen_names = NULL, ids = NULL,
   include_entities = "true", verbose = FALSE)
 }
 \arguments{
-\item{oauth_folder}{folder where OAuth tokens are stored. It can also be the name
-of a file that contains the token, or a csv file with the format: consumer_key,
-consumer_secret,access_token,access_token_secret.}
+\item{oauth}{One of the following: either a list with details for an access token
+(see example below), a folder where OAuth tokens are stored, or a csv file
+with the format: consumer_key, consumer_secret, access_token, access_token_secret.}
 
 \item{screen_names}{user names of the Twitter users}
 
@@ -30,7 +30,7 @@ screen names or user IDs, for up to 100 users
 \dontrun{
 ## Download user data for users "p_barbera" and "barackobama"
  userdata <- getUsers(screen_names=c("p_barbera", "BarackObama"),
-   oauth_folder="~/Dropbox/credentials")
+   oauth="~/Dropbox/credentials")
 }
 }
 \author{

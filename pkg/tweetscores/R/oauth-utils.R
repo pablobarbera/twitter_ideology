@@ -1,6 +1,21 @@
 getOAuth <- function(x, verbose=TRUE){
-	# first check if x exists in disk
-	if (file.exists(x)){
+	# first check if x is an object
+  if (class(token)=="list"){
+    my_oauth <- ROAuth::OAuthFactory$new(consumerKey=x$consumer_key,
+                                         consumerSecret=x$consumer_secret,
+                                         oauthKey=x$access_token,
+                                         oauthSecret=x$access_token_secret,
+                                         needsVerifier=FALSE,
+                                         handshakeComplete=TRUE,
+                                         verifier="1",
+                                         requestURL="https://api.twitter.com/oauth/request_token",
+                                         authURL="https://api.twitter.com/oauth/authorize",
+                                         accessURL="https://api.twitter.com/oauth/access_token",
+                                         signMethod="HMAC")
+  }
+
+  # first check if x exists in disk
+	if (class(x)!="list" && file.exists(x)){
 		info <- file.info(x)
 		# if it's a folder, load one and return
 		if (info$isdir){
@@ -35,7 +50,7 @@ getOAuth <- function(x, verbose=TRUE){
 				#url = "https://api.twitter.com/1.1/users/show.json"
 				#params = list(screen_name = "twitter")
 				#my_oauth$OAuthRequest(URL=url, params=params, method="GET",
-                #                      cainfo=system.file("CurlSSL", "cacert.pem", package = "RCurl"))
+         #                     cainfo=system.file("CurlSSL", "cacert.pem", package = "RCurl"))
 			}
 
 		}

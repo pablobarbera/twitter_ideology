@@ -4,16 +4,16 @@
 \alias{getFollowers}
 \title{Returns the list of user IDs that correspond to a given user's follower}
 \usage{
-getFollowers(screen_name = NULL, oauth_folder, cursor = -1,
-  user_id = NULL, verbose = TRUE, sleep = 1, file = NULL)
+getFollowers(screen_name = NULL, oauth, cursor = -1, user_id = NULL,
+  verbose = TRUE, sleep = 1, file = NULL)
 }
 \arguments{
 \item{screen_name}{user name of the Twitter user for which their followers
 will be downloaded}
 
-\item{oauth_folder}{folder where OAuth tokens are stored. It can also be the name
-of a file that contains the token, or a csv file with the format: consumer_key,
-consumer_secret,access_token,access_token_secret.}
+\item{oauth}{One of the following: either a list with details for an access token
+(see example below), a folder where OAuth tokens are stored, or a csv file
+with the format: consumer_key, consumer_secret, access_token, access_token_secret.}
 
 \item{cursor}{See \url{https://dev.twitter.com/docs/api/1.1/get/followers/ids}}
 
@@ -34,8 +34,13 @@ use of multiple OAuth token to make the process more efficient.
 }
 \examples{
 \dontrun{
+## Creating OAuth token
+ my_oauth <- list(consumer_key = "CONSUMER_KEY",
+   consumer_secret = "CONSUMER_SECRET",
+   access_token="ACCESS_TOKEN",
+   access_token_secret = "ACCESS_TOKEN_SECRET")
 ## Download list of followers of user "p_barbera"
- followers <- getFollowers(screen_name="p_barbera", oauth_folder="oauth")
+ followers <- getFollowers(screen_name="p_barbera", oauth=my_oauth)
 }
 
 }

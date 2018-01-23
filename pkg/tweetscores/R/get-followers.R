@@ -15,9 +15,9 @@
 #' @param screen_name user name of the Twitter user for which their followers
 #' will be downloaded
 #'
-#' @param oauth_folder folder where OAuth tokens are stored. It can also be the name
-#' of a file that contains the token, or a csv file with the format: consumer_key,
-#' consumer_secret,access_token,access_token_secret.
+#' @param oauth One of the following: either a list with details for an access token
+#' (see example below), a folder where OAuth tokens are stored, or a csv file
+#' with the format: consumer_key, consumer_secret, access_token, access_token_secret.
 #'
 #' @param cursor See \url{https://dev.twitter.com/docs/api/1.1/get/followers/ids}
 #'
@@ -32,21 +32,26 @@
 #' memory (useful for users with many followers in computer with low RAM memory).
 #'
 #' @examples \dontrun{
+#' ## Creating OAuth token
+#'  my_oauth <- list(consumer_key = "CONSUMER_KEY",
+#'    consumer_secret = "CONSUMER_SECRET",
+#'    access_token="ACCESS_TOKEN",
+#'    access_token_secret = "ACCESS_TOKEN_SECRET")
 #' ## Download list of followers of user "p_barbera"
-#'  followers <- getFollowers(screen_name="p_barbera", oauth_folder="oauth")
+#'  followers <- getFollowers(screen_name="p_barbera", oauth=my_oauth)
 #' }
 #'
 
-getFollowers <- function(screen_name=NULL, oauth_folder, cursor=-1, user_id=NULL, verbose=TRUE, sleep=1, file=NULL){
+getFollowers <- function(screen_name=NULL, oauth, cursor=-1, user_id=NULL, verbose=TRUE, sleep=1, file=NULL){
 
   ## loading credentials
-  my_oauth <- getOAuth(oauth_folder, verbose=verbose)
+  my_oauth <- getOAuth(oauth, verbose=verbose)
 
   ## while rate limit is 0, open a new one
   limit <- getLimitFollowers(my_oauth)
   if (verbose) {message(limit, " API calls left")}
   while (limit==0){
-    my_oauth <- getOAuth(oauth_folder, verbose=verbose)
+    my_oauth <- getOAuth(oauth, verbose=verbose)
     Sys.sleep(sleep)
     # sleep for 5 minutes if limit rate is less than 100
     rate.limit <- getLimitRate(my_oauth)
@@ -105,7 +110,7 @@ getFollowers <- function(screen_name=NULL, oauth_folder, cursor=-1, user_id=NULL
     ## changing oauth token if we hit the limit
     if (verbose){message(limit, " API calls left")}
     while (limit==0){
-      my_oauth <- getOAuth(oauth_folder, verbose=verbose)
+      my_oauth <- getOAuth(oauth, verbose=verbose)
       Sys.sleep(sleep)
       # sleep for 5 minutes if limit rate is less than 100
       rate.limit <- getLimitRate(my_oauth)
