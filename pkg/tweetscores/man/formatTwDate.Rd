@@ -9,7 +9,7 @@ formatTwDate(datestring, format = "datetime")
 \arguments{
 \item{datestring}{Date string in Twitter format}
 
-\item{output}{Either "date", for Date format; or "datetime" for POSIX.}
+\item{format}{Either "date", for Date format; or "datetime" for POSIX.}
 }
 \author{
 Pablo Barbera \email{P.Barbera@lse.ac.uk}

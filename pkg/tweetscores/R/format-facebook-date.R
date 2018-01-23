@@ -9,7 +9,7 @@
 #'
 #' @param datestring Date string in Facebook format
 #'
-#' @param output Either "date", for Date format; or "datetime" for POSIX.
+#' @param format Either "date", for Date format; or "datetime" for POSIX.
 #'
 #' @examples \dontrun{
 #' ## example of Facebook data

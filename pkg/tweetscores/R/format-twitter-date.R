@@ -9,7 +9,7 @@
 #'
 #' @param datestring Date string in Twitter format
 #'
-#' @param output Either "date", for Date format; or "datetime" for POSIX.
+#' @param format Either "date", for Date format; or "datetime" for POSIX.
 #'
 
 formatTwDate <- function(datestring, format="datetime"){

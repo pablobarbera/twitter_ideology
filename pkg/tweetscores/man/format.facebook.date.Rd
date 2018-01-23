@@ -9,7 +9,7 @@ formatFbDate(datestring, format = "datetime")
 \arguments{
 \item{datestring}{Date string in Facebook format}
 
-\item{output}{Either "date", for Date format; or "datetime" for POSIX.}
+\item{format}{Either "date", for Date format; or "datetime" for POSIX.}
 }
 \examples{
 \dontrun{

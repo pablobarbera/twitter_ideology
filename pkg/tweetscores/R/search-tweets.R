@@ -179,16 +179,6 @@ searchTweets <- function(q, filename, n=200, oauth="~/credentials",
 }
 
 
-getLimitSearch <- function(my_oauth){
-    url <- "https://api.twitter.com/1.1/application/rate_limit_status.json"
-    params <- list(resources = "search")
-    response <- my_oauth$OAuthRequest(URL=url, params=params, method="GET",
-        cainfo=system.file("CurlSSL", "cacert.pem", package = "RCurl"))
-    return(unlist(rjson::fromJSON(response)$resources$search$`/search/tweets`[['remaining']]))
-
-}
-
-
 
 
 
