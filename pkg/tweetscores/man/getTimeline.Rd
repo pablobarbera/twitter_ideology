@@ -5,7 +5,7 @@
 \title{Returns up to 3,200 recent tweets from a given user}
 \usage{
 getTimeline(filename, n = 3200, oauth, screen_name = NULL, id = NULL,
-  since_id = NULL, trim_user = "true", sleep = 0.5, verbose = FALSE)
+  since_id = NULL, trim_user = "false", sleep = 0.5, verbose = FALSE)
 }
 \arguments{
 \item{filename}{file where tweets will be stored (in json format)}
