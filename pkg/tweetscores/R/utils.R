@@ -118,3 +118,63 @@ ml.logit <- function(y,
   return(list(samples=pars.samples, Rhat=results[,"Rhat"], n.eff=results[,"n.eff"]))
 }
 
+userDataToDF <- function(json){
+  df <- data.frame(
+    id = unlistWithNA(json, 'id'),
+    id_str = unlistWithNA(json, 'id_str'),
+    name = unlistWithNA(json, 'name'),
+    screen_name = unlistWithNA(json, 'screen_name'),
+    location = unlistWithNA(json, 'location'),
+    description = unlistWithNA(json, 'description'),
+    url = unlistWithNA(json, 'url'),
+    followers_count = unlistWithNA(json, 'followers_count'),
+    friends_count = unlistWithNA(json, 'friends_count'),
+    created_at = unlistWithNA(json, 'created_at'),
+    time_zone = unlistWithNA(json, 'time_zone'),
+    lang = unlistWithNA(json, 'lang'),
+    stringsAsFactors=F)
+
+  return(df)
+}
+
+unlistWithNA <- function(lst, field){
+  if (length(field)==1){
+    notnulls <- unlist(lapply(lst, function(x) !is.null(x[[field]])))
+    vect <- rep(NA, length(lst))
+    vect[notnulls] <- unlist(lapply(lst[notnulls], '[[', field))
+  }
+  if (length(field)==2){
+    notnulls <- unlist(lapply(lst, function(x) !is.null(x[[field[1]]][[field[2]]])))
+    vect <- rep(NA, length(lst))
+    vect[notnulls] <- unlist(lapply(lst[notnulls], function(x) x[[field[1]]][[field[2]]]))
+  }
+  if (length(field)==3 & field[1]!="geo"){
+    notnulls <- unlist(lapply(lst, function(x) !is.null(x[[field[1]]][[field[2]]][[field[3]]])))
+    vect <- rep(NA, length(lst))
+    vect[notnulls] <- unlist(lapply(lst[notnulls], function(x) x[[field[1]]][[field[2]]][[field[3]]]))
+  }
+  if (field[1]=="geo"){
+    notnulls <- unlist(lapply(lst, function(x) !is.null(x[[field[1]]][[field[2]]])))
+    vect <- rep(NA, length(lst))
+    vect[notnulls] <- unlist(lapply(lst[notnulls], function(x) x[[field[1]]][[field[2]]][[as.numeric(field[3])]]))
+  }
+
+  if (length(field)==4 && field[2]!="urls"){
+    notnulls <- unlist(lapply(lst, function(x) length(x[[field[1]]][[field[2]]][[field[3]]][[field[4]]])>0))
+    vect <- rep(NA, length(lst))
+    vect[notnulls] <- unlist(lapply(lst[notnulls], function(x) x[[field[1]]][[field[2]]][[field[3]]][[field[4]]]))
+  }
+  if (length(field)==4 && field[2]=="urls"){
+    notnulls <- unlist(lapply(lst, function(x) length(x[[field[1]]][[field[2]]])>0))
+    vect <- rep(NA, length(lst))
+    vect[notnulls] <- unlist(lapply(lst[notnulls], function(x) x[[field[1]]][[field[2]]][[as.numeric(field[3])]][[field[4]]]))
+  }
+  if (length(field)==6 && field[2]=="bounding_box"){
+    notnulls <- unlist(lapply(lst, function(x) length(x[[field[1]]][[field[2]]])>0))
+    vect <- rep(NA, length(lst))
+    vect[notnulls] <- unlist(lapply(lst[notnulls], function(x)
+      x[[field[1]]][[field[2]]][[field[3]]][[as.numeric(field[4])]][[as.numeric(field[5])]][[as.numeric(field[6])]]))
+  }
+  return(vect)
+}
+
