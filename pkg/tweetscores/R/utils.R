@@ -1,3 +1,12 @@
+.onAttach <- function(...) {
+
+  packageStartupMessage("##\n## tweetscores: tools for the analysis of Twitter data")
+  packageStartupMessage("## Pablo Barbera (LSE)")
+  packageStartupMessage("## www.tweetscores.com\n##")
+
+}
+
+
 lpd <- function(alpha, beta, gamma, theta, phi, mu_beta, sigma_beta, y){
   value <- alpha + beta - gamma * (theta - phi)^2
   sum(log(plogis(value)^y * (1-plogis(value))^(1-y)))  +

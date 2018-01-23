@@ -20,7 +20,7 @@
 #' recent tweet
 #'
 #' @param oauth_folder folder where OAuth tokens are stored. It can also be the name
-#' of a file that contains the token, or a csv file with the format: consumer_key, 
+#' of a file that contains the token, or a csv file with the format: consumer_key,
 #' consumer_secret,access_token,access_token_secret.
 #'
 #' @param verbose shows additional ouput about token usage in console
@@ -48,7 +48,7 @@ getUsersBatch <- function(ids=NULL, screen_names=NULL, oauth_folder, include_ent
     ids.tmp <- sample(left.ids, min(c(100, length(left.ids))))
 
     if (!is.null(ids)){
-      error <- tryCatch(tmp <- getUsers( oauth_folder, id = ids.tmp, include_entities=include_entities),
+      error <- tryCatch(tmp <- getUsers( oauth_folder, ids = ids.tmp, include_entities=include_entities),
                         error = function(e) e)
     }
     if (!is.null(screen_names)){
@@ -103,7 +103,7 @@ getUsersBatch <- function(ids=NULL, screen_names=NULL, oauth_folder, include_ent
 #' recent tweet
 #'
 #' @param oauth_folder folder where OAuth tokens are stored. It can also be the name
-#' of a file that contains the token, or a csv file with the format: consumer_key, 
+#' of a file that contains the token, or a csv file with the format: consumer_key,
 #' consumer_secret,access_token,access_token_secret.
 #'
 #' @param verbose shows additional ouput about token usage in console
@@ -119,7 +119,7 @@ getUsers <- function(oauth_folder="~/credentials", screen_names=NULL,
 
   ## loading credentials
   my_oauth <- getOAuth(oauth_folder, verbose=verbose)
-  
+
   ## while rate limit is 0, open a new one
   limit <- getLimitUsers(my_oauth)
   if (verbose) message(limit, " hits left")
@@ -150,9 +150,9 @@ getUsers <- function(oauth_folder="~/credentials", screen_names=NULL,
   options("httr_oauth_cache"=FALSE)
   app <- httr::oauth_app("twitter", key = my_oauth$consumerKey,
                          secret = my_oauth$consumerSecret)
-  credentials <- list(oauth_token = my_oauth$oauthKey, 
+  credentials <- list(oauth_token = my_oauth$oauthKey,
                       oauth_token_secret = my_oauth$oauthSecret)
-  twitter_token <- httr::Token1.0$new(endpoint = NULL, params = list(as_header = TRUE), 
+  twitter_token <- httr::Token1.0$new(endpoint = NULL, params = list(as_header = TRUE),
                                 app = app, credentials = credentials)
 
   query <- lapply(params, function(x) URLencode(as.character(x)))

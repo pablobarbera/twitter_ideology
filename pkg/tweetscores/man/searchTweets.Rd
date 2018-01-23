@@ -18,10 +18,10 @@ searchTweets(q, filename, n = 200, oauth_folder = "~/credentials",
 \item{oauth_folder}{folder where OAuth tokens are stored.}
 
 \item{until}{limit for the most recent tweet. The function will then
-returns tweets created before this date. Date should be formatted as 
+returns tweets created before this date. Date should be formatted as
 YYYY-MM-DD. Keep in mind that the search index has a 7-day limit}
 
-\item{since_id}{id of the oldest tweet to be downloaded. Useful if, for 
+\item{since_id}{id of the oldest tweet to be downloaded. Useful if, for
 example, we're only interested in getting tweets sent after a certain
 date.}
 
@@ -37,7 +37,7 @@ will increase reliability of API calls; lower number will increase speed.}
 rate limits}
 }
 \description{
-\code{searchTweets} connects to the REST API of Twitter and returns 
+\code{searchTweets} connects to the REST API of Twitter and returns
 recent tweets (usually no more than 5-7 days old) based on a supplied
 search string. Note that this function will not return all tweets. As
 explained in the documentation (\url{https://dev.twitter.com/rest/public/search}),
@@ -46,7 +46,7 @@ the goal of this API endpoint is relevance and not completeness.
 \examples{
 \dontrun{
 ## Download recent tweets by user "p_barbera"
- searchTweets(q="twitter", filename="twitter-tweets.json", 
+ searchTweets(q="twitter", filename="twitter-tweets.json",
    n=200, oauth_folder="oauth")
 }
 
@@ -54,4 +54,3 @@ the goal of this API endpoint is relevance and not completeness.
 \author{
 Pablo Barbera \email{pablo.barbera@nyu.edu}
 }
-

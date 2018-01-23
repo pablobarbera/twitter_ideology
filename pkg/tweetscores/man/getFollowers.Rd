@@ -12,7 +12,7 @@ getFollowers(screen_name = NULL, oauth_folder, cursor = -1,
 will be downloaded}
 
 \item{oauth_folder}{folder where OAuth tokens are stored. It can also be the name
-of a file that contains the token, or a csv file with the format: consumer_key, 
+of a file that contains the token, or a csv file with the format: consumer_key,
 consumer_secret,access_token,access_token_secret.}
 
 \item{cursor}{See \url{https://dev.twitter.com/docs/api/1.1/get/followers/ids}}
@@ -24,7 +24,7 @@ downloaded}
 
 \item{sleep}{Number of seconds to sleep between API calls.}
 
-\item{If}{not \code{NULL}, will store followers list in file instead of in
+\item{file}{If not \code{NULL}, will store followers list in file instead of in
 memory (useful for users with many followers in computer with low RAM memory).}
 }
 \description{
@@ -42,4 +42,3 @@ use of multiple OAuth token to make the process more efficient.
 \author{
 Pablo Barbera \email{pablo.barbera@nyu.edu}
 }
-

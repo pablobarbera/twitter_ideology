@@ -5,7 +5,10 @@
 \title{Scrape the list of Twitter accounts for Members of US Congress from
 the unitedstates GitHub account}
 \usage{
-scrapeCongressData()
+scrapeCongressData(commit = "master")
+}
+\arguments{
+\item{commit}{Commit from which data will be pulled}
 }
 \examples{
 \dontrun{
@@ -13,4 +16,3 @@ scrapeCongressData()
 }
 
 }
-

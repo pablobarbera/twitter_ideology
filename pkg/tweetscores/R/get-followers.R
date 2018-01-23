@@ -16,7 +16,7 @@
 #' will be downloaded
 #'
 #' @param oauth_folder folder where OAuth tokens are stored. It can also be the name
-#' of a file that contains the token, or a csv file with the format: consumer_key, 
+#' of a file that contains the token, or a csv file with the format: consumer_key,
 #' consumer_secret,access_token,access_token_secret.
 #'
 #' @param cursor See \url{https://dev.twitter.com/docs/api/1.1/get/followers/ids}
@@ -28,7 +28,7 @@
 #'
 #' @param sleep Number of seconds to sleep between API calls.
 #'
-#' @param If not \code{NULL}, will store followers list in file instead of in
+#' @param file If not \code{NULL}, will store followers list in file instead of in
 #' memory (useful for users with many followers in computer with low RAM memory).
 #'
 #' @examples \dontrun{

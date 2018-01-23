@@ -22,4 +22,3 @@ Code was adapted from the \code{ca} function in the \code{ca} package
 \author{
 Michael Greenacre, Oleg Nenadic, Michael Friendly (Modified by Pablo Barbera)
 }
-

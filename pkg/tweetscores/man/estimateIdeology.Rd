@@ -55,4 +55,3 @@ of the function a list of user IDs indicating who a given user follows.
 \author{
 Pablo Barbera \email{pablo.barbera@nyu.edu}
 }
-

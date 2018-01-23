@@ -46,4 +46,3 @@ estimates in the paper. The values are then normalized to a N(0,1) distribution.
 \author{
 Pablo Barbera \email{pablo.barbera@nyu.edu}
 }
-

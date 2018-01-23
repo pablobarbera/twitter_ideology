@@ -11,4 +11,3 @@ data(refdata)
 Data frame that contains ideal points for elites
 }
 \keyword{datasets}
-

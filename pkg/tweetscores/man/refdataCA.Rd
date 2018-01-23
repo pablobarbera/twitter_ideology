@@ -12,4 +12,3 @@ List that contains output from correspondence analysis model in
 Barbera et al, 2015, Psychological Science
 }
 \keyword{datasets}
-

@@ -12,4 +12,3 @@ Data frame that contains dates in which a random sample
 of 1000 user accounts were created
 }
 \keyword{datasets}
-

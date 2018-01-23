@@ -9,7 +9,7 @@ getUsers(oauth_folder = "~/credentials", screen_names = NULL, ids = NULL,
 }
 \arguments{
 \item{oauth_folder}{folder where OAuth tokens are stored. It can also be the name
-of a file that contains the token, or a csv file with the format: consumer_key, 
+of a file that contains the token, or a csv file with the format: consumer_key,
 consumer_secret,access_token,access_token_secret.}
 
 \item{screen_names}{user names of the Twitter users}
@@ -36,4 +36,3 @@ screen names or user IDs, for up to 100 users
 \author{
 Pablo Barbera \email{pablo.barbera@nyu.edu}
 }
-

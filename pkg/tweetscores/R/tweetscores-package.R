@@ -12,6 +12,16 @@
 #' @author Pablo Barbera \email{pablo.barbera@@nyu.edu}
 NULL
 
+#' @import ROAuth
+#' @import httr
+#' @import jsonlite
+#' @import yaml
+#' @import R2WinBUGS
+#' @import ggplot2
+#' @importFrom graphics lines mtext plot
+#' @importFrom stats dnorm optim plogis quantile reorder rnorm runif
+#' @importFrom utils URLencode read.csv setTxtProgressBar tail txtProgressBar
+NULL
 
 #' Posterior samples of ideology estimates for elites
 #'

@@ -13,3 +13,4 @@ data/followers_lists/*
 # temp files
 primary/_test/*
 2016-election/data/*
+.DS_Store

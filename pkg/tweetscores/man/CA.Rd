@@ -31,4 +31,3 @@ of simple correspondence analysis.
 \author{
 Michael Greenacre, Oleg Nenadic, Michael Friendly (Modified by Pablo Barbera)
 }
-

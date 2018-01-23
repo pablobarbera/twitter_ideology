@@ -1,10 +1,10 @@
 Package: tweetscores
 Type: Package
 Title: Tools for the Estimation of Ideology Scores with Twitter Data
-Version: 0.1.2
-Date: 2016-12-14
-Author: Pablo Barbera <pablo.barbera@nyu.edu>
-Maintainer: Pablo Barbera <pablo.barbera@nyu.edu>
+Version: 0.2.0
+Date: 2018-01-23
+Author: Pablo Barbera <P.Barbera@lse.ac.uk>
+Maintainer: Pablo Barbera <P.Barbera@lse.ac.uk>
 Description: This package provides a series of functions to collect and analyze
     Twitter data, and to estimate the ideological positions of Twitter users with
     the method described in Barbera (2015, Political Analysis).
@@ -18,4 +18,4 @@ Imports:
     jsonlite,
     ROAuth,
     ggplot2
-RoxygenNote: 5.0.1
+RoxygenNote: 6.0.1

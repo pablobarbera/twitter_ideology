@@ -27,4 +27,3 @@
 \author{
 Pablo Barbera \email{pablo.barbera@nyu.edu}
 }
-

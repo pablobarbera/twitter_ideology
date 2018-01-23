@@ -44,7 +44,7 @@ plot.twideology <- function(x, ...){
     theme_bw() + scale_y_discrete("") +
     scale_x_continuous(expression(paste("95% Intervals for ", phi[j],
                                         " or ", theta[i], ", Estimated Ideological Ideal Points")),
-                       lim=range(data[,2:4]))
+                       limits=range(data[,2:4]))
   suppressMessages(suppressWarnings(print(pq)))
 }
 

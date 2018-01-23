@@ -12,4 +12,3 @@ List that contains posterior samples of ideology and popularity estimates
 for elites (politicians, media outlets, and journalists)
 }
 \keyword{datasets}
-

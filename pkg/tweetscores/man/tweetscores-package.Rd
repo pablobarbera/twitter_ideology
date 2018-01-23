@@ -2,18 +2,17 @@
 % Please edit documentation in R/tweetscores-package.R
 \docType{package}
 \name{tweetscores-package}
-\alias{tweetscores}
 \alias{tweetscores-package}
+\alias{tweetscores}
 \title{Tools for the estimation of ideology scores with Twitter data}
 \description{
 This package provides a series of functions
 to collect and analyze Twitter data, and to estimate the
 in Barbera (2015, Political Analysis).
 }
-\author{
-Pablo Barbera \email{pablo.barbera@nyu.edu}
-}
 \seealso{
 \code{\link{estimateIdeology}}, \code{\link{getFriends}},
 }
-
+\author{
+Pablo Barbera \email{pablo.barbera@nyu.edu}
+}

@@ -19,4 +19,3 @@ estimatePastFollowers(followers, breaks, dates_sample, date, verbose = TRUE)
 
 \item{verbose}{outputs additional information on the console}
 }
-

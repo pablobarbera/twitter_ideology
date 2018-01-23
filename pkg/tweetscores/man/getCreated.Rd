@@ -14,4 +14,3 @@ getCreated(id)
 \code{getCreated} estimates the date in which an account was created
 using a dataset that matches user IDs to dates.
 }
-

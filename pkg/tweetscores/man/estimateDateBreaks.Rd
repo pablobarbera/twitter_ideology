@@ -13,4 +13,3 @@ estimateDateBreaks(followers, seed = 777)
 
 \item{seed}{Random seed}
 }
-
