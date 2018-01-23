@@ -2,8 +2,7 @@
 % Please edit documentation in R/dynamic.R
 \name{estimatePastFollowers}
 \alias{estimatePastFollowers}
-\title{Estimates the follower list of a given user at a point in time
-in the past}
+\title{Estimates follower lists at any point in time}
 \usage{
 estimatePastFollowers(followers, breaks, dates_sample, date, verbose = TRUE)
 }
@@ -18,4 +17,8 @@ estimatePastFollowers(followers, breaks, dates_sample, date, verbose = TRUE)
 \item{date}{specific date at which follower list will be estimated}
 
 \item{verbose}{outputs additional information on the console}
+}
+\description{
+Estimates the follower list of a given user at a point in time
+in the past
 }

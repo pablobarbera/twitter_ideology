@@ -36,8 +36,13 @@ estimates in the paper. The values are then normalized to a N(0,1) distribution.
 }
 \examples{
 \dontrun{
+## Creating OAuth token
+ my_oauth <- list(consumer_key = "CONSUMER_KEY",
+   consumer_secret = "CONSUMER_SECRET",
+   access_token="ACCESS_TOKEN",
+   access_token_secret = "ACCESS_TOKEN_SECRET")
 ## download list of friends for a given user
- friends <- getFriends(screen_name = "p_barbera", oauth_folder="oauth")
+ friends <- getFriends(screen_name = "p_barbera", oauth=my_oauth)
 ## estimating ideology
  results <- estimateIdeology2(friends)
 }

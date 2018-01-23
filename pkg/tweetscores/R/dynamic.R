@@ -24,8 +24,11 @@ getCreated <- function(id){
 #' @export
 #'
 #' @title
+#' Estimates dates in which a sample of followers created their accounts
+#'
+#' @description
 #' Computes dates in which a sample of followers created
-#' their accounts. This function is then used to estimate
+#' their Twitter accounts. This function is then used to estimate
 #' what that list of followers looked like in the past.
 #'
 #' @param followers List of followers of account
@@ -49,6 +52,9 @@ estimateDateBreaks <- function(followers, seed=777){
 #' @export
 #'
 #' @title
+#' Estimates follower lists at any point in time
+#'
+#' @description
 #' Estimates the follower list of a given user at a point in time
 #' in the past
 #'

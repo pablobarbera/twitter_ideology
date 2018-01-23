@@ -2,13 +2,18 @@
 % Please edit documentation in R/scrape-congress.R
 \name{scrapeCongressData}
 \alias{scrapeCongressData}
-\title{Scrape the list of Twitter accounts for Members of US Congress from
-the unitedstates GitHub account}
+\title{Scrape the social mediaaccounts of Members of US Congress}
 \usage{
 scrapeCongressData(commit = "master")
 }
 \arguments{
 \item{commit}{Commit from which data will be pulled}
+}
+\description{
+\code{scrapeCongressData} downloads the list of social media accounts
+(Twitter and Facebook) for the Members of the US Congress from the
+unitedstates GitHub account at any point in time, and returns a data
+frame.
 }
 \examples{
 \dontrun{

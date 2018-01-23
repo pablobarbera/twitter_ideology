@@ -2,8 +2,13 @@
 #' @export
 #'
 #' @title
-#' Scrape the list of Twitter accounts for Members of US Congress from
-#' the unitedstates GitHub account
+#' Scrape the social mediaaccounts of Members of US Congress
+#'
+#' @description
+#' \code{scrapeCongressData} downloads the list of social media accounts
+#' (Twitter and Facebook) for the Members of the US Congress from the
+#' unitedstates GitHub account at any point in time, and returns a data
+#' frame.
 #'
 #' @param commit Commit from which data will be pulled
 #'

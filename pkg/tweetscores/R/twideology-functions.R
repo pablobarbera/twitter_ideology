@@ -14,8 +14,13 @@
 #' @param ... ignored
 #'
 #' @examples \dontrun{
+#' ## Creating OAuth token
+#'  my_oauth <- list(consumer_key = "CONSUMER_KEY",
+#'    consumer_secret = "CONSUMER_SECRET",
+#'    access_token="ACCESS_TOKEN",
+#'    access_token_secret = "ACCESS_TOKEN_SECRET")
 #' ## download list of friends for a given user
-#'  friends <- getFriends(screen_name = "p_barbera", oauth_folder="oauth")
+#'  friends <- getFriends(screen_name = "p_barbera", oauth=my_oauth)
 #' ## estimating ideology
 #'  results <- estimateIdeology(user, friends)
 #' ## trace plot
@@ -63,8 +68,13 @@ plot.twideology <- function(x, ...){
 #' @param ... ignored
 #'
 #' @examples \dontrun{
+#' ## Creating OAuth token
+#'  my_oauth <- list(consumer_key = "CONSUMER_KEY",
+#'    consumer_secret = "CONSUMER_SECRET",
+#'    access_token="ACCESS_TOKEN",
+#'    access_token_secret = "ACCESS_TOKEN_SECRET")
 #' ## download list of friends for a given user
-#'  friends <- getFriends(screen_name = "p_barbera", oauth_folder="oauth")
+#'  friends <- getFriends(screen_name = "p_barbera", oauth=my_oauth)
 #' ## estimating ideology
 #'  results <- estimateIdeology(user, friends)
 #' ## summary
@@ -94,8 +104,13 @@ summary.twideology <- function(object, ...){
 #' @param par parameter for which trace plot is to be displayed
 #'
 #' @examples \dontrun{
+#' ## Creating OAuth token
+#'  my_oauth <- list(consumer_key = "CONSUMER_KEY",
+#'    consumer_secret = "CONSUMER_SECRET",
+#'    access_token="ACCESS_TOKEN",
+#'    access_token_secret = "ACCESS_TOKEN_SECRET")
 #' ## download list of friends for a given user
-#'  friends <- getFriends(screen_name = "p_barbera", oauth_folder="oauth")
+#'  friends <- getFriends(screen_name = "p_barbera", oauth=my_oauth)
 #' ## estimating ideology
 #'  results <- estimateIdeology(user, friends)
 #' ## summary

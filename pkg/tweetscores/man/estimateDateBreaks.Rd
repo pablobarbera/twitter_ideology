@@ -2,9 +2,7 @@
 % Please edit documentation in R/dynamic.R
 \name{estimateDateBreaks}
 \alias{estimateDateBreaks}
-\title{Computes dates in which a sample of followers created
-their accounts. This function is then used to estimate
-what that list of followers looked like in the past.}
+\title{Estimates dates in which a sample of followers created their accounts}
 \usage{
 estimateDateBreaks(followers, seed = 777)
 }
@@ -12,4 +10,9 @@ estimateDateBreaks(followers, seed = 777)
 \item{followers}{List of followers of account}
 
 \item{seed}{Random seed}
+}
+\description{
+Computes dates in which a sample of followers created
+their Twitter accounts. This function is then used to estimate
+what that list of followers looked like in the past.
 }

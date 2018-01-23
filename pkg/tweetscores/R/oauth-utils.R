@@ -1,6 +1,6 @@
 getOAuth <- function(x, verbose=TRUE){
 	# first check if x is an object
-  if (class(token)=="list"){
+  if (class(x)=="list"){
     my_oauth <- ROAuth::OAuthFactory$new(consumerKey=x$consumer_key,
                                          consumerSecret=x$consumer_secret,
                                          oauthKey=x$access_token,
