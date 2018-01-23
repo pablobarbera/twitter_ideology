@@ -109,3 +109,38 @@ getLimitList <- function(my_oauth){
                                     cainfo=system.file("CurlSSL", "cacert.pem", package = "RCurl"))
   return(unlist(rjson::fromJSON(response)$resources$lists$`/lists/members`['remaining']))
 }
+
+getLimitSearch <- function(my_oauth){
+  url <- "https://api.twitter.com/1.1/application/rate_limit_status.json"
+  params <- list(resources = "search")
+  response <- my_oauth$OAuthRequest(URL=url, params=params, method="GET",
+                                    cainfo=system.file("CurlSSL", "cacert.pem", package = "RCurl"))
+  return(unlist(rjson::fromJSON(response)$resources$search$`/search/tweets`[['remaining']]))
+
+}
+
+getLimitRetweets <- function(my_oauth){
+  url <- "https://api.twitter.com/1.1/application/rate_limit_status.json"
+  params <- list(resources = "statuses,application")
+  response <- my_oauth$OAuthRequest(URL=url, params=params, method="GET",
+                                    cainfo=system.file("CurlSSL", "cacert.pem", package = "RCurl"))
+  return(unlist(rjson::fromJSON(response)$resources$statuses$`/statuses/retweeters/ids`[['remaining']]))
+}
+
+getLimitStatuses <- function(my_oauth){
+  url <- "https://api.twitter.com/1.1/application/rate_limit_status.json"
+  params <- list(resources = "statuses,application")
+  response <- my_oauth$OAuthRequest(URL=url, params=params, method="GET",
+                                    cainfo=system.file("CurlSSL", "cacert.pem", package = "RCurl"))
+  return(unlist(rjson::fromJSON(response)$resources$statuses$`/statuses/lookup`[['remaining']]))
+
+}
+
+getLimitTimeline <- function(my_oauth){
+  url <- "https://api.twitter.com/1.1/application/rate_limit_status.json"
+  params <- list(resources = "statuses,application")
+  response <- my_oauth$OAuthRequest(URL=url, params=params, method="GET",
+                                    cainfo=system.file("CurlSSL", "cacert.pem", package = "RCurl"))
+  return(unlist(rjson::fromJSON(response)$resources$statuses$`/statuses/user_timeline`[['remaining']]))
+
+}
