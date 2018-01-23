@@ -12,7 +12,7 @@ getFriends(screen_name = NULL, oauth_folder, cursor = -1, user_id = NULL,
 will be downloaded}
 
 \item{oauth_folder}{folder where OAuth tokens are stored. It can also be the name
-of a file that contains the token, or a csv file with the format: consumer_key, 
+of a file that contains the token, or a csv file with the format: consumer_key,
 consumer_secret,access_token,access_token_secret.}
 
 \item{cursor}{See \url{https://dev.twitter.com/docs/api/1.1/get/friends/ids}}
@@ -37,5 +37,5 @@ use of multiple OAuth token to make the process more efficient.
 
 }
 \author{
-Pablo Barbera \email{pablo.barbera@nyu.edu}
+Pablo Barbera \email{P.Barbera@lse.ac.uk}
 }

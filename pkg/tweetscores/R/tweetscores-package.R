@@ -9,7 +9,7 @@
 #' @name tweetscores-package
 #' @aliases tweetscores
 #' @docType package
-#' @author Pablo Barbera \email{pablo.barbera@@nyu.edu}
+#' @author Pablo Barbera \email{P.Barbera@@lse.ac.uk}
 NULL
 
 #' @import ROAuth

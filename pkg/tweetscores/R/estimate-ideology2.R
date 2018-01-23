@@ -12,12 +12,12 @@
 #' estimates in the paper. The values are then normalized to a N(0,1) distribution.
 #'
 #' @author
-#' Pablo Barbera \email{pablo.barbera@@nyu.edu}
+#' Pablo Barbera \email{P.Barbera@@lse.ac.uk}
 #'
 #' @param user screen name of user for which ideology is to be estimated.
 #'
 #' @param friends vector of user IDs that the user for which ideology wants
-#' to be estimated follows. If missing, \code{\link{getFriends}} is called for 
+#' to be estimated follows. If missing, \code{\link{getFriends}} is called for
 #' the value of \code{user}.
 #'
 #' @param verbose logical, default is \code{TRUE}, which generates some output
@@ -57,7 +57,7 @@ estimateIdeology2 <- function(user, friends, verbose=TRUE, exact=FALSE){
   values <- supplementaryRows(tweetscores::refdataCA, y)
   # normalizing
   theta <- tweetscores::refdataCA$qs$theta[which.min(abs(values[1] - (tweetscores::refdataCA$qs$value)))]
-  # adding random noise 
+  # adding random noise
   # see https://github.com/pablobarbera/echo_chambers/blob/master/02_estimation/11-second-stage.r
   if (!exact) theta <- theta + rnorm(1, 0, 0.05)
 

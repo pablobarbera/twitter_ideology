@@ -12,7 +12,7 @@
 #' the goal of this API endpoint is relevance and not completeness.
 #'
 #' @author
-#' Pablo Barbera \email{pablo.barbera@@nyu.edu}
+#' Pablo Barbera \email{P.Barbera@@lse.ac.uk}
 #'
 #' @param q search query to issue to Twitter. It can contain Boolean operators.
 

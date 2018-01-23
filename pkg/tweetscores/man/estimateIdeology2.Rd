@@ -10,7 +10,7 @@ estimateIdeology2(user, friends, verbose = TRUE, exact = FALSE)
 \item{user}{screen name of user for which ideology is to be estimated.}
 
 \item{friends}{vector of user IDs that the user for which ideology wants
-to be estimated follows. If missing, \code{\link{getFriends}} is called for 
+to be estimated follows. If missing, \code{\link{getFriends}} is called for
 the value of \code{user}.}
 
 \item{verbose}{logical, default is \code{TRUE}, which generates some output
@@ -44,5 +44,5 @@ estimates in the paper. The values are then normalized to a N(0,1) distribution.
 
 }
 \author{
-Pablo Barbera \email{pablo.barbera@nyu.edu}
+Pablo Barbera \email{P.Barbera@lse.ac.uk}
 }

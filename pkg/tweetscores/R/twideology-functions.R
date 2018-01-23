@@ -7,7 +7,7 @@
 #' Displays estimated ideology with other reference ideal points
 #'
 #' @author
-#' Pablo Barbera \email{pablo.barbera@@nyu.edu}
+#' Pablo Barbera \email{P.Barbera@@lse.ac.uk}
 #'
 #' @param x object of class 'twideology'
 #'

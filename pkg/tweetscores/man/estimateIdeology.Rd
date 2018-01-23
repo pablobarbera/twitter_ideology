@@ -11,7 +11,7 @@ estimateIdeology(user, friends, verbose = TRUE, method = "MCMC",
 \item{user}{screen name of user for which ideology is to be estimated.}
 
 \item{friends}{vector of user IDs that the user for which ideology wants
-to be estimated follows. If missing, \code{\link{getFriends}} is called for 
+to be estimated follows. If missing, \code{\link{getFriends}} is called for
 the value of \code{user}.}
 
 \item{verbose}{logical, default is \code{TRUE}, which generates some output
@@ -36,7 +36,7 @@ theta (ideology).
 }
 \description{
 \code{estimateIdeology} estimates ideology for a given user using the
-Metropolis algorithm developed in Barbera, 2013. It takes as argument
+Metropolis algorithm developed in Barbera (2015). It takes as argument
 of the function a list of user IDs indicating who a given user follows.
 }
 \examples{
@@ -53,5 +53,5 @@ of the function a list of user IDs indicating who a given user follows.
 
 }
 \author{
-Pablo Barbera \email{pablo.barbera@nyu.edu}
+Pablo Barbera \email{P.Barbera@lse.ac.uk}
 }
