@@ -1,8 +1,8 @@
 Package: tweetscores
 Type: Package
 Title: Tools for the Estimation of Ideology Scores with Twitter Data
-Version: 0.2.0
-Date: 2018-01-23
+Version: 0.2.1
+Date: 2018-07-01
 Author: Pablo Barbera <P.Barbera@lse.ac.uk>
 Maintainer: Pablo Barbera <P.Barbera@lse.ac.uk>
 Description: This package provides a series of functions to collect and analyze

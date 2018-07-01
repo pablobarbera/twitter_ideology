@@ -4,7 +4,8 @@
 \alias{getStatuses}
 \title{Downloads tweets by their ID from REST API and saves to a json file}
 \usage{
-getStatuses(ids = NULL, filename, oauth, verbose = TRUE, sleep = 1)
+getStatuses(ids = NULL, filename, oauth, tweet_mode = "extended",
+  verbose = TRUE, sleep = 1)
 }
 \arguments{
 \item{ids}{list of tweet IDs to be downloaded}
@@ -14,6 +15,8 @@ getStatuses(ids = NULL, filename, oauth, verbose = TRUE, sleep = 1)
 \item{oauth}{One of the following: either a list with details for an access token
 (see example below), a folder where OAuth tokens are stored, or a csv file
 with the format: consumer_key, consumer_secret, access_token, access_token_secret.}
+
+\item{tweet_mode}{if "extended", will return up to 280 characters per tweet.}
 
 \item{verbose}{If \code{TRUE}, prints information about API calls on console}
 

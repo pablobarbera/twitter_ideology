@@ -33,6 +33,8 @@
 #' @param trim_user if "true", downloaded tweets will include user object
 #' embedded. If "false", only tweet information will be downloaded.
 #'
+#' @param tweet_mode if "extended", will return up to 280 characters per tweet.
+#'
 #' @param sleep numeric, number of seconds between API calls. Higher number
 #' will increase reliability of API calls; lower number will increase speed.
 #'
@@ -46,7 +48,8 @@
 #'
 
 getTimeline <- function(filename, n=3200, oauth, screen_name=NULL,
-    id=NULL, since_id=NULL, trim_user="false", sleep=.5, verbose=FALSE){
+    id=NULL, since_id=NULL, trim_user="false", tweet_mode='extended',
+    sleep=.5, verbose=FALSE){
 
     ## loading credentials
     my_oauth <- getOAuth(oauth, verbose=verbose)
@@ -69,10 +72,12 @@ getTimeline <- function(filename, n=3200, oauth, screen_name=NULL,
 
     ## first API call
     if (!is.null(screen_name)){
-        params <- list(screen_name = screen_name, count=200, trim_user=trim_user)
+        params <- list(screen_name = screen_name, count=200, trim_user=trim_user,
+                       tweet_mode=tweet_mode)
     }
     if (!is.null(id)){
-        params <- list(id=id, count=200, trim_user=trim_user)
+        params <- list(id=id, count=200, trim_user=trim_user,
+                       tweet_mode=tweet_mode)
     }
     if (!is.null(since_id)){
         params[["since_id"]] <- since_id
@@ -136,10 +141,11 @@ getTimeline <- function(filename, n=3200, oauth, screen_name=NULL,
         max_id_old <- max_id
         if (!is.null(screen_name)){
             params <- list(screen_name = screen_name, count=200, max_id=max_id,
-                trim_user=trim_user)
+                trim_user=trim_user, tweet_mode=tweet_mode)
         }
         if (!is.null(id)){
-            params <- list(id=id, count=200, max_id=max_id, trim_user=trim_user)
+            params <- list(id=id, count=200, max_id=max_id, trim_user=trim_user,
+                           tweet_mode=tweet_mode)
         }
         if (!is.null(since_id) && since_id != 1 ){
            params[['since_id']] <- since_id

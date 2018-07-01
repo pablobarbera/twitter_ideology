@@ -15,13 +15,16 @@
 #' (see example below), a folder where OAuth tokens are stored, or a csv file
 #' with the format: consumer_key, consumer_secret, access_token, access_token_secret.
 #'
+#' @param tweet_mode if "extended", will return up to 280 characters per tweet.
+#'
 #' @param verbose If \code{TRUE}, prints information about API calls on console
 #'
 #' @param sleep Number of seconds to sleep between API calls.
 #'
 #'
 
-getStatuses <- function(ids=NULL, filename, oauth, verbose=TRUE, sleep=1){
+getStatuses <- function(ids=NULL, filename, oauth, tweet_mode='extended',
+                        verbose=TRUE, sleep=1){
 
     ## loading credentials
     my_oauth <- getOAuth(oauth, verbose=verbose)
@@ -55,7 +58,7 @@ getStatuses <- function(ids=NULL, filename, oauth, verbose=TRUE, sleep=1){
     ## while there's more data to download...
     while (length(ids.left)>0){
         ## making API call
-        query <- list(id = paste(ids.left[1:100], collapse=","))
+        query <- list(id = paste(ids.left[1:100], collapse=","), tweet_mode=tweet_mode)
         url.data <- httr::GET(url, query = query, httr::config(token = twitter_token))
         Sys.sleep(sleep)
         ## one API call less

@@ -5,7 +5,8 @@
 \title{Returns up to 3,200 recent tweets from a given user}
 \usage{
 getTimeline(filename, n = 3200, oauth, screen_name = NULL, id = NULL,
-  since_id = NULL, trim_user = "false", sleep = 0.5, verbose = FALSE)
+  since_id = NULL, trim_user = "false", tweet_mode = "extended",
+  sleep = 0.5, verbose = FALSE)
 }
 \arguments{
 \item{filename}{file where tweets will be stored (in json format)}
@@ -28,6 +29,8 @@ date.}
 
 \item{trim_user}{if "true", downloaded tweets will include user object
 embedded. If "false", only tweet information will be downloaded.}
+
+\item{tweet_mode}{if "extended", will return up to 280 characters per tweet.}
 
 \item{sleep}{numeric, number of seconds between API calls. Higher number
 will increase reliability of API calls; lower number will increase speed.}
