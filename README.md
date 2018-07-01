@@ -48,7 +48,7 @@ install_github(&quot;pablobarbera/twitter_ideology/pkg/tweetscores&quot;)</code>
 library(tweetscores)</code></pre>
 <pre class="r"><code># downloading friends of a user
 user &lt;- &quot;p_barbera&quot;
-friends &lt;- getFriends(screen_name=user, oauth_folder=&quot;~/Dropbox/credentials/twitter&quot;)</code></pre>
+friends &lt;- getFriends(screen_name=user, oauth=&quot;~/Dropbox/credentials/twitter&quot;)</code></pre>
 <pre><code>## /Users/pablobarbera/Dropbox/credentials/twitter/oauth_token_32 
 ## 15  API calls left
 ## 1065 friends. Next cursor:  0 
@@ -89,7 +89,7 @@ NickKristof nytgraphics nytimesbits NYTimeskrugman nytlabs thecaucus</code></pre
 </div>
 <div id="estimation-using-ca" class="section level3">
 <h3>Estimation using correspondence analysis</h3>
-<p>One limitation of the previous method is that users need to follow at least one political account. To partially overcome this problem, in a recently published <a href="http://pss.sagepub.com/cgi/content/long/0956797615594620v1">article</a> in Psychological Science, we add a third stage to the model where we add additional accounts (not necessarily political) followed predominantely by liberal or by conservative users, under the assumption that if other users also follow this same set of accounts, they are also likely to be liberal or conservative. To reduce computational costs, we rely on correspondence analysis to project all users onto the latent ideological space (see <a href="http://www.pablobarbera.com/static/PSS-supplementary-materials.pdf">Supplementary Materials</a>), and then we normalize all the estimates so that they follow a normal distribution with mean zero and standard deviation one. This package also includes a function that reproduces the last stage in the estimation, after all the additional accounts have been added:
+<p>One limitation of the previous method is that users need to follow at least one political account. To partially overcome this problem, in a recently published <a href="http://journals.sagepub.com/doi/abs/10.1177/0956797615594620">article</a> in Psychological Science, we add a third stage to the model where we add additional accounts (not necessarily political) followed predominantely by liberal or by conservative users, under the assumption that if other users also follow this same set of accounts, they are also likely to be liberal or conservative. To reduce computational costs, we rely on correspondence analysis to project all users onto the latent ideological space (see <a href="http://www.pablobarbera.com/static/PSS-supplementary-materials.pdf">Supplementary Materials</a>), and then we normalize all the estimates so that they follow a normal distribution with mean zero and standard deviation one. This package also includes a function that reproduces the last stage in the estimation, after all the additional accounts have been added:
 </p>
 <pre class="r"><code># estimation using correspondence analysis
 results &lt;- estimateIdeology2(user, friends)</code></pre>
