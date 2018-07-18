@@ -113,5 +113,42 @@ while (length(accounts.left) > 0){
 
 }
 
+# and now the rest...
+accounts.left <- c("realdonaldtrump", "cnn", "bccworld", "potus", "hillaryclinton")
+
+# loop over the rest of accounts, downloading follower lists from API
+while (length(accounts.left) > 0){
+
+    # sample randomly one account to get followers
+    new.user <- sample(accounts.left, 1)
+    #new.user <- accounts.left[1]
+    cat(new.user, "---", 
+      users$followers_count[tolower(users$screen_name)==new.user], 
+        " followers --- ", length(accounts.left), " accounts left!\n") 
+    outfile <- paste0('~/Dropbox/tweetscores/temp/', new.user, '.txt')
+    
+    # download followers (with some exception handling...) 
+    error <- tryCatch(followers <- getFollowers(screen_name=new.user,
+        oauth=oauth_folder, cursor='1544998871472892289', 
+        sleep=0.5, verbose=FALSE,
+        file=outfile), 
+        error=function(e) e)
+    if (inherits(error, 'error')) {
+        cat("Error! On to the next one...")
+        next
+    }
+    
+    # read from file and then save to .rdata;
+    # also remove from lists of "accounts.left"
+    followers <- unique(scan(outfile, what="character"))
+    file.name <- paste0(outfolder, new.user, ".rdata")
+    save(followers, file=file.name)
+    accounts.left <- accounts.left[-which(accounts.left %in% new.user)]
+
+}
+
+
+
+
 
 

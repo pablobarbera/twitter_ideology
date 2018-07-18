@@ -1,6 +1,6 @@
 #==============================================================================
 # 02-create-adjacency-matrix.R
-# Purpose: create list of users who follow 3 or more political accounts, and 
+# Purpose: create list of users who follow 3 or more Congress accounts, and 
 # create adjacency matrix based on what political accounts they follow
 # Author: Pablo Barbera
 #==============================================================================
@@ -67,5 +67,9 @@ job <- bq_perform_load(tab, source_uris=paste0("gs://tweetscores/", folder, "/*.
 while (bq_job_status(job)$state!="DONE"){
   Sys.sleep(5)
 }
+
+# uploading Congress table
+
+
 
 
