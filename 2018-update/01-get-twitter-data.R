@@ -7,16 +7,17 @@
 
 # setup
 library(tweetscores)
-outfolder <- '~/Dropbox/tweetscores/followers-lists-201807/'
-oauth_folder <- '~/Dropbox/credentials/twitter'
+dropbox <- "~/Dropbox (Personal)/"
+outfolder <- 'followers-lists-201807/'
+polsfile <- "accounts-twitter-data-2018-07.csv"
+oauth_folder <- paste0(dropbox, 'credentials/twitter')
 
 ## scraping list of social media accounts for Members of the US Congress
 ## from 'unitedstates' GitHub account
 congress <- scrapeCongressData()
 # fixing one account manually
 congress$twitter[congress$twitter=="RepBlainePress" & !is.na(congress$twitter)] <- "RepBlaine"
-write.csv(congress, file='~/Dropbox/tweetscores/congress-social-media-20180.csv', 
-          row.names=FALSE)
+congress$chamber <- congress$type
 
 ## preparing to download follower lists
 accounts <- congress$twitter[!is.na(congress$twitter)]
@@ -38,16 +39,16 @@ media <- c("EconUS", "BBCWorld", "NPR", "NewsHour", "WSJ", "ABC",
            "politico", "YahooNews", "FoxNews", "MotherJones", "Slate", "BreitbartNews", 
            "HuffPostPol", "StephenAtHome", "thinkprogress", "TheDailyShow", 
            "DRUDGE_REPORT", "dailykos", "seanhannity", "ajam", "edshow", 
-           "glennbeck", "rushlimbaugh", "BuzzFeedPol")
+           "glennbeck", "BuzzFeedPol")
 
 # Other relevant accounts
 politicians <- c("algore", "MittRomney", "SarahPalinUSA", "POTUS", "mike_pence", "VP",
                  "JoeBiden", "newtgingrich", "TheDemocrats", "GOP", "billclinton",
                  "GeorgeHWBush", "dccc", "HouseDemocrats", "SenateDems", "SenateGOP", "HouseGOP",
                  "GovMikeHuckabee", "SenateMajLdr", "SenSchumer", "SenWarren")
-journalists <- c("maddow", "glennbeck", "limbaugh", "andersoncooper", "gstephanopoulos",
+journalists <- c("maddow", "glennbeck", "andersoncooper", "gstephanopoulos",
                  "AnnCoulter", "seanhannity", "megynkelly", "IngrahamAngle", "chrislhayes",
-                 "donlemon", "TuckerCarlson") # journalists
+                 "donlemon", "TuckerCarlson", "foxandfriends") # journalists
 interest_groups <- c("Heritage", "OccupyWallSt", "HRC", "RANDCorporation", "BrookingsInst",
                      "CatoInstitute", "AEI", "NRA", "glaad", "ACLU") # interest groups
 
@@ -72,15 +73,16 @@ users$type[users$twitter %in% tolower(interest_groups)] <- "Interest groups"
 
 table(users$type, exclude=NULL)
 table(users$party, exclude=NULL)
+table(users$chamber, exclude=NULL)
 
-write.csv(users, file="~/Dropbox/tweetscores/accounts-twitter-data-2018-07.csv",
+write.csv(users, file=paste0(dropbox, "tweetscores/", polsfile),
     row.names=FALSE)
 
 ## sanity check: accounts with < 2000 followers
 users[users$followers_count<2000,]
 
 # first check if there's any list of followers already downloaded to 'outfolder'
-accounts.done <- gsub(".rdata", "", list.files(outfolder))
+accounts.done <- gsub(".rdata", "", list.files(paste0(dropbox, 'tweetscores/', outfolder)))
 accounts.left <- accounts[tolower(accounts) %in% tolower(accounts.done) == FALSE]
 accounts.left <- accounts.left[!is.na(accounts.left)]
 
@@ -107,7 +109,7 @@ while (length(accounts.left) > 0){
     }
     
     # save to file and remove from lists of "accounts.left"
-    file.name <- paste0(outfolder, new.user, ".rdata")
+    file.name <- paste0(dropbox, 'tweetscores/', outfolder, new.user, ".rdata")
     save(followers, file=file.name)
     accounts.left <- accounts.left[-which(accounts.left %in% new.user)]
 
