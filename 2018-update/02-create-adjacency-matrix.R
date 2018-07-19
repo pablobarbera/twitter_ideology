@@ -140,7 +140,7 @@ query_exec(
   project=project, use_legacy_sql=FALSE
 ) #516
 
-# selecting users who follow 10+ accounts total and 3+ Members of Congress
+# selecting 1MM users who follow 10+ accounts total and 3+ Members of Congress
 df <- query_exec(paste0(
   "WITH congress_counts AS (
     SELECT x.id_str, COUNT(1) as congress_followed
@@ -163,7 +163,7 @@ df <- query_exec(paste0(
     JOIN all_counts y
     ON x.id_str = y.id_str
     ORDER BY RAND()
-    LIMIT 500000
+    LIMIT 1000000
   )
     SELECT id_str, account
     FROM `usc-barbera.tweetscores.", tabname, "` 
