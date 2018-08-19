@@ -46,6 +46,7 @@ getStatuses <- function(ids=NULL, filename, oauth, tweet_mode='extended',
     ## url to call
     url <- "https://api.twitter.com/1.1/statuses/lookup.json"
     ids.left <- ids
+    if (verbose) message(length(ids.left), " tweets left.")
 
     # preparing OAuth token for httr
     options("httr_oauth_cache"=FALSE)
@@ -78,6 +79,7 @@ getStatuses <- function(ids=NULL, filename, oauth, tweet_mode='extended',
 
         # removing IDs done
         ids.left <- ids.left[-(1:100)]
+        if (verbose) message(length(ids.left), " tweets left.")
 
         ## changing oauth token if we hit the limit
         if (verbose){message(limit, " API calls left\n")}
