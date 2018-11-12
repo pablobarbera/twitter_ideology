@@ -1,0 +1,600 @@
+chamber,party,type,name,gender,bioid,screen_name,phi,merge
+,,Interest groups,,,,ACLU,-1.67111,aclu
+,,Interest groups,,,,HRC,-1.57314,hrc
+,,Journalists,,,,chrislhayes,-1.53709,chrislhayes
+,,Interest groups,,,,glaad,-1.53687,glaad
+,,Media Outlets,,,,MotherJones,-1.47471,motherjones
+,,Media Outlets,,,,dailykos,-1.44794,dailykos
+,,Other Politicians,,,,JoeBiden,-1.43536,joebiden
+,,Journalists,,,,donlemon,-1.42641,donlemon
+,,Media Outlets,,,,thinkprogress,-1.42542,thinkprogress
+,,Journalists,,,,maddow,-1.38434,maddow
+,,Media Outlets,,,,TheDailyShow,-1.36206,thedailyshow
+,,Media Outlets,,,,StephenAtHome,-1.34513,stephenathome
+,,Interest groups,,,,OccupyWallSt,-1.28252,occupywallst
+,,Media Outlets,,,,edshow,-1.28205,edshow
+,Democrat,Primary Candidate,,,,BernieSanders,-1.2754,berniesanders
+,,Other Politicians,,,,algore,-1.27179,algore
+,,Other Politicians,,,,TheDemocrats,-1.18507,thedemocrats
+,,Media Outlets,,,,Slate,-1.14801,slate
+,,Media Outlets,,,,MSNBC,-1.13731,msnbc
+,,Other Politicians,,,,dccc,-1.13668,dccc
+,,Other Politicians,,,,BillClinton,-1.10955,billclinton
+,Democrat,Primary Candidate,,,,HillaryClinton,-1.10498,hillaryclinton
+,,Other Politicians,,,,SenateDems,-1.1027,senatedems
+,,Journalists,,,,andersoncooper,-1.09243,andersoncooper
+,,Media Outlets,,,,NewYorker,-1.09043,newyorker
+,,Media Outlets,,,,ajam,-1.08605,ajam
+,,Media Outlets,,,,NPR,-1.08602,npr
+,,Media Outlets,,,,GuardianUS,-1.0412,guardianus
+,,Other Politicians,,,,HouseDemocrats,-1.03231,housedemocrats
+,,Media Outlets,,,,HuffPostPol,-1.02205,huffpostpol
+,,Media Outlets,,,,NewsHour,-1.01269,newshour
+,,Media Outlets,,,,nytimes,-0.93404,nytimes
+,,Media Outlets,,,,washingtonpost,-0.87531,washingtonpost
+,,Journalists,,,,GStephanopoulos,-0.83834,gstephanopoulos
+,,Other Politicians,,,,POTUS,-0.83468,potus
+,,Media Outlets,,,,politico,-0.8063,politico
+,,Media Outlets,,,,BBCWorld,-0.75928,bbcworld
+,,Media Outlets,,,,NBCNews,-0.74183,nbcnews
+,,Interest groups,,,,BrookingsInst,-0.71826,brookingsinst
+,,Media Outlets,,,,ABC,-0.71091,abc
+,,Media Outlets,,,,BuzzFeedPol,-0.64815,buzzfeedpol
+,,Media Outlets,,,,CBSNews,-0.58305,cbsnews
+,,Media Outlets,,,,CNN,-0.57201,cnn
+,,Media Outlets,,,,EconUS,-0.55401,econus
+,,Other Politicians,,,,SenateMajLdr,-0.52183,senatemajldr
+,,Media Outlets,,,,USATODAY,-0.51835,usatoday
+,,Interest groups,,,,RANDCorporation,-0.42676,randcorporation
+,,Media Outlets,,,,WSJ,-0.40306,wsj
+,,Media Outlets,,,,YahooNews,-0.31272,yahoonews
+,,Media Outlets,,,,Bloomberg,-0.17154,bloomberg
+,,Other Politicians,,,,VP,-0.04465,vp
+,Republican,Primary Candidate,,,,JohnKasich,-0.02749,johnkasich
+,Republican,Primary Candidate,,,,realDonaldTrump,-0.01012,realdonaldtrump
+,,Other Politicians,,,,GeorgeHWBush,0.13584,georgehwbush
+,Republican,Primary Candidate,,,,marcorubio,0.32876,marcorubio
+,Republican,Primary Candidate,,,,JebBush,0.41544,jebbush
+,,Other Politicians,,,,MittRomney,0.4828,mittromney
+,Republican,Primary Candidate,,,,GovChristie,0.55228,govchristie
+,,Other Politicians,,,,mike_pence,0.5679,mike_pence
+,,Media Outlets,,,,FoxNews,0.64253,foxnews
+,,Other Politicians,,,,HouseGOP,0.66562,housegop
+,,Other Politicians,,,,SenateGOP,0.70658,senategop
+,,Other Politicians,,,,GOP,0.77878,gop
+,,Journalists,,,,megynkelly,0.78192,megynkelly
+,,Other Politicians,,,,GovMikeHuckabee,0.86951,govmikehuckabee
+,,Interest groups,,,,AEI,0.91058,aei
+,,Journalists,,,,seanhannity,0.94949,seanhannity
+,,Journalists,,,,TuckerCarlson,0.97977,tuckercarlson
+,Republican,Primary Candidate,,,,tedcruz,1.10279,tedcruz
+,,Interest groups,,,,CatoInstitute,1.13083,catoinstitute
+,,Other Politicians,,,,newtgingrich,1.16418,newtgingrich
+,,Journalists,,,,IngrahamAngle,1.17275,ingrahamangle
+,,Other Politicians,,,,SarahPalinUSA,1.23113,sarahpalinusa
+,,Journalists,,,,AnnCoulter,1.25655,anncoulter
+,,Media Outlets,,,,DRUDGE_REPORT,1.42004,drudge_report
+,,Journalists,,,,foxandfriends,1.48398,foxandfriends
+,,Journalists,,,,glennbeck,1.51078,glennbeck
+,,Interest groups,,,,NRA,1.64168,nra
+,,Media Outlets,,,,BreitbartNews,1.64686,breitbartnews
+,,Interest groups,,,,Heritage,1.6535,heritage
+,,Media Outlets,,,,theblaze,1.73368,theblaze
+rep,Democrat,Congress,Maxine Waters,F,W000187,RepMaxineWaters,-1.87176,repmaxinewaters
+rep,Democrat,Congress,Pramila Jayapal,F,J000298,RepJayapal,-1.75807,repjayapal
+rep,Democrat,Congress,Barbara Lee,F,L000551,RepBarbaraLee,-1.63736,repbarbaralee
+rep,Democrat,Congress,Katherine M. Clark,F,C001101,RepKClark,-1.48137,repkclark
+rep,Democrat,Congress,Frederica S. Wilson,F,W000808,RepWilson,-1.40625,repwilson
+rep,Democrat,Congress,Nancy Pelosi,F,P000197,NancyPelosi,-1.31936,nancypelosi
+rep,Democrat,Congress,Jackie Speier,F,S001175,RepSpeier,-1.27516,repspeier
+rep,Democrat,Congress,Debbie Dingell,F,D000624,RepDebDingell,-1.2434,repdebdingell
+rep,Democrat,Congress,Karen Bass,F,B001270,RepKarenBass,-1.21522,repkarenbass
+rep,Democrat,Congress,Eleanor Holmes Norton,F,N000147,EleanorNorton,-1.12389,eleanornorton
+rep,Democrat,Congress,Kathleen M. Rice,F,R000602,RepKathleenRice,-1.11744,repkathleenrice
+rep,Democrat,Congress,Nydia M. Velázquez,F,V000081,NydiaVelazquez,-1.09025,nydiavelazquez
+rep,Democrat,Congress,Yvette D. Clarke,F,C001067,RepYvetteClarke,-1.04196,repyvetteclarke
+rep,Democrat,Congress,Robin L. Kelly,F,K000385,RepRobinKelly,-1.03671,reprobinkelly
+rep,Democrat,Congress,Nanette Diaz Barragán,F,B001300,RepBarragan,-1.03022,repbarragan
+rep,Democrat,Congress,Stephanie N. Murphy,F,M001202,RepStephMurphy,-1.02382,repstephmurphy
+rep,Democrat,Congress,Betty McCollum,F,M001143,BettyMcCollum04,-1.0225,bettymccollum04
+rep,Democrat,Congress,Janice D. Schakowsky,F,S001145,janschakowsky,-1.01234,janschakowsky
+rep,Democrat,Congress,Judy Chu,F,C001080,RepJudyChu,-1.00752,repjudychu
+rep,Democrat,Congress,Tulsi Gabbard,F,G000571,TulsiPress,-0.98346,tulsipress
+rep,Democrat,Congress,Ann M. Kuster,F,K000382,RepAnnieKuster,-0.98245,repanniekuster
+rep,Democrat,Congress,Joyce Beatty,F,B001281,RepBeatty,-0.97976,repbeatty
+rep,Democrat,Congress,Gwen Moore,F,M001160,RepGwenMoore,-0.95858,repgwenmoore
+rep,Democrat,Congress,Rosa L. DeLauro,F,D000216,rosadelauro,-0.94301,rosadelauro
+rep,Democrat,Congress,Carolyn B. Maloney,F,M000087,RepMaloney,-0.94094,repmaloney
+rep,Democrat,Congress,Niki Tsongas,F,T000465,nikiinthehouse,-0.92975,nikiinthehouse
+rep,Democrat,Congress,Sheila Jackson Lee,F,J000032,JacksonLeeTX18,-0.8815,jacksonleetx18
+rep,Democrat,Congress,Jacky Rosen,F,R000608,RepJackyRosen,-0.87978,repjackyrosen
+rep,Democrat,Congress,Bonnie Watson Coleman,F,W000822,RepBonnie,-0.87547,repbonnie
+rep,Democrat,Congress,Terri A. Sewell,F,S001185,RepTerriSewell,-0.84009,repterrisewell
+rep,Democrat,Congress,Elizabeth H. Esty,F,E000293,RepEsty,-0.82251,repesty
+rep,Democrat,Congress,Debbie Wasserman Schultz,F,W000797,RepDWStweets,-0.79544,repdwstweets
+rep,Democrat,Congress,Cheri Bustos,F,B001286,RepCheri,-0.79077,repcheri
+rep,Democrat,Congress,Lois Frankel,F,F000462,RepLoisFrankel,-0.77385,reploisfrankel
+rep,Democrat,Congress,Suzan K. DelBene,F,D000617,RepDelBene,-0.77367,repdelbene
+rep,Democrat,Congress,Stacey E. Plaskett,F,P000610,StaceyPlaskett,-0.77242,staceyplaskett
+rep,Democrat,Congress,Michelle Lujan Grisham,F,L000580,RepLujanGrisham,-0.76477,replujangrisham
+rep,Democrat,Congress,Val Butler Demings,F,D000627,RepValDemings,-0.7372,repvaldemings
+rep,Democrat,Congress,Marcia L. Fudge,F,F000455,RepMarciaFudge,-0.7352,repmarciafudge
+rep,Democrat,Congress,Dina Titus,F,T000468,repdinatitus,-0.73347,repdinatitus
+rep,Democrat,Congress,Chellie Pingree,F,P000597,chelliepingree,-0.72465,chelliepingree
+rep,Democrat,Congress,Suzanne Bonamici,F,B001278,RepBonamici,-0.69377,repbonamici
+rep,Democrat,Congress,Norma J. Torres,F,T000474,NormaJTorres,-0.69352,normajtorres
+rep,Democrat,Congress,Grace Meng,F,M001188,RepGraceMeng,-0.68379,repgracemeng
+rep,Democrat,Congress,Brenda L. Lawrence,F,L000581,RepLawrence,-0.64783,replawrence
+rep,Democrat,Congress,Kyrsten Sinema,F,S001191,RepSinema,-0.6424,repsinema
+rep,Democrat,Congress,Anna G. Eshoo,F,E000215,RepAnnaEshoo,-0.62397,repannaeshoo
+rep,Democrat,Congress,Zoe Lofgren,F,L000397,RepZoeLofgren,-0.61884,repzoelofgren
+rep,Democrat,Congress,Carol Shea-Porter,F,S001170,RepSheaPorter,-0.5994,repsheaporter
+rep,Democrat,Congress,Linda T. Sánchez,F,S001156,RepLindaSanchez,-0.59283,replindasanchez
+rep,Democrat,Congress,Colleen Hanabusa,F,H001050,RepHanabusa,-0.58261,rephanabusa
+rep,Democrat,Congress,Nita M. Lowey,F,L000480,NitaLowey,-0.57183,nitalowey
+rep,Democrat,Congress,Julia Brownley,F,B001285,JuliaBrownley26,-0.5531,juliabrownley26
+rep,Democrat,Congress,Diana DeGette,F,D000197,RepDianaDeGette,-0.53007,repdianadegette
+rep,Democrat,Congress,Susan A. Davis,F,D000598,RepSusanDavis,-0.52811,repsusandavis
+rep,Democrat,Congress,Grace F. Napolitano,F,N000179,gracenapolitano,-0.52066,gracenapolitano
+rep,Democrat,Congress,Kathy Castor,F,C001066,USRepKCastor,-0.51266,usrepkcastor
+rep,Democrat,Congress,Doris O. Matsui,F,M001163,DorisMatsui,-0.50019,dorismatsui
+rep,Democrat,Congress,Eddie Bernice Johnson,F,J000126,RepEBJ,-0.49982,repebj
+rep,Democrat,Congress,Alma S. Adams,F,A000370,RepAdams,-0.49229,repadams
+rep,Democrat,Congress,Lucille Roybal-Allard,F,R000486,RepRoybalAllard,-0.48946,reproybalallard
+rep,Democrat,Congress,Marcy Kaptur,F,K000009,RepMarcyKaptur,-0.39373,repmarcykaptur
+rep,Democrat,Congress,Lisa Blunt Rochester,F,B001303,RepLBR,-0.16252,replbr
+rep,Republican,Congress,Martha McSally,F,M001197,RepMcSally,-0.14233,repmcsally
+rep,Republican,Congress,Jenniffer González-Colón,F,G000582,RepJenniffer,0.04821,repjenniffer
+rep,Republican,Congress,Mia B. Love,F,L000584,RepMiaLove,0.28374,repmialove
+rep,Republican,Congress,Ileana Ros-Lehtinen,F,R000435,RosLehtinen,0.41261,roslehtinen
+rep,Republican,Congress,Barbara Comstock,F,C001105,RepComstock,0.43563,repcomstock
+rep,Republican,Congress,Aumua Amata Coleman Radewagen,F,R000600,RepAmata,0.52649,repamata
+rep,Republican,Congress,Mimi Walters,F,W000820,RepMimiWalters,0.54733,repmimiwalters
+rep,Republican,Congress,Elise M. Stefanik,F,S001196,RepStefanik,0.56824,repstefanik
+rep,Republican,Congress,Jaime Herrera Beutler,F,H001056,HerreraBeutler,0.57095,herrerabeutler
+rep,Republican,Congress,Claudia Tenney,F,T000478,RepTenney,0.65944,reptenney
+rep,Republican,Congress,Jackie Walorski,F,W000813,RepWalorski,0.693,repwalorski
+rep,Republican,Congress,Liz Cheney,F,C001109,RepLizCheney,0.72925,replizcheney
+rep,Republican,Congress,Susan W. Brooks,F,B001284,SusanWBrooks,0.79312,susanwbrooks
+rep,Republican,Congress,Ann Wagner,F,W000812,RepAnnWagner,0.99065,repannwagner
+rep,Republican,Congress,Vicky Hartzler,F,H001053,RepHartzler,1.07646,rephartzler
+rep,Republican,Congress,Lynn Jenkins,F,J000290,RepLynnJenkins,1.10143,replynnjenkins
+rep,Republican,Congress,Martha Roby,F,R000591,RepMarthaRoby,1.13225,repmartharoby
+rep,Republican,Congress,Cathy McMorris Rodgers,F,M001159,cathymcmorris,1.13502,cathymcmorris
+rep,Republican,Congress,Virginia Foxx,F,F000450,virginiafoxx,1.167,virginiafoxx
+rep,Republican,Congress,Kay Granger,F,G000377,RepKayGranger,1.20227,repkaygranger
+rep,Republican,Congress,Diane Black,F,B001273,RepDianeBlack,1.34497,repdianeblack
+rep,Republican,Congress,Kristi L. Noem,F,N000184,RepKristiNoem,1.46786,repkristinoem
+rep,Republican,Congress,Marsha Blackburn,F,B001243,MarshaBlackburn,1.74334,marshablackburn
+rep,Democrat,Congress,John Lewis,M,L000287,repjohnlewis,-1.84574,repjohnlewis
+rep,Democrat,Congress,Adam B. Schiff,M,S001150,RepAdamSchiff,-1.77767,repadamschiff
+rep,Democrat,Congress,Joseph P. Kennedy III,M,K000379,RepJoeKennedy,-1.76623,repjoekennedy
+rep,Democrat,Congress,Eric Swalwell,M,S001193,RepSwalwell,-1.75863,repswalwell
+rep,Democrat,Congress,Elijah E. Cummings,M,C000984,RepCummings,-1.74827,repcummings
+rep,Democrat,Congress,Ted Lieu,M,L000582,RepTedLieu,-1.71198,reptedlieu
+rep,Democrat,Congress,Keith Ellison,M,E000288,keithellison,-1.67481,keithellison
+rep,Democrat,Congress,Mark Pocan,M,P000607,repmarkpocan,-1.52484,repmarkpocan
+rep,Democrat,Congress,Ruben Gallego,M,G000574,RepRubenGallego,-1.50395,reprubengallego
+rep,Democrat,Congress,Joaquin Castro,M,C001091,JoaquinCastrotx,-1.50058,joaquincastrotx
+rep,Democrat,Congress,"Donald S. Beyer, Jr.",M,B001292,RepDonBeyer,-1.48307,repdonbeyer
+rep,Democrat,Congress,Beto O’Rourke,M,O000170,RepBetoORourke,-1.46238,repbetoorourke
+rep,Democrat,Congress,Jamie Raskin,M,R000606,RepRaskin,-1.42886,repraskin
+rep,Democrat,Congress,Seth Moulton,M,M001196,teammoulton,-1.37814,teammoulton
+rep,Democrat,Congress,Brendan F. Boyle,M,B001296,CongBoyle,-1.33748,congboyle
+rep,Democrat,Congress,Mark Takano,M,T000472,RepMarkTakano,-1.30725,repmarktakano
+rep,Democrat,Congress,Hakeem S. Jeffries,M,J000294,RepJeffries,-1.28975,repjeffries
+rep,Democrat,Congress,Jerrold Nadler,M,N000002,RepJerryNadler,-1.28582,repjerrynadler
+rep,Democrat,Congress,James A. Himes,M,H001047,jahimes,-1.28073,jahimes
+rep,Democrat,Congress,Ro Khanna,M,K000389,RepRoKhanna,-1.22633,reprokhanna
+rep,Democrat,Congress,"Bill Pascrell, Jr.",M,P000096,BillPascrell,-1.21207,billpascrell
+rep,Democrat,Congress,Michael E. Capuano,M,C001037,RepMikeCapuano,-1.17905,repmikecapuano
+rep,Democrat,Congress,Steve Cohen,M,C001068,RepCohen,-1.17898,repcohen
+rep,Democrat,Congress,Timothy J. Walz,M,W000799,RepTimWalz,-1.16732,reptimwalz
+rep,Democrat,Congress,David N. Cicilline,M,C001084,RepCicilline,-1.15455,repcicilline
+rep,Democrat,Congress,Luis V. Gutiérrez,M,G000535,RepGutierrez,-1.14325,repgutierrez
+rep,Democrat,Congress,Sean Patrick Maloney,M,M001185,RepSeanMaloney,-1.14271,repseanmaloney
+rep,Democrat,Congress,Raja Krishnamoorthi,M,K000391,CongressmanRaja,-1.12017,congressmanraja
+rep,Democrat,Congress,Bill Foster,M,F000454,RepBillFoster,-1.11997,repbillfoster
+rep,Democrat,Congress,Adriano Espaillat,M,E000297,RepEspaillat,-1.11409,repespaillat
+rep,Democrat,Congress,Theodore E. Deutch,M,D000610,RepTedDeutch,-1.10099,repteddeutch
+rep,Democrat,Congress,Jimmy Gomez,M,G000585,RepJimmyGomez,-1.09275,repjimmygomez
+rep,Democrat,Congress,James P. McGovern,M,M000312,RepMcGovern,-1.08056,repmcgovern
+rep,Democrat,Congress,James E. Clyburn,M,C000537,Clyburn,-1.07167,clyburn
+rep,Democrat,Congress,Daniel T. Kildee,M,K000380,RepDanKildee,-1.0042,repdankildee
+rep,Democrat,Congress,Anthony G. Brown,M,B001304,RepAnthonyBrown,-1.00181,repanthonybrown
+rep,Democrat,Congress,Al Green,M,G000553,RepAlGreen,-0.9903,repalgreen
+rep,Democrat,Congress,John A. Yarmuth,M,Y000062,RepJohnYarmuth,-0.98071,repjohnyarmuth
+rep,Democrat,Congress,Peter Welch,M,W000800,PeterWelch,-0.95035,peterwelch
+rep,Democrat,Congress,Raúl M. Grijalva,M,G000551,RepRaulGrijalva,-0.94922,repraulgrijalva
+rep,Democrat,Congress,Mark DeSaulnier,M,D000623,RepDeSaulnier,-0.94252,repdesaulnier
+rep,Democrat,Congress,Steny H. Hoyer,M,H000874,WhipHoyer,-0.92913,whiphoyer
+rep,Democrat,Congress,Denny Heck,M,H001064,RepDennyHeck,-0.92142,repdennyheck
+rep,Democrat,Congress,Ruben J. Kihuen,M,K000390,RepKihuen,-0.91007,repkihuen
+rep,Democrat,Congress,Gerald E. Connolly,M,C001078,GerryConnolly,-0.8781,gerryconnolly
+rep,Democrat,Congress,Mike Quigley,M,Q000023,RepMikeQuigley,-0.87003,repmikequigley
+rep,Democrat,Congress,Alcee L. Hastings,M,H000324,RepHastingsFL,-0.85635,rephastingsfl
+rep,Democrat,Congress,John P. Sarbanes,M,S001168,RepSarbanes,-0.81574,repsarbanes
+rep,Democrat,Congress,Donald Norcross,M,N000188,DonaldNorcross,-0.81456,donaldnorcross
+rep,Democrat,Congress,Derek Kilmer,M,K000381,RepDerekKilmer,-0.81167,repderekkilmer
+rep,Democrat,Congress,Stephen F. Lynch,M,L000562,RepStephenLynch,-0.78312,repstephenlynch
+rep,Democrat,Congress,Joseph Crowley,M,C001038,repjoecrowley,-0.77889,repjoecrowley
+rep,Democrat,Congress,Tim Ryan,M,R000577,RepTimRyan,-0.73653,reptimryan
+rep,Democrat,Congress,Richard E. Neal,M,N000015,RepRichardNeal,-0.72911,reprichardneal
+rep,Democrat,Congress,John K. Delaney,M,D000620,RepJohnDelaney,-0.72308,repjohndelaney
+rep,Democrat,Congress,A. Donald McEachin,M,M001200,RepMcEachin,-0.71476,repmceachin
+rep,Democrat,Congress,Tom O’Halleran,M,O000171,RepOHalleran,-0.69959,repohalleran
+rep,Democrat,Congress,Dwight Evans,M,E000296,RepDwightEvans,-0.69092,repdwightevans
+rep,Democrat,Congress,Cedric L. Richmond,M,R000588,RepRichmond,-0.68056,reprichmond
+rep,Democrat,Congress,Sander M. Levin,M,L000263,repsandylevin,-0.67636,repsandylevin
+rep,Democrat,Congress,Raul Ruiz,M,R000599,CongressmanRuiz,-0.66764,congressmanruiz
+rep,Democrat,Congress,Emanuel Cleaver,M,C001061,repcleaver,-0.66709,repcleaver
+rep,Democrat,Congress,William R. Keating,M,K000375,USRepKeating,-0.66662,usrepkeating
+rep,Democrat,Congress,"Henry C. ""Hank"" Johnson, Jr.",M,J000288,RepHankJohnson,-0.64739,rephankjohnson
+rep,Democrat,Congress,Jared Polis,M,P000598,RepJaredPolis,-0.64707,repjaredpolis
+rep,Democrat,Congress,Tony Cárdenas,M,C001097,RepCardenas,-0.63134,repcardenas
+rep,Democrat,Congress,Jared Huffman,M,H001068,RepHuffman,-0.6311,rephuffman
+rep,Democrat,Congress,Scott H. Peters,M,P000608,RepScottPeters,-0.6305,repscottpeters
+rep,Democrat,Congress,Brad Sherman,M,S000344,BradSherman,-0.61851,bradsherman
+rep,Democrat,Congress,David E. Price,M,P000523,RepDavidEPrice,-0.61319,repdavideprice
+rep,Democrat,Congress,James R. Langevin,M,L000559,JimLangevin,-0.61289,jimlangevin
+rep,Democrat,Congress,Peter A. DeFazio,M,D000191,RepPeterDeFazio,-0.60315,reppeterdefazio
+rep,Democrat,Congress,"Robert C. ""Bobby"" Scott",M,S000185,BobbyScott,-0.60245,bobbyscott
+rep,Democrat,Congress,John B. Larson,M,L000557,RepJohnLarson,-0.60051,repjohnlarson
+rep,Democrat,Congress,Salud O. Carbajal,M,C001112,RepCarbajal,-0.59141,repcarbajal
+rep,Democrat,Congress,Lloyd Doggett,M,D000399,RepLloydDoggett,-0.58733,replloyddoggett
+rep,Democrat,Congress,Rick Larsen,M,L000560,RepRickLarsen,-0.58602,repricklarsen
+rep,Democrat,Congress,Adam Smith,M,S000510,RepAdamSmith,-0.57682,repadamsmith
+rep,Democrat,Congress,Gregory W. Meeks,M,M001137,RepGregoryMeeks,-0.56086,repgregorymeeks
+rep,Democrat,Congress,John Garamendi,M,G000559,RepGaramendi,-0.5474,repgaramendi
+rep,Democrat,Congress,Jimmy Panetta,M,P000613,RepJimmyPanetta,-0.54731,repjimmypanetta
+rep,Democrat,Congress,Earl Blumenauer,M,B000574,BlumenauerMedia,-0.54513,blumenauermedia
+rep,Democrat,Congress,Joe Courtney,M,C001069,RepJoeCourtney,-0.54216,repjoecourtney
+rep,Democrat,Congress,Jim Cooper,M,C000754,repjimcooper,-0.52494,repjimcooper
+rep,Democrat,Congress,Marc A. Veasey,M,V000131,RepVeasey,-0.50505,repveasey
+rep,Democrat,Congress,Darren Soto,M,S001200,RepDarrenSoto,-0.4971,repdarrensoto
+rep,Democrat,Congress,G. K. Butterfield,M,B001251,GKButterfield,-0.49579,gkbutterfield
+rep,Democrat,Congress,Paul Tonko,M,T000469,RepPaulTonko,-0.49133,reppaultonko
+rep,Democrat,Congress,"Frank Pallone, Jr.",M,P000034,FrankPallone,-0.48806,frankpallone
+rep,Democrat,Congress,C. A. Dutch Ruppersberger,M,R000576,Call_Me_Dutch,-0.48489,call_me_dutch
+rep,Democrat,Congress,José E. Serrano,M,S000248,RepJoseSerrano,-0.4785,repjoseserrano
+rep,Democrat,Congress,Ben Ray Luján,M,L000570,repbenraylujan,-0.47455,repbenraylujan
+rep,Democrat,Congress,Richard M. Nolan,M,N000127,USRepRickNolan,-0.47319,usrepricknolan
+rep,Democrat,Congress,André Carson,M,C001072,RepAndreCarson,-0.46884,repandrecarson
+rep,Democrat,Congress,Pete Aguilar,M,A000371,RepPeteAguilar,-0.46417,reppeteaguilar
+rep,Democrat,Congress,Ami Bera,M,B001287,RepBera,-0.45686,repbera
+rep,Democrat,Congress,Danny K. Davis,M,D000096,RepDannyDavis,-0.4421,repdannydavis
+rep,Democrat,Congress,Juan Vargas,M,V000130,RepJuanVargas,-0.42809,repjuanvargas
+rep,Democrat,Congress,Bobby L. Rush,M,R000515,RepBobbyRush,-0.42003,repbobbyrush
+rep,Democrat,Congress,Alan S. Lowenthal,M,L000579,RepLowenthal,-0.40864,replowenthal
+rep,Democrat,Congress,Bradley Scott Schneider,M,S001190,RepSchneider,-0.40664,repschneider
+rep,Republican,Congress,Steve Scalise,M,S001176,SteveScalise,-0.40641,stevescalise
+rep,Democrat,Congress,Mike Thompson,M,T000460,RepThompson,-0.39684,repthompson
+rep,Democrat,Congress,Thomas R. Suozzi,M,S001201,RepTomSuozzi,-0.39028,reptomsuozzi
+rep,Democrat,Congress,Eliot L. Engel,M,E000179,RepEliotEngel,-0.3403,repeliotengel
+rep,Democrat,Congress,Charlie Crist,M,C001111,RepCharlieCrist,-0.31693,repcharliecrist
+rep,Democrat,Congress,Bennie G. Thompson,M,T000193,BennieGThompson,-0.31418,benniegthompson
+rep,Democrat,Congress,"Donald M. Payne, Jr.",M,P000604,RepDonaldPayne,-0.29373,repdonaldpayne
+rep,Democrat,Congress,Brian Higgins,M,H001038,RepBrianHiggins,-0.26485,repbrianhiggins
+rep,Republican,Congress,Trent Kelly,M,K000388,RepTrentKelly,-0.26079,reptrentkelly
+rep,Democrat,Congress,Jerry McNerney,M,M001166,RepMcNerney,-0.25807,repmcnerney
+rep,Democrat,Congress,Ed Perlmutter,M,P000593,RepPerlmutter,-0.24359,repperlmutter
+rep,Democrat,Congress,Robert A. Brady,M,B001227,RepBrady,-0.23487,repbrady
+rep,Democrat,Congress,Ron Kind,M,K000188,RepRonKind,-0.23401,repronkind
+rep,Democrat,Congress,Kurt Schrader,M,S001180,RepSchrader,-0.23281,repschrader
+rep,Democrat,Congress,David Scott,M,S001157,repdavidscott,-0.231,repdavidscott
+rep,Democrat,Congress,"Sanford D. Bishop, Jr.",M,B000490,SanfordBishop,-0.23001,sanfordbishop
+rep,Democrat,Congress,Matt Cartwright,M,C001090,RepCartwright,-0.21783,repcartwright
+rep,Democrat,Congress,"Al Lawson, Jr.",M,L000586,RepAlLawsonJr,-0.21414,repallawsonjr
+rep,Democrat,Congress,Daniel Lipinski,M,L000563,RepLipinski,-0.19098,replipinski
+rep,Democrat,Congress,Josh Gottheimer,M,G000583,RepJoshG,-0.18967,repjoshg
+rep,Democrat,Congress,Michael F. Doyle,M,D000482,USRepMikeDoyle,-0.1747,usrepmikedoyle
+rep,Democrat,Congress,Jim Costa,M,C001059,RepJimCosta,-0.16835,repjimcosta
+rep,Democrat,Congress,Filemon Vela,M,V000132,RepFilemonVela,-0.15542,repfilemonvela
+rep,Republican,Congress,Jason Smith,M,S001195,RepJasonSmith,-0.09469,repjasonsmith
+rep,Democrat,Congress,Albio Sires,M,S001165,RepSires,-0.07957,repsires
+rep,Democrat,Congress,J. Luis Correa,M,C001110,RepLouCorrea,-0.06614,reploucorrea
+rep,Democrat,Congress,Gene Green,M,G000410,RepGeneGreen,-0.06586,repgenegreen
+rep,Democrat,Congress,Vicente Gonzalez,M,G000581,RepGonzalez,-0.05551,repgonzalez
+rep,Republican,Congress,Trey Hollingsworth,M,H001074,RepTrey,-0.04374,reptrey
+rep,Democrat,Congress,David Loebsack,M,L000565,daveloebsack,-0.03911,daveloebsack
+rep,Democrat,Congress,Henry Cuellar,M,C001063,RepCuellar,-0.03529,repcuellar
+rep,Republican,Congress,Christopher H. Smith,M,S000522,RepChrisSmith,-0.02448,repchrissmith
+rep,Republican,Congress,Ron DeSantis,M,D000621,RepDeSantis,0.11748,repdesantis
+rep,Republican,Congress,John J. Faso,M,F000464,RepJohnFaso,0.18429,repjohnfaso
+rep,Republican,Congress,Chris Collins,M,C001092,RepChrisCollins,0.19007,repchriscollins
+rep,Republican,Congress,Thomas MacArthur,M,M001193,RepTomMacArthur,0.20896,reptommacarthur
+rep,Democrat,Congress,Peter J. Visclosky,M,V000108,RepVisclosky,0.25548,repvisclosky
+rep,Republican,Congress,Brian J. Mast,M,M001199,RepBrianMast,0.27003,repbrianmast
+rep,Republican,Congress,Rodney P. Frelinghuysen,M,F000372,USRepRodney,0.27018,usreprodney
+rep,Republican,Congress,Paul D. Ryan,M,R000570,SpeakerRyan,0.28615,speakerryan
+rep,Republican,Congress,Stephen Knight,M,K000387,SteveKnight25,0.29986,steveknight25
+rep,Republican,Congress,Mike Coffman,M,C001077,RepMikeCoffman,0.32135,repmikecoffman
+rep,Republican,Congress,Brian K. Fitzpatrick,M,F000466,RepBrianFitz,0.32538,repbrianfitz
+rep,Republican,Congress,Ralph Lee Abraham,M,A000374,RepAbraham,0.36529,repabraham
+rep,Republican,Congress,Will Hurd,M,H001073,HurdOnTheHill,0.38158,hurdonthehill
+rep,Republican,Congress,Leonard Lance,M,L000567,RepLanceNJ7,0.39837,replancenj7
+rep,Republican,Congress,Jason Lewis,M,L000587,RepJasonLewis,0.4213,repjasonlewis
+rep,Republican,Congress,Mike Gallagher,M,G000579,RepGallagher,0.4559,repgallagher
+rep,Republican,Congress,David Kustoff,M,K000392,RepDavidKustoff,0.4758,repdavidkustoff
+rep,Republican,Congress,David G. Valadao,M,V000129,RepDavidValadao,0.48364,repdavidvaladao
+rep,Republican,Congress,Carlos Curbelo,M,C001107,RepCurbelo,0.50067,repcurbelo
+rep,Republican,Congress,Andy Harris,M,H001052,RepAndyHarrisMD,0.52581,repandyharrismd
+rep,Republican,Congress,Adam Kinzinger,M,K000378,RepKinzinger,0.52855,repkinzinger
+rep,Republican,Congress,J. French Hill,M,H001072,RepFrenchHill,0.54641,repfrenchhill
+rep,Republican,Congress,David A. Trott,M,T000475,repdavetrott,0.5539,repdavetrott
+rep,Republican,Congress,Frank A. LoBiondo,M,L000554,RepLoBiondo,0.55826,replobiondo
+rep,Republican,Congress,Ryan A. Costello,M,C001106,RepRyanCostello,0.58088,repryancostello
+rep,Republican,Congress,Lloyd Smucker,M,S001199,RepSmucker,0.58719,repsmucker
+rep,Republican,Congress,Doug LaMalfa,M,L000578,RepLaMalfa,0.59644,replamalfa
+rep,Republican,Congress,Mark E. Amodei,M,A000369,MarkAmodeiNV2,0.59697,markamodeinv2
+rep,Republican,Congress,"Daniel M. Donovan, Jr.",M,D000625,RepDanDonovan,0.60501,repdandonovan
+rep,Republican,Congress,Erik Paulsen,M,P000594,RepErikPaulsen,0.60673,reperikpaulsen
+rep,Republican,Congress,Chris Stewart,M,S001192,RepChrisStewart,0.60923,repchrisstewart
+rep,Republican,Congress,Greg Walden,M,W000791,repgregwalden,0.61339,repgregwalden
+rep,Republican,Congress,Gary J. Palmer,M,P000609,USRepGaryPalmer,0.61402,usrepgarypalmer
+rep,Republican,Congress,John Katko,M,K000386,RepJohnKatko,0.61593,repjohnkatko
+rep,Republican,Congress,Bruce Poliquin,M,P000611,RepPoliquin,0.61877,reppoliquin
+rep,Republican,Congress,Paul Cook,M,C001094,RepPaulCook,0.61931,reppaulcook
+rep,Republican,Congress,Scott R. Tipton,M,T000470,RepTipton,0.62509,reptipton
+rep,Republican,Congress,Tom Emmer,M,E000294,RepTomEmmer,0.63073,reptomemmer
+rep,Republican,Congress,Keith J. Rothfus,M,R000598,KeithRothfus,0.64903,keithrothfus
+rep,Republican,Congress,Mike Bishop,M,B001293,RepMikeBishop,0.6556,repmikebishop
+rep,Republican,Congress,Doug Lamborn,M,L000564,RepDLamborn,0.65838,repdlamborn
+rep,Republican,Congress,David G. Reichert,M,R000578,davereichert,0.65942,davereichert
+rep,Republican,Congress,Dan Newhouse,M,N000189,RepNewhouse,0.67675,repnewhouse
+rep,Republican,Congress,Tom Rice,M,R000597,RepTomRice,0.67987,reptomrice
+rep,Republican,Congress,Paul Mitchell,M,M001201,RepPaulMitchell,0.68144,reppaulmitchell
+rep,Republican,Congress,Roger W. Marshall,M,M001198,RepMarshall,0.68978,repmarshall
+rep,Republican,Congress,"F. James Sensenbrenner, Jr.",M,S000244,JimPressOffice,0.69445,jimpressoffice
+rep,Republican,Congress,Darin LaHood,M,L000585,RepLaHood,0.69932,replahood
+rep,Republican,Congress,Rick W. Allen,M,A000372,RepRickAllen,0.70136,reprickallen
+rep,Republican,Congress,Ken Buck,M,B001297,RepKenBuck,0.70437,repkenbuck
+rep,Republican,Congress,Jeff Denham,M,D000612,RepJeffDenham,0.70503,repjeffdenham
+rep,Republican,Congress,Edward R. Royce,M,R000487,RepEdRoyce,0.70663,repedroyce
+rep,Republican,Congress,Jack Bergman,M,B001301,RepJackBergman,0.71172,repjackbergman
+rep,Republican,Congress,John R. Moolenaar,M,M001194,RepMoolenaar,0.71802,repmoolenaar
+rep,Republican,Congress,Billy Long,M,L000576,USRepLong,0.74325,usreplong
+rep,Republican,Congress,Rodney Davis,M,D000619,RodneyDavis,0.74528,rodneydavis
+rep,Republican,Congress,Jodey C. Arrington,M,A000375,RepArrington,0.74642,reparrington
+rep,Republican,Congress,Glenn Grothman,M,G000576,RepGrothman,0.7528,repgrothman
+rep,Republican,Congress,Scott Taylor,M,T000477,RepScottTaylor,0.76853,repscotttaylor
+rep,Republican,Congress,Francis Rooney,M,R000607,RepRooney,0.78795,reprooney
+rep,Republican,Congress,Neal P. Dunn,M,D000628,DrNealDunnFL2,0.79201,drnealdunnfl2
+rep,Republican,Congress,Tom Reed,M,R000585,RepTomReed,0.80392,reptomreed
+rep,Republican,Congress,Don Young,M,Y000033,repdonyoung,0.81206,repdonyoung
+rep,Republican,Congress,Mario Diaz-Balart,M,D000600,MarioDB,0.81672,mariodb
+rep,Republican,Congress,Don Bacon,M,B001298,RepDonBacon,0.82356,repdonbacon
+rep,Republican,Congress,David Young,M,Y000066,RepDavidYoung,0.8292,repdavidyoung
+rep,Republican,Congress,Peter T. King,M,K000210,RepPeteKing,0.82981,reppeteking
+rep,Republican,Congress,Mark Sanford,M,S000051,RepSanfordSC,0.83068,repsanfordsc
+rep,Republican,Congress,A. Drew Ferguson IV,M,F000465,RepDrewFerguson,0.83084,repdrewferguson
+rep,Republican,Congress,Ken Calvert,M,C000059,KenCalvert,0.83154,kencalvert
+rep,Republican,Congress,Jim Banks,M,B001299,RepJimBanks,0.83307,repjimbanks
+rep,Republican,Congress,"Thomas A. Garrett, Jr.",M,G000580,RepTomGarrett,0.83618,reptomgarrett
+rep,Republican,Congress,Randy Hultgren,M,H001059,RepHultgren,0.83757,rephultgren
+rep,Republican,Congress,Fred Upton,M,U000031,RepFredUpton,0.84002,repfredupton
+rep,Republican,Congress,Dana Rohrabacher,M,R000409,RepRohrabacher,0.84617,reprohrabacher
+rep,Republican,Congress,Garret Graves,M,G000577,RepGarretGraves,0.85835,repgarretgraves
+rep,Republican,Congress,"John J. Duncan, Jr.",M,D000533,RepJohnDuncanJr,0.86177,repjohnduncanjr
+rep,Republican,Congress,Barry Loudermilk,M,L000583,RepLoudermilk,0.87954,reploudermilk
+rep,Republican,Congress,Ted Budd,M,B001305,RepTedBudd,0.88612,reptedbudd
+rep,Republican,Congress,John H. Rutherford,M,R000609,RepRutherfordFL,0.89289,reprutherfordfl
+rep,Republican,Congress,Michael K. Simpson,M,S001148,CongMikeSimpson,0.89396,congmikesimpson
+rep,Republican,Congress,Alexander X. Mooney,M,M001195,RepAlexMooney,0.89858,repalexmooney
+rep,Republican,Congress,Mike Bost,M,B001295,RepBost,0.90146,repbost
+rep,Republican,Congress,Evan H. Jenkins,M,J000297,RepEvanJenkins,0.91575,repevanjenkins
+rep,Republican,Congress,Stevan Pearce,M,P000588,RepStevePearce,0.91774,repstevepearce
+rep,Republican,Congress,Blaine Luetkemeyer,M,L000569,RepBlaine,0.91782,repblaine
+rep,Republican,Congress,Rob Woodall,M,W000810,RepRobWoodall,0.92164,reprobwoodall
+rep,Republican,Congress,"Earl L. ""Buddy"" Carter",M,C001103,RepBuddyCarter,0.92765,repbuddycarter
+rep,Republican,Congress,Doug Collins,M,C001093,RepDougCollins,0.9285,repdougcollins
+rep,Republican,Congress,Kevin Yoder,M,Y000063,RepKevinYoder,0.92861,repkevinyoder
+rep,Republican,Congress,Tom Cole,M,C001053,TomColeOK04,0.93577,tomcoleok04
+rep,Republican,Congress,Walter B. Jones,M,J000255,RepWalterJones,0.94031,repwalterjones
+rep,Republican,Congress,Rob Bishop,M,B001250,RepRobBishop,0.94338,reprobbishop
+rep,Republican,Congress,Steve Russell,M,R000604,RepRussell,0.94549,reprussell
+rep,Republican,Congress,Peter J. Roskam,M,R000580,PeterRoskam,0.96404,peterroskam
+rep,Republican,Congress,David Schweikert,M,S001183,RepDavid,0.96474,repdavid
+rep,Republican,Congress,Frank D. Lucas,M,L000491,RepFrankLucas,0.96552,repfranklucas
+rep,Republican,Congress,Bruce Westerman,M,W000821,RepWesterman,0.97058,repwesterman
+rep,Republican,Congress,Harold Rogers,M,R000395,RepHalRogers,0.97358,rephalrogers
+rep,Republican,Congress,Adrian Smith,M,S001172,RepAdrianSmith,0.98186,repadriansmith
+rep,Republican,Congress,Bill Huizenga,M,H001058,RepHuizenga,0.98537,rephuizenga
+rep,Republican,Congress,Brian Babin,M,B001291,RepBrianBabin,0.99238,repbrianbabin
+rep,Republican,Congress,David Rouzer,M,R000603,RepDavidRouzer,0.99259,repdavidrouzer
+rep,Republican,Congress,Larry Bucshon,M,B001275,RepLarryBucshon,0.99296,replarrybucshon
+rep,Republican,Congress,Brett Guthrie,M,G000558,RepGuthrie,0.99469,repguthrie
+rep,Republican,Congress,Luke Messer,M,M001189,RepLukeMesser,0.99866,replukemesser
+rep,Republican,Congress,Tim Walberg,M,W000798,RepWalberg,1.00235,repwalberg
+rep,Republican,Congress,Brad R. Wenstrup,M,W000815,RepBradWenstrup,1.00683,repbradwenstrup
+rep,Republican,Congress,Austin Scott,M,S001189,AustinScottGA08,1.01171,austinscottga08
+rep,Republican,Congress,David B. McKinley,M,M001180,RepMcKinley,1.01993,repmckinley
+rep,Republican,Congress,Tom McClintock,M,M001177,RepMcClintock,1.02427,repmcclintock
+rep,Republican,Congress,Michael R. Turner,M,T000463,RepMikeTurner,1.02635,repmiketurner
+rep,Republican,Congress,George Holding,M,H001065,RepHolding,1.03,repholding
+rep,Republican,Congress,Steve Stivers,M,S001187,RepSteveStivers,1.03466,repstevestivers
+rep,Republican,Congress,Andy Barr,M,B001282,RepAndyBarr,1.03704,repandybarr
+rep,Republican,Congress,Kevin Cramer,M,C001096,RepKevinCramer,1.04084,repkevincramer
+rep,Republican,Congress,Robert J. Wittman,M,W000804,RobWittman,1.04951,robwittman
+rep,Republican,Congress,Glenn Thompson,M,T000467,CongressmanGT,1.05474,congressmangt
+rep,Republican,Congress,Steve Womack,M,W000809,rep_stevewomack,1.07517,rep_stevewomack
+rep,Republican,Congress,Bill Shuster,M,S001154,RepBillShuster,1.07544,repbillshuster
+rep,Republican,Congress,"Eric A. ""Rick"" Crawford",M,C001087,RepRickCrawford,1.07986,reprickcrawford
+rep,Republican,Congress,John Shimkus,M,S000364,RepShimkus,1.07996,repshimkus
+rep,Republican,Congress,Bradley Byrne,M,B001289,RepByrne,1.08625,repbyrne
+rep,Republican,Congress,Markwayne Mullin,M,M001190,RepMullin,1.09054,repmullin
+rep,Republican,Congress,David P. Joyce,M,J000295,RepDaveJoyce,1.09461,repdavejoyce
+rep,Republican,Congress,Jeff Fortenberry,M,F000449,JeffFortenberry,1.09756,jefffortenberry
+rep,Republican,Congress,Robert B. Aderholt,M,A000055,Robert_Aderholt,1.09802,robert_aderholt
+rep,Republican,Congress,Robert Pittenger,M,P000606,RepPittenger,1.1142,reppittenger
+rep,Republican,Congress,Todd Rokita,M,R000592,ToddRokita,1.11749,toddrokita
+rep,Republican,Congress,K. Michael Conaway,M,C001062,ConawayTX11,1.11857,conawaytx11
+rep,Republican,Congress,Rod Blum,M,B001294,RepRodBlum,1.12999,reprodblum
+rep,Republican,Congress,Mike Rogers,M,R000575,RepMikeRogersAL,1.13526,repmikerogersal
+rep,Republican,Congress,Gus M. Bilirakis,M,B001257,RepGusBilirakis,1.13531,repgusbilirakis
+rep,Republican,Congress,Thomas J. Rooney,M,R000583,TomRooney,1.13894,tomrooney
+rep,Republican,Congress,Jody B. Hice,M,H001071,CongressmanHice,1.14174,congressmanhice
+rep,Republican,Congress,Steve Chabot,M,C000266,RepSteveChabot,1.14803,repstevechabot
+rep,Republican,Congress,"Charles J. ""Chuck"" Fleischmann",M,F000459,RepChuck,1.14936,repchuck
+rep,Republican,Congress,Bill Posey,M,P000599,congbillposey,1.15265,congbillposey
+rep,Republican,Congress,H. Morgan Griffith,M,G000568,RepMGriffith,1.15364,repmgriffith
+rep,Republican,Congress,David P. Roe,M,R000582,DrPhilRoe,1.15528,drphilroe
+rep,Republican,Congress,Mac Thornberry,M,T000238,MacTXPress,1.16337,mactxpress
+rep,Republican,Congress,Steven M. Palazzo,M,P000601,CongPalazzo,1.17071,congpalazzo
+rep,Republican,Congress,Ted S. Yoho,M,Y000065,RepTedYoho,1.17498,reptedyoho
+rep,Republican,Congress,Roger Williams,M,W000816,RepRWilliams,1.18175,reprwilliams
+rep,Republican,Congress,Mike Johnson,M,J000299,RepMikeJohnson,1.18339,repmikejohnson
+rep,Republican,Congress,Ron Estes,M,E000298,RepRonEstes,1.18466,repronestes
+rep,Republican,Congress,James B. Renacci,M,R000586,RepJimRenacci,1.18827,repjimrenacci
+rep,Republican,Congress,Tom Graves,M,G000560,RepTomGraves,1.19539,reptomgraves
+rep,Republican,Congress,Bill Johnson,M,J000292,RepBillJohnson,1.19908,repbilljohnson
+rep,Republican,Congress,Mark Walker,M,W000819,RepMarkWalker,1.20682,repmarkwalker
+rep,Republican,Congress,"Randy K. Weber, Sr.",M,W000814,TXRandy14,1.21408,txrandy14
+rep,Republican,Congress,Vern Buchanan,M,B001260,VernBuchanan,1.23036,vernbuchanan
+rep,Republican,Congress,Scott Perry,M,P000605,RepScottPerry,1.23132,repscottperry
+rep,Republican,Congress,Bob Gibbs,M,G000563,RepBobGibbs,1.23968,repbobgibbs
+rep,Republican,Congress,Lamar Smith,M,S000583,LamarSmithTX21,1.24623,lamarsmithtx21
+rep,Republican,Congress,Dennis A. Ross,M,R000593,RepDennisRoss,1.24648,repdennisross
+rep,Republican,Congress,Richard Hudson,M,H001067,RepRichHudson,1.2483,reprichhudson
+rep,Republican,Congress,Daniel Webster,M,W000806,RepWebster,1.25773,repwebster
+rep,Republican,Congress,Duncan Hunter,M,H001048,Rep_Hunter,1.25857,rep_hunter
+rep,Republican,Congress,Sam Graves,M,G000546,RepSamGraves,1.26454,repsamgraves
+rep,Republican,Congress,Mo Brooks,M,B001274,RepMoBrooks,1.26596,repmobrooks
+rep,Republican,Congress,Gregg Harper,M,H001045,GreggHarper,1.26909,greggharper
+rep,Republican,Congress,Patrick T. McHenry,M,M001156,PatrickMcHenry,1.27012,patrickmchenry
+rep,Republican,Congress,Lou Barletta,M,B001269,RepLouBarletta,1.27273,reploubarletta
+rep,Republican,Congress,Robert E. Latta,M,L000566,boblatta,1.27974,boblatta
+rep,Republican,Congress,Pete Olson,M,O000168,RepPeteOlson,1.28268,reppeteolson
+rep,Republican,Congress,Raúl R. Labrador,M,L000573,Raul_Labrador,1.29531,raul_labrador
+rep,Republican,Congress,Joe Wilson,M,W000795,RepJoeWilson,1.30242,repjoewilson
+rep,Republican,Congress,Sam Johnson,M,J000174,SamsPressShop,1.30296,samspressshop
+rep,Republican,Congress,Joe Barton,M,B000213,RepJoeBarton,1.31687,repjoebarton
+rep,Republican,Congress,Scott DesJarlais,M,D000616,DesJarlaisTN04,1.32177,desjarlaistn04
+rep,Republican,Congress,Michael T. McCaul,M,M001157,RepMcCaul,1.32667,repmccaul
+rep,Republican,Congress,Tom Marino,M,M001179,RepTomMarino,1.33089,reptommarino
+rep,Republican,Congress,Kevin McCarthy,M,M001165,GOPLeader,1.34918,gopleader
+rep,Republican,Congress,John Abney Culberson,M,C001048,CongCulberson,1.35356,congculberson
+rep,Republican,Congress,Michael C. Burgess,M,B001248,michaelcburgess,1.35459,michaelcburgess
+rep,Republican,Congress,Dave Brat,M,B001290,RepDaveBrat,1.3891,repdavebrat
+rep,Republican,Congress,Pete Sessions,M,S000250,PeteSessions,1.39001,petesessions
+rep,Republican,Congress,Ted Poe,M,P000592,JudgeTedPoe,1.39328,judgetedpoe
+rep,Republican,Congress,Kenny Marchant,M,M001158,RepKenMarchant,1.39385,repkenmarchant
+rep,Republican,Congress,Bill Flores,M,F000461,RepBillFlores,1.4013,repbillflores
+rep,Republican,Congress,Clay Higgins,M,H001077,RepClayHiggins,1.40477,repclayhiggins
+rep,Republican,Congress,Kevin Brady,M,B000755,RepKevinBrady,1.41724,repkevinbrady
+rep,Republican,Congress,Jeb Hensarling,M,H001036,RepHensarling,1.4253,rephensarling
+rep,Republican,Congress,John R. Carter,M,C001051,JudgeCarter,1.42563,judgecarter
+rep,Republican,Congress,Mike Kelly,M,K000376,MikeKellyPA,1.4394,mikekellypa
+rep,Republican,Congress,Ralph Norman,M,N000190,RepRalphNorman,1.46045,repralphnorman
+rep,Republican,Congress,Paul A. Gosar,M,G000565,RepGosar,1.48373,repgosar
+rep,Republican,Congress,Thomas Massie,M,M001184,RepThomasMassie,1.48533,repthomasmassie
+rep,Republican,Congress,Steve King,M,K000362,SteveKingIA,1.57473,stevekingia
+rep,Republican,Congress,Lee M. Zeldin,M,Z000017,RepLeeZeldin,1.5752,repleezeldin
+rep,Republican,Congress,Sean P. Duffy,M,D000614,RepSeanDuffy,1.60282,repseanduffy
+rep,Republican,Congress,Bob Goodlatte,M,G000289,RepGoodlatte,1.68244,repgoodlatte
+rep,Republican,Congress,John Ratcliffe,M,R000601,RepRatcliffe,1.76007,repratcliffe
+rep,Republican,Congress,Trey Gowdy,M,G000566,TGowdySC,1.79078,tgowdysc
+rep,Republican,Congress,Warren Davidson,M,D000626,WarrenDavidson,1.80395,warrendavidson
+rep,Republican,Congress,Andy Biggs,M,B001302,RepAndyBiggsAZ,1.81091,repandybiggsaz
+rep,Republican,Congress,Mark Meadows,M,M001187,RepMarkMeadows,1.82791,repmarkmeadows
+rep,Republican,Congress,Darrell E. Issa,M,I000056,DarrellIssa,1.86363,darrellissa
+rep,Republican,Congress,Jeff Duncan,M,D000615,RepJeffDuncan,1.92986,repjeffduncan
+rep,Republican,Congress,Devin Nunes,M,N000181,RepDevinNunes,2.13097,repdevinnunes
+rep,Republican,Congress,Jim Jordan,M,J000289,Jim_Jordan,2.13851,jim_jordan
+rep,Republican,Congress,Louie Gohmert,M,G000552,replouiegohmert,2.32786,replouiegohmert
+rep,Republican,Congress,Matt Gaetz,M,G000578,RepMattGaetz,2.4975,repmattgaetz
+sen,Democrat,Congress,Kamala D. Harris,F,H001075,SenKamalaHarris,-1.90953,senkamalaharris
+sen,Democrat,Congress,Tammy Duckworth,F,D000622,SenDuckworth,-1.67331,senduckworth
+sen,Democrat,Congress,Dianne Feinstein,F,F000062,SenFeinstein,-1.6433,senfeinstein
+sen,Democrat,Congress,Tina Smith,F,S001203,SenTinaSmith,-1.64252,sentinasmith
+sen,Democrat,Congress,Kirsten E. Gillibrand,F,G000555,SenGillibrand,-1.60407,sengillibrand
+sen,Democrat,Other Politicians,Elizabeth Warren,F,W000817,SenWarren,-1.51355,senwarren
+sen,Democrat,Congress,Patty Murray,F,M001111,PattyMurray,-1.51175,pattymurray
+sen,Democrat,Congress,Margaret Wood Hassan,F,H001076,SenatorHassan,-1.49597,senatorhassan
+sen,Democrat,Congress,Mazie K. Hirono,F,H001042,maziehirono,-1.49344,maziehirono
+sen,Democrat,Congress,Maria Cantwell,F,C000127,SenatorCantwell,-1.40335,senatorcantwell
+sen,Democrat,Congress,Tammy Baldwin,F,B001230,SenatorBaldwin,-1.31376,senatorbaldwin
+sen,Democrat,Congress,Catherine Cortez Masto,F,C001113,SenCortezMasto,-1.18541,sencortezmasto
+sen,Democrat,Congress,Debbie Stabenow,F,S000770,SenStabenow,-1.14024,senstabenow
+sen,Republican,Congress,Susan M. Collins,F,C001035,SenatorCollins,-1.10762,senatorcollins
+sen,Democrat,Congress,Jeanne Shaheen,F,S001181,SenatorShaheen,-0.9298,senatorshaheen
+sen,Democrat,Congress,Claire McCaskill,F,M001170,McCaskillOffice,-0.74428,mccaskilloffice
+sen,Republican,Congress,Lisa Murkowski,F,M001153,lisamurkowski,-0.70206,lisamurkowski
+sen,Democrat,Congress,Heidi Heitkamp,F,H001069,SenatorHeitkamp,-0.23508,senatorheitkamp
+sen,Republican,Congress,Shelley Moore Capito,F,C001047,SenCapito,-0.02416,sencapito
+sen,Republican,Congress,Deb Fischer,F,F000463,SenatorFischer,0.33818,senatorfischer
+sen,Republican,Congress,Joni Ernst,F,E000295,SenJoniErnst,0.85116,senjoniernst
+sen,Democrat,Congress,Cory A. Booker,M,B001288,SenBooker,-1.74254,senbooker
+sen,Democrat,Congress,Richard Blumenthal,M,B001277,SenBlumenthal,-1.53881,senblumenthal
+sen,Democrat,Congress,Ron Wyden,M,W000779,RonWyden,-1.51979,ronwyden
+sen,Democrat,Congress,Jeff Merkley,M,M001176,SenJeffMerkley,-1.51199,senjeffmerkley
+sen,Democrat,Other Politicians,Charles E. Schumer,M,S000148,SenSchumer,-1.49213,senschumer
+sen,Democrat,Congress,Richard J. Durbin,M,D000563,SenatorDurbin,-1.48286,senatordurbin
+sen,Democrat,Congress,Sheldon Whitehouse,M,W000802,SenWhitehouse,-1.46668,senwhitehouse
+sen,Democrat,Congress,Mark R. Warner,M,W000805,MarkWarner,-1.42768,markwarner
+sen,Democrat,Congress,Jon Tester,M,T000464,SenatorTester,-1.40808,senatortester
+sen,Independent,Congress,Bernard Sanders,M,S000033,SenSanders,-1.38537,sensanders
+sen,Democrat,Congress,Sherrod Brown,M,B000944,SenSherrodBrown,-1.38045,sensherrodbrown
+sen,Democrat,Congress,Edward J. Markey,M,M000133,SenMarkey,-1.37359,senmarkey
+sen,Democrat,Congress,Bill Nelson,M,N000032,SenBillNelson,-1.34885,senbillnelson
+sen,Democrat,Congress,Martin Heinrich,M,H001046,MartinHeinrich,-1.34456,martinheinrich
+sen,Democrat,Congress,Chris Van Hollen,M,V000128,ChrisVanHollen,-1.34172,chrisvanhollen
+sen,Democrat,Congress,"Robert P. Casey, Jr.",M,C001070,SenBobCasey,-1.32963,senbobcasey
+sen,Democrat,Congress,Doug Jones,M,J000300,SenDougJones,-1.32662,sendougjones
+sen,Democrat,Congress,Gary C. Peters,M,P000595,SenGaryPeters,-1.30314,sengarypeters
+sen,Republican,Congress,Jeff Flake,M,F000444,JeffFlake,-1.28225,jeffflake
+sen,Democrat,Congress,Benjamin L. Cardin,M,C000141,SenatorCardin,-1.26362,senatorcardin
+sen,Democrat,Congress,Michael F. Bennet,M,B001267,SenBennetCO,-1.26047,senbennetco
+sen,Independent,Congress,"Angus S. King, Jr.",M,K000383,SenAngusKing,-1.25332,senangusking
+sen,Democrat,Congress,Christopher Murphy,M,M001169,SenMurphyOffice,-1.23082,senmurphyoffice
+sen,Democrat,Congress,Tom Udall,M,U000039,SenatorTomUdall,-1.21298,senatortomudall
+sen,Democrat,Congress,Patrick J. Leahy,M,L000174,SenatorLeahy,-1.17098,senatorleahy
+sen,Democrat,Congress,Brian Schatz,M,S001194,SenBrianSchatz,-0.99684,senbrianschatz
+sen,Democrat,Congress,Robert Menendez,M,M000639,SenatorMenendez,-0.98112,senatormenendez
+sen,Democrat,Congress,Jack Reed,M,R000122,SenJackReed,-0.87322,senjackreed
+sen,Republican,Congress,John McCain,M,M000303,SenJohnMcCain,-0.84045,senjohnmccain
+sen,Democrat,Congress,Thomas R. Carper,M,C000174,SenatorCarper,-0.80928,senatorcarper
+sen,Republican,Congress,Bob Corker,M,C001071,SenBobCorker,-0.80505,senbobcorker
+sen,Democrat,Congress,"Joe Manchin, III",M,M001183,Sen_JoeManchin,-0.62591,sen_joemanchin
+sen,Republican,Congress,Cory Gardner,M,G000562,SenCoryGardner,-0.57221,sencorygardner
+sen,Republican,Congress,Steve Daines,M,D000618,SteveDaines,-0.46989,stevedaines
+sen,Democrat,Congress,Joe Donnelly,M,D000607,SenDonnelly,-0.39429,sendonnelly
+sen,Democrat,Congress,Christopher A. Coons,M,C001088,SenCoonsOffice,-0.38634,sencoonsoffice
+sen,Republican,Congress,Dan Sullivan,M,S001198,SenDanSullivan,-0.07605,sendansullivan
+sen,Republican,Congress,Richard Burr,M,B001135,SenatorBurr,-0.06249,senatorburr
+sen,Republican,Congress,Dean Heller,M,H001041,SenDeanHeller,-0.04762,sendeanheller
+sen,Republican,Congress,Patrick J. Toomey,M,T000461,SenToomey,-0.02314,sentoomey
+sen,Republican,Congress,David Perdue,M,P000612,sendavidperdue,0.0462,sendavidperdue
+sen,Republican,Congress,Jerry Moran,M,M000934,JerryMoran,0.09311,jerrymoran
+sen,Republican,Congress,Thom Tillis,M,T000476,SenThomTillis,0.10088,senthomtillis
+sen,Republican,Congress,Rob Portman,M,P000449,senrobportman,0.10326,senrobportman
+sen,Republican,Congress,Richard C. Shelby,M,S000320,SenShelby,0.18467,senshelby
+sen,Republican,Congress,Ben Sasse,M,S001197,SenSasse,0.19292,sensasse
+sen,Republican,Congress,John Hoeven,M,H001061,SenJohnHoeven,0.2191,senjohnhoeven
+sen,Republican,Congress,James Lankford,M,L000575,SenatorLankford,0.21964,senatorlankford
+sen,Republican,Congress,Mitch McConnell,M,M000355,McConnellPress,0.25742,mcconnellpress
+sen,Republican,Congress,Lamar Alexander,M,A000360,SenAlexander,0.26554,senalexander
+sen,Republican,Congress,Todd Young,M,Y000064,SenToddYoung,0.28696,sentoddyoung
+sen,Republican,Congress,John Kennedy,M,K000393,SenJohnKennedy,0.30717,senjohnkennedy
+sen,Republican,Congress,John Barrasso,M,B001261,SenJohnBarrasso,0.36068,senjohnbarrasso
+sen,Republican,Congress,Mike Crapo,M,C000880,MikeCrapo,0.36874,mikecrapo
+sen,Republican,Congress,Michael B. Enzi,M,E000285,SenatorEnzi,0.37355,senatorenzi
+sen,Republican,Congress,James E. Risch,M,R000584,SenatorRisch,0.39354,senatorrisch
+sen,Republican,Congress,Johnny Isakson,M,I000055,SenatorIsakson,0.41176,senatorisakson
+sen,Republican,Congress,Mike Rounds,M,R000605,SenatorRounds,0.44793,senatorrounds
+sen,Republican,Congress,Roger F. Wicker,M,W000437,SenatorWicker,0.45146,senatorwicker
+sen,Republican,Congress,Pat Roberts,M,R000307,SenPatRoberts,0.47334,senpatroberts
+sen,Republican,Congress,Roy Blunt,M,B000575,RoyBlunt,0.49625,royblunt
+sen,Republican,Congress,Chuck Grassley,M,G000386,ChuckGrassley,0.52102,chuckgrassley
+sen,Republican,Congress,John Boozman,M,B001236,JohnBoozman,0.53819,johnboozman
+sen,Republican,Congress,Orrin G. Hatch,M,H000338,senorrinhatch,0.54667,senorrinhatch
+sen,Republican,Congress,Ron Johnson,M,J000293,SenRonJohnson,0.58279,senronjohnson
+sen,Republican,Congress,Lindsey Graham,M,G000359,GrahamBlog,0.7325,grahamblog
+sen,Republican,Congress,John Thune,M,T000250,SenJohnThune,0.75306,senjohnthune
+sen,Republican,Congress,James M. Inhofe,M,I000024,InhofePress,0.81133,inhofepress
+sen,Republican,Congress,Marco Rubio,M,R000595,SenRubioPress,0.87678,senrubiopress
+sen,Republican,Congress,Tom Cotton,M,C001095,SenTomCotton,0.88311,sentomcotton
+sen,Republican,Congress,Tim Scott,M,S001184,SenatorTimScott,0.95536,senatortimscott
+sen,Republican,Congress,John Cornyn,M,C001056,JohnCornyn,1.04253,johncornyn
+sen,Republican,Congress,Mike Lee,M,L000577,SenMikeLee,1.37357,senmikelee
+sen,Republican,Congress,Ted Cruz,M,C001098,SenTedCruz,1.41863,sentedcruz
