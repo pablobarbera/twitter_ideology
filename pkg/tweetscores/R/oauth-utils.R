@@ -15,7 +15,7 @@ getOAuth <- function(x, verbose=TRUE){
   }
 
   # first check if x exists in disk
-	if (class(x)!="list" && file.exists(x)){
+	if (class(x)!="list" && class(x)!="OAuth" && file.exists(x)){
 		info <- file.info(x)
 		# if it's a folder, load one and return
 		if (info$isdir){
@@ -55,6 +55,7 @@ getOAuth <- function(x, verbose=TRUE){
 
 		}
 	}
+	if (class(x)=="OAuth"){ my_oauth <- x }
 	return(my_oauth)
 }
 
