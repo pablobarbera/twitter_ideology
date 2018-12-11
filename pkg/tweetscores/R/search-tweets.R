@@ -79,7 +79,7 @@ searchTweets <- function(q, filename, n=200, oauth="~/credentials",
     url <- "https://api.twitter.com/1.1/search/tweets.json"
 
     ## first API call
-    params <- list(q=q, count=200, result_type=result_type)
+    params <- list(q=q, count=200, result_type=result_type, tweet_mode='extended')
     if (!is.null(since_id)){
         params[["since_id"]] <- since_id
     }
