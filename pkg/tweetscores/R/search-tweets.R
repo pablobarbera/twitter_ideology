@@ -134,7 +134,7 @@ searchTweets <- function(q, filename, n=200, oauth="~/credentials",
 
     while (tweets < n && !is.null(json.data[[2]]$next_results)){
 
-        next_url <- paste0(url, json.data[[2]]$next_results)
+        next_url <- paste0(url, json.data[[2]]$next_results, '&tweet_mode=extended')
         url.data <- httr::GET(next_url, httr::config(token = twitter_token))
         Sys.sleep(sleep)
         ## one API call less
