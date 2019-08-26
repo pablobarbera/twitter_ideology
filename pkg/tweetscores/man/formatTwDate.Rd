@@ -11,6 +11,9 @@ formatTwDate(datestring, format = "datetime")
 
 \item{format}{Either "date", for Date format; or "datetime" for POSIX.}
 }
+\description{
+Converts from Twitter date format to R date format
+}
 \author{
 Pablo Barbera \email{P.Barbera@lse.ac.uk}
 }

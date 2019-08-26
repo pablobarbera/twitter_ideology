@@ -1,7 +1,7 @@
 .onAttach <- function(...) {
 
   packageStartupMessage("##\n## tweetscores: tools for the analysis of Twitter data")
-  packageStartupMessage("## Pablo Barbera (LSE)")
+  packageStartupMessage("## Pablo Barbera (USC)")
   packageStartupMessage("## www.tweetscores.com\n##")
 
 }

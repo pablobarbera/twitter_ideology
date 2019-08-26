@@ -11,6 +11,9 @@ tracePlot(results, par = "theta")
 
 \item{par}{parameter for which trace plot is to be displayed}
 }
+\description{
+Displays trace plots of MCMC chains
+}
 \examples{
 \dontrun{
 ## Creating OAuth token

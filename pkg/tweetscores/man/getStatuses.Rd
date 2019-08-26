@@ -22,6 +22,9 @@ with the format: consumer_key, consumer_secret, access_token, access_token_secre
 
 \item{sleep}{Number of seconds to sleep between API calls.}
 }
+\description{
+Downloads tweets by their ID from REST API and saves to a json file
+}
 \author{
 Pablo Barbera \email{pbarbera@usc.edu}
 }

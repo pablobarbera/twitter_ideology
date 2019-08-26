@@ -29,6 +29,12 @@
 #' \url{https://github.com/pablobarbera/echo_chambers/blob/master/02_estimation/11-second-stage.r}
 #' for details.
 #'
+#' @param replace_outliers logical, default is \code{FALSE}, which will not replace any
+#' values that are estimated to be -Inf or Inf. These values will correspond to users with
+#' an ideology estimate outside the range of the users in the original training set (from -2.32
+#' to 2.32). If \code{TRUE}, the -Inf or Inf values will be replaced with a random sample from 
+#' the normal distribution below -2.32 (for -Inf) or above 2.32 (for Inf).
+#'
 #' @return The function returns a matrix with summary statistics of the posterior
 #' distribution of the two estimated parameters, beta (political interest) and
 #' theta (ideology).
@@ -46,7 +52,8 @@
 #' }
 #'
 
-estimateIdeology2 <- function(user, friends, verbose=TRUE, exact=FALSE){
+estimateIdeology2 <- function(user, friends, verbose=TRUE, exact=FALSE, 
+  replace_outliers=FALSE){
   if(missing(friends))
     friends <- getFriends(user)
   # getting row of adjacency matrix
@@ -65,6 +72,15 @@ estimateIdeology2 <- function(user, friends, verbose=TRUE, exact=FALSE){
   # adding random noise
   # see https://github.com/pablobarbera/echo_chambers/blob/master/02_estimation/11-second-stage.r
   if (!exact) theta <- theta + rnorm(1, 0, 0.05)
+  # replacing outliers
+  if (replace_outliers && (theta == -Inf || theta == Inf)){
+    # sample 10000 values from normal
+    if (!exact) set.seed(123)
+    rs <- rnorm(n=10000)
+    # keep those below or above threshold
+    if (theta == -Inf){ theta <- rs[rs<tweetscores::refdataCA$qs$theta[2]][1] }
+    if (theta == Inf){ theta <- rs[rs>tweetscores::refdataCA$qs$theta[100]][1] }
+  }
 
   return(theta)
 }

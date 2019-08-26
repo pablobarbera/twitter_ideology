@@ -11,6 +11,9 @@
 
 \item{...}{ignored}
 }
+\description{
+Displays estimated ideology with other reference ideal points
+}
 \examples{
 \dontrun{
 ## Creating OAuth token

@@ -4,7 +4,8 @@
 \alias{estimatePastFollowers}
 \title{Estimates follower lists at any point in time}
 \usage{
-estimatePastFollowers(followers, breaks, dates_sample, date, verbose = TRUE)
+estimatePastFollowers(followers, breaks, dates_sample, date,
+  verbose = TRUE)
 }
 \arguments{
 \item{followers}{List of followers}

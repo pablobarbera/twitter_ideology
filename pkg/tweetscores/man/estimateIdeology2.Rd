@@ -4,7 +4,8 @@
 \alias{estimateIdeology2}
 \title{Estimates ideology for a given Twitter user}
 \usage{
-estimateIdeology2(user, friends, verbose = TRUE, exact = FALSE)
+estimateIdeology2(user, friends, verbose = TRUE, exact = FALSE,
+  replace_outliers = FALSE)
 }
 \arguments{
 \item{user}{screen name of user for which ideology is to be estimated.}
@@ -21,6 +22,12 @@ to the R console with information about progress of the sampler.}
 spikes in distribution of ideal points. See
 \url{https://github.com/pablobarbera/echo_chambers/blob/master/02_estimation/11-second-stage.r}
 for details.}
+
+\item{replace_outliers}{logical, default is \code{FALSE}, which will not replace any
+values that are estimated to be -Inf or Inf. These values will correspond to users with
+an ideology estimate outside the range of the users in the original training set (from -2.32
+to 2.32). If \code{TRUE}, the -Inf or Inf values will be replaced with a random sample from 
+the normal distribution below -2.32 (for -Inf) or above 2.32 (for Inf).}
 }
 \value{
 The function returns a matrix with summary statistics of the posterior

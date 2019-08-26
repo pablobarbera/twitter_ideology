@@ -4,7 +4,8 @@
 \alias{getRetweets}
 \title{Returns the list of user IDs that retweeted a specific tweet.}
 \usage{
-getRetweets(id = NULL, oauth, cursor = -1, verbose = TRUE, sleep = 1)
+getRetweets(id = NULL, oauth, cursor = -1, verbose = TRUE,
+  sleep = 1)
 }
 \arguments{
 \item{id}{The numerical ID of the desired status}

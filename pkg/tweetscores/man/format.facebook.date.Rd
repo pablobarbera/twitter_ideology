@@ -11,6 +11,9 @@ formatFbDate(datestring, format = "datetime")
 
 \item{format}{Either "date", for Date format; or "datetime" for POSIX.}
 }
+\description{
+Converts from Facebook date format to R date format
+}
 \examples{
 \dontrun{
 ## example of Facebook data
