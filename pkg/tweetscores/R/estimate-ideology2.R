@@ -11,9 +11,6 @@
 #' analysis, assuming that all else is constant, and relying on the column
 #' estimates in the paper. The values are then normalized to a N(0,1) distribution.
 #'
-#' @author
-#' Pablo Barbera \email{P.Barbera@@lse.ac.uk}
-#'
 #' @param user screen name of user for which ideology is to be estimated.
 #'
 #' @param friends vector of user IDs that the user for which ideology wants
@@ -32,7 +29,7 @@
 #' @param replace_outliers logical, default is \code{FALSE}, which will not replace any
 #' values that are estimated to be -Inf or Inf. These values will correspond to users with
 #' an ideology estimate outside the range of the users in the original training set (from -2.32
-#' to 2.32). If \code{TRUE}, the -Inf or Inf values will be replaced with a random sample from 
+#' to 2.32). If \code{TRUE}, the -Inf or Inf values will be replaced with a random sample from
 #' the normal distribution below -2.32 (for -Inf) or above 2.32 (for Inf).
 #'
 #' @return The function returns a matrix with summary statistics of the posterior
@@ -52,7 +49,7 @@
 #' }
 #'
 
-estimateIdeology2 <- function(user, friends, verbose=TRUE, exact=FALSE, 
+estimateIdeology2 <- function(user, friends, verbose=TRUE, exact=FALSE,
   replace_outliers=FALSE){
   if(missing(friends))
     friends <- getFriends(user)

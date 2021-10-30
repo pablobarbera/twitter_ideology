@@ -34,6 +34,3 @@ Displays trace plots of MCMC chains
 }
 
 }
-\author{
-Pablo Barbera \email{pablo.barbera@nyu.edu}
-}

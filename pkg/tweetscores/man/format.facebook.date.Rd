@@ -22,6 +22,3 @@ Converts from Facebook date format to R date format
 }
 
 }
-\author{
-Pablo Barbera \email{P.Barbera@lse.ac.uk}
-}

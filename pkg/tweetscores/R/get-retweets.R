@@ -9,9 +9,6 @@
 #' list of up to 100 user IDs belonging to users who have retweeted the
 #' tweet specified by the id parameter.
 #'
-#' @author
-#' Pablo Barbera \email{P.Barbera@@lse.ac.uk}
-#'
 #' @param id The numerical ID of the desired status
 #'
 #' @param oauth One of the following: either a list with details for an access token
@@ -62,13 +59,13 @@ getRetweets <- function(id=NULL, oauth, cursor=-1, verbose=TRUE, sleep=1){
     while (cursor!=0){
         ## making API call
         params <- list(id = id, stringify_ids="true")
-        url.data <- my_oauth$OAuthRequest(URL=url, params=params, method="GET",
-            cainfo=system.file("CurlSSL", "cacert.pem", package = "RCurl"))
+        query <- lapply(params, function(x) URLencode(as.character(x)))
+        url.data <- httr::GET(url, query=query, httr::config(token=my_oauth))
         Sys.sleep(sleep)
         ## one API call less
         limit <- limit - 1
         ## trying to parse JSON data
-        json.data <- rjson::fromJSON(url.data)
+        json.data <- httr::content(url.data)
         if (length(json.data$error)!=0){
             if(verbose){message(url.data)}
             stop("error! Last cursor: ", cursor)

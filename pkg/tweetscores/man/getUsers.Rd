@@ -4,8 +4,13 @@
 \alias{getUsers}
 \title{Returns user data for a vector of up to 100 Twitter user IDs or screen_names}
 \usage{
-getUsers(oauth = "~/credentials", screen_names = NULL, ids = NULL,
-  include_entities = "true", verbose = FALSE)
+getUsers(
+  oauth = "~/credentials",
+  screen_names = NULL,
+  ids = NULL,
+  include_entities = "true",
+  verbose = FALSE
+)
 }
 \arguments{
 \item{oauth}{One of the following: either a list with details for an access token

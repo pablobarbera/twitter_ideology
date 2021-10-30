@@ -10,9 +10,6 @@
 #' full name, company name, location, or other criteria. Exact match searches
 #' are not supported. Only the first 1,000 matches are available.
 #'
-#' @author
-#' Pablo Barbera \email{P.Barbera@@lse.ac.uk}
-#'
 #' @param q The search query to run against people search
 #'
 #' @param count Number of potential user results to retrieve
@@ -22,7 +19,6 @@
 #' with the format: consumer_key, consumer_secret, access_token, access_token_secret.
 #'
 #' @param verbose shows additional ouput about token usage in console
-#'
 #'
 #' @examples \dontrun{
 #' ## Search users using query "pablo"
@@ -40,15 +36,8 @@ searchUsers <- function(q=NULL, count=100, oauth, verbose=TRUE){
 
     ## first API call
     params <- list(q=q, count=ifelse(count<20, count, 20), page=1)
-
-    options("httr_oauth_cache"=FALSE)
-    app <- httr::oauth_app("twitter", key = my_oauth$consumerKey,
-        secret = my_oauth$consumerSecret)
-    credentials <- list(oauth_token = my_oauth$oauthKey, oauth_token_secret = my_oauth$oauthSecret)
-    twitter_token <- httr::Token1.0$new(endpoint = NULL, params = list(as_header = TRUE),
-        app = app, credentials = credentials)
     query <- lapply(params, function(x) URLencode(as.character(x)))
-    url.data <- httr::GET(url, query = query, httr::config(token = twitter_token))
+    url.data <- httr::GET(url, query=query, httr::config(token=my_oauth))
     json.data <- new.json <- httr::content(url.data)
     n <- length(json.data)
 
@@ -56,7 +45,7 @@ searchUsers <- function(q=NULL, count=100, oauth, verbose=TRUE){
     while (n<count & length(new.json)>0){
       params <- list(q=q, count=20, page=params$page+1)
       query <- lapply(params, function(x) URLencode(as.character(x)))
-      url.data <- httr::GET(url, query = query, httr::config(token = twitter_token))
+      url.data <- httr::GET(url, query=query, httr::config(token=my_oauth))
       new.json <- httr::content(url.data)
       json.data <- c(json.data, new.json)
       n <- length(json.data)

@@ -9,10 +9,9 @@
 #' @name tweetscores-package
 #' @aliases tweetscores
 #' @docType package
-#' @author Pablo Barbera \email{P.Barbera@@lse.ac.uk}
+#' @author Pablo Barbera \email{pbarbera@@usc.edu}
 NULL
 
-#' @import ROAuth
 #' @import httr
 #' @import jsonlite
 #' @import yaml
@@ -42,17 +41,6 @@ NULL
 #' @keywords datasets
 #' @name refdata
 #' @usage data(refdata)
-NULL
-
-#' Dictionary of user IDs and account creation dates
-#'
-#' Data frame that contains dates in which a random sample
-#' of 1000 user accounts were created
-#'
-#' @docType data
-#' @keywords datasets
-#' @name dict
-#' @usage data(dict)
 NULL
 
 #' Column coordinates from correspondence analysis

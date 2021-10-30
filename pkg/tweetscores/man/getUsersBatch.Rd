@@ -4,8 +4,14 @@
 \alias{getUsersBatch}
 \title{Returns user data for a vector of Twitter user IDs or screen_names}
 \usage{
-getUsersBatch(ids = NULL, screen_names = NULL, oauth,
-  include_entities = "false", verbose = TRUE, output = NULL)
+getUsersBatch(
+  ids = NULL,
+  screen_names = NULL,
+  oauth,
+  include_entities = "false",
+  verbose = TRUE,
+  output = NULL
+)
 }
 \arguments{
 \item{ids}{ids of Twitter users}
@@ -41,7 +47,4 @@ screen names or user IDs
    oauth=my_oauth)
 }
 
-}
-\author{
-Pablo Barbera \email{P.Barbera@lse.ac.uk}
 }

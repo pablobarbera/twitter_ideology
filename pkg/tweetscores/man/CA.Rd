@@ -4,8 +4,15 @@
 \alias{CA}
 \title{Simple (efficient) correspondence analysis}
 \usage{
-CA(obj, nd = NA, suprow = NA, supcol = NA, subsetrow = NA,
-  subsetcol = NA, verbose = TRUE)
+CA(
+  obj,
+  nd = NA,
+  suprow = NA,
+  supcol = NA,
+  subsetrow = NA,
+  subsetcol = NA,
+  verbose = TRUE
+)
 }
 \arguments{
 \item{obj}{Matrix with two-way frequency table}

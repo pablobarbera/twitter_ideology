@@ -11,9 +11,6 @@
 #' explained in the documentation (\url{https://dev.twitter.com/rest/public/search}),
 #' the goal of this API endpoint is relevance and not completeness.
 #'
-#' @author
-#' Pablo Barbera \email{P.Barbera@@lse.ac.uk}
-#'
 #' @param q search query to issue to Twitter. It can contain Boolean operators.
 
 #' @param filename file where tweets will be stored (in json format)
@@ -91,16 +88,8 @@ searchTweets <- function(q, filename, n=200, oauth="~/credentials",
     }
     query <- lapply(params, function(x) URLencode(as.character(x)))
 
-    # preparing OAuth token for httr
-    options("httr_oauth_cache"=FALSE)
-    app <- httr::oauth_app("twitter", key = my_oauth$consumerKey,
-        secret = my_oauth$consumerSecret)
-    credentials <- list(oauth_token = my_oauth$oauthKey, oauth_token_secret = my_oauth$oauthSecret)
-    twitter_token <- httr::Token1.0$new(endpoint = NULL, params = list(as_header = TRUE),
-        app = app, credentials = credentials)
-
     # first query
-    url.data <- httr::GET(url, query = query, httr::config(token = twitter_token))
+    url.data <- httr::GET(url, query = query, httr::config(token = my_oauth))
     Sys.sleep(sleep)
     ## one API call less
     limit <- limit - 1
@@ -121,21 +110,23 @@ searchTweets <- function(q, filename, n=200, oauth="~/credentials",
     json.data <- httr::content(url.data)
     if (length(json.data$error)!=0){
         message(url.data)
-        stop("error! Last cursor: ", cursor)
+        stop("error! Last cursor: ", ifelse(exists("max_id"), max_id, 'N/A'))
     }
     ## writing to disk
     conn <- file(filename, "a")
-    ret <- lapply(json.data[[1]], function(x) writeLines(jsonlite::toJSON(x, null="null"), con=conn))
+    ret <- lapply(json.data$statuses, function(x)
+        writeLines(jsonlite::toJSON(x, null="null", auto_unbox=TRUE), con=conn))
     close(conn)
+
     ## max_id
-    tweets <- length(json.data[[1]])
-    max_id <- json.data[[2]]$max_id
+    tweets <- length(json.data$statuses)
+    max_id <- json.data$search_metadata$max_id_str
     message(tweets, " tweets. Max id: ", max_id)
 
-    while (tweets < n && !is.null(json.data[[2]]$next_results)){
+    while (tweets < n && !is.null(json.data$search_metadata$next_results)){
 
-        next_url <- paste0(url, json.data[[2]]$next_results, '&tweet_mode=extended')
-        url.data <- httr::GET(next_url, httr::config(token = twitter_token))
+        next_url <- paste0(url, json.data$search_metadata$next_results, '&tweet_mode=extended')
+        url.data <- httr::GET(next_url, httr::config(token = my_oauth))
         Sys.sleep(sleep)
         ## one API call less
         limit <- limit - 1
@@ -151,24 +142,18 @@ searchTweets <- function(q, filename, n=200, oauth="~/credentials",
             }
             limit <- getLimitSearch(my_oauth)
             message(limit, " hits left")
-            # preparing OAuth token for httr
-            options("httr_oauth_cache"=FALSE)
-            app <- httr::oauth_app("twitter", key = my_oauth$consumerKey,
-            secret = my_oauth$consumerSecret)
-            credentials <- list(oauth_token = my_oauth$oauthKey, oauth_token_secret = my_oauth$oauthSecret)
-                twitter_token <- httr::Token1.0$new(endpoint = NULL, params = list(as_header = TRUE),
-                app = app, credentials = credentials)
         }
         ## trying to parse JSON data
         ## json.data <- fromJSON(url.data, unexpected.escape = "skip")
         json.data <- httr::content(url.data)
         if (length(json.data$error)!=0){
             message(url.data)
-            stop("error! Last cursor: ", cursor)
+            stop("error! Last cursor: ", ifelse(exists("max_id"), max_id, 'N/A'))
         }
         ## writing to disk
         conn <- file(filename, "a")
-        ret <- lapply(json.data[[1]], function(x) writeLines(jsonlite::toJSON(x, null="null"), con=conn))
+        ret <- lapply(json.data[[1]], function(x)
+            writeLines(jsonlite::toJSON(x, null="null", auto_unbox=TRUE), con=conn))
         close(conn)
         ## max_id
         tweets <- tweets + length(json.data[[1]])

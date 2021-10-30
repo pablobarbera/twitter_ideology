@@ -4,9 +4,18 @@
 \alias{searchTweets}
 \title{Search recent tweets}
 \usage{
-searchTweets(q, filename, n = 200, oauth = "~/credentials",
-  until = NULL, since_id = NULL, result_type = "recent",
-  lang = NULL, sleep = 0.5, verbose = FALSE)
+searchTweets(
+  q,
+  filename,
+  n = 200,
+  oauth = "~/credentials",
+  until = NULL,
+  since_id = NULL,
+  result_type = "recent",
+  lang = NULL,
+  sleep = 0.5,
+  verbose = FALSE
+)
 }
 \arguments{
 \item{q}{search query to issue to Twitter. It can contain Boolean operators.}
@@ -57,7 +66,4 @@ the goal of this API endpoint is relevance and not completeness.
    n=200, oauth=my_oauth)
 }
 
-}
-\author{
-Pablo Barbera \email{P.Barbera@lse.ac.uk}
 }

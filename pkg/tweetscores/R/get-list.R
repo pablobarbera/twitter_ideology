@@ -8,12 +8,7 @@
 #' \code{getList} connects to the REST API of Twitter and returns a
 #' data frame with information about users included in a Twitter list
 #'
-#' @author
-#' Pablo Barbera \email{P.Barbera@@lse.ac.uk}
-#'
-#' @param list_name name of the list
-#'
-#' @param screen_name user that created the list
+#' @param list_id ID of the list
 #'
 #' @param oauth One of the following: either a list with details for an access token
 #' (see example below), a folder where OAuth tokens are stored, or a csv file
@@ -28,13 +23,12 @@
 #'    consumer_secret = "CONSUMER_SECRET",
 #'    access_token="ACCESS_TOKEN",
 #'    access_token_secret = "ACCESS_TOKEN_SECRET")
-#' ## Download Twitter list of "official-twitter-accts" created by @@twitter
-#'  accts <- getList(list_name="official-twitter-accts" screen_name="twitter",
-#'    oauth=my_oauth)
+#' ## Download Twitter list of U.S. Governors created by @@cspan
+#'  accts <- getList(list_id="7560205", oauth=my_oauth)
 #' }
 #'
 
-getList <- function(list_name, screen_name, oauth, cursor=-1){
+getList <- function(list_id, oauth, cursor=-1){
 
   ## loading credentials
   my_oauth <- getOAuth(oauth, verbose=verbose)
@@ -60,15 +54,15 @@ getList <- function(list_name, screen_name, oauth, cursor=-1){
     ## while there's more data to download...
     while (cursor!=0){
         ## making API call
-        params <- list(slug=list_name, owner_screen_name=screen_name,
+        params <- list(list_id=list_id,
             include_entities='true', cursor=cursor, skip_status='true')
-        url.data <- my_oauth$OAuthRequest(URL=url, params=params, method="GET",
-        cainfo=system.file("CurlSSL", "cacert.pem", package = "RCurl"))
+        query <- lapply(params, function(x) URLencode(as.character(x)))
+        url.data <- httr::GET(url, query=query, httr::config(token=my_oauth))
         Sys.sleep(1)
         ## one API call less
         limit <- limit - 1
         ## trying to parse JSON data
-        json.data <- rjson::fromJSON(url.data, unexpected.escape = "skip")
+        json.data <- httr::content(url.data)
         if (length(json.data$error)!=0){
             message(url.data)
             stop("error! Last cursor: ", cursor)

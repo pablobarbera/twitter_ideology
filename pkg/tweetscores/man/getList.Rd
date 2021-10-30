@@ -4,12 +4,10 @@
 \alias{getList}
 \title{Returns the list of users added to a Twitter list}
 \usage{
-getList(list_name, screen_name, oauth, cursor = -1)
+getList(list_id, oauth, cursor = -1)
 }
 \arguments{
-\item{list_name}{name of the list}
-
-\item{screen_name}{user that created the list}
+\item{list_id}{ID of the list}
 
 \item{oauth}{One of the following: either a list with details for an access token
 (see example below), a folder where OAuth tokens are stored, or a csv file
@@ -28,12 +26,8 @@ data frame with information about users included in a Twitter list
    consumer_secret = "CONSUMER_SECRET",
    access_token="ACCESS_TOKEN",
    access_token_secret = "ACCESS_TOKEN_SECRET")
-## Download Twitter list of "official-twitter-accts" created by @twitter
- accts <- getList(list_name="official-twitter-accts" screen_name="twitter",
-   oauth=my_oauth)
+## Download Twitter list of U.S. Governors created by @cspan
+ accts <- getList(list_id="7560205", oauth=my_oauth)
 }
 
-}
-\author{
-Pablo Barbera \email{P.Barbera@lse.ac.uk}
 }

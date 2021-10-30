@@ -6,9 +6,6 @@
 #' @title
 #' Displays estimated ideology with other reference ideal points
 #'
-#' @author
-#' Pablo Barbera \email{P.Barbera@@lse.ac.uk}
-#'
 #' @param x object of class 'twideology'
 #'
 #' @param ... ignored
@@ -95,9 +92,6 @@ summary.twideology <- function(object, ...){
 #'
 #' @title
 #' Displays trace plots of MCMC chains
-#'
-#' @author
-#' Pablo Barbera \email{pablo.barbera@@nyu.edu}
 #'
 #' @param results object of class 'twideology'
 #'

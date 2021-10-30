@@ -30,6 +30,3 @@ are not supported. Only the first 1,000 matches are available.
 }
 
 }
-\author{
-Pablo Barbera \email{P.Barbera@lse.ac.uk}
-}

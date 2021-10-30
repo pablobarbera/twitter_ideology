@@ -9,9 +9,6 @@
 #' 3,200 recent tweets sent by these user. If the total number of tweets sent
 #' by this user is less than 3,200 tweets, it will return all tweets.
 #'
-#' @author
-#' Pablo Barbera \email{P.Barbera@@lse.ac.uk}
-#'
 #' @param filename file where tweets will be stored (in json format)
 #'
 #' @param n number of tweets to be downloaded (maximum is 3,200)
@@ -33,8 +30,6 @@
 #' @param trim_user if "true", downloaded tweets will include user object
 #' embedded. If "false", only tweet information will be downloaded.
 #'
-#' @param tweet_mode if "extended", will return up to 280 characters per tweet.
-#'
 #' @param sleep numeric, number of seconds between API calls. Higher number
 #' will increase reliability of API calls; lower number will increase speed.
 #'
@@ -43,12 +38,12 @@
 #'
 #' @examples \dontrun{
 #' ## Download recent tweets by user "p_barbera"
-#'  friends <- getTimeline(screen_name="p_barbera", oauth=my_oauth)
+#'  getTimeline(filename='p_barbera.json', screen_name='p_barbera', oauth=my_oauth)
 #' }
 #'
 
 getTimeline <- function(filename, n=3200, oauth, screen_name=NULL,
-    id=NULL, since_id=NULL, trim_user="false", tweet_mode='extended',
+    id=NULL, since_id=NULL, trim_user="false",
     sleep=.5, verbose=FALSE){
 
     ## loading credentials
@@ -73,33 +68,23 @@ getTimeline <- function(filename, n=3200, oauth, screen_name=NULL,
     ## first API call
     if (!is.null(screen_name)){
         params <- list(screen_name = screen_name, count=200, trim_user=trim_user,
-                       tweet_mode=tweet_mode)
+                       exclude_replies = "false", include_rts = "true")
     }
     if (!is.null(id)){
         params <- list(id=id, count=200, trim_user=trim_user,
-                       tweet_mode=tweet_mode)
+                       exclude_replies = "false", include_rts = "true")
     }
     if (!is.null(since_id)){
         params[["since_id"]] <- since_id
     }
     query <- lapply(params, function(x) URLencode(as.character(x)))
-
-    # preparing OAuth token for httr
-    options("httr_oauth_cache"=FALSE)
-    app <- httr::oauth_app("twitter", key = my_oauth$consumerKey,
-        secret = my_oauth$consumerSecret)
-    credentials <- list(oauth_token = my_oauth$oauthKey, oauth_token_secret = my_oauth$oauthSecret)
-    twitter_token <- httr::Token1.0$new(endpoint = NULL, params = list(as_header = TRUE),
-        app = app, credentials = credentials)
-
     # first query
-    url.data <- httr::GET(url, query = query, httr::config(token = twitter_token))
+    url.data <- httr::GET(url, query=query, httr::config(token=my_oauth))
     Sys.sleep(sleep)
     ## one API call less
     limit <- limit - 1
     ## changing oauth token if we hit the limit
     if (verbose) message(limit, " hits left")
-    cr_old <- my_oauth
     while (limit==0){
         my_oauth <- getOAuth(oauth, verbose=verbose)
         Sys.sleep(sleep)
@@ -111,19 +96,11 @@ getTimeline <- function(filename, n=3200, oauth, screen_name=NULL,
         limit <- getLimitTimeline(my_oauth)
         if (verbose) message(limit, " hits left")
     }
-    if (!all.equal(my_oauth, cr_old)) {
-        app <- httr::oauth_app("twitter", key = my_oauth$consumerKey,
-            secret = my_oauth$consumerSecret)
-        credentials <- list(oauth_token = my_oauth$oauthKey, oauth_token_secret = my_oauth$oauthSecret)
-        twitter_token <- httr::Token1.0$new(endpoint = NULL, params = list(as_header = TRUE),
-            app = app, credentials = credentials)
-    }
     ## trying to parse JSON data
-    ## json.data <- fromJSON(url.data, unexpected.escape = "skip")
     json.data <- httr::content(url.data)
     if (length(json.data$error)!=0){
         message(url.data)
-        stop("error! Last cursor: ", cursor)
+        stop("error!")
     }
     ## writing to disk
     conn <- file(filename, "a")
@@ -141,23 +118,22 @@ getTimeline <- function(filename, n=3200, oauth, screen_name=NULL,
         max_id_old <- max_id
         if (!is.null(screen_name)){
             params <- list(screen_name = screen_name, count=200, max_id=max_id,
-                trim_user=trim_user, tweet_mode=tweet_mode)
+                trim_user=trim_user, exclude_replies = "false", include_rts = "true")
         }
         if (!is.null(id)){
             params <- list(id=id, count=200, max_id=max_id, trim_user=trim_user,
-                           tweet_mode=tweet_mode)
+                           exclude_replies = "false", include_rts = "true")
         }
         if (!is.null(since_id) && since_id != 1 ){
            params[['since_id']] <- since_id
         }
         query <- lapply(params, function(x) URLencode(as.character(x)))
-        url.data <- httr::GET(url, query = query, httr::config(token = twitter_token))
+        url.data <- httr::GET(url, query=query, httr::config(token=my_oauth))
         Sys.sleep(sleep)
         ## one API call less
         limit <- limit - 1
         ## changing oauth token if we hit the limit
         message(limit, " hits left")
-        cr_old <- my_oauth
         while (limit==0){
             my_oauth <- getOAuth(oauth, verbose=verbose)
             Sys.sleep(sleep)
@@ -169,19 +145,12 @@ getTimeline <- function(filename, n=3200, oauth, screen_name=NULL,
             limit <- getLimitTimeline(my_oauth)
             message(limit, " hits left")
         }
-        if (all.equal(my_oauth, cr_old)) {
-            app <- httr::oauth_app("twitter", key = my_oauth$consumerKey,
-                secret = my_oauth$consumerSecret)
-            credentials <- list(oauth_token = my_oauth$oauthKey, oauth_token_secret = my_oauth$oauthSecret)
-            twitter_token <- httr::Token1.0$new(endpoint = NULL, params = list(as_header = TRUE),
-                app = app, credentials = credentials)
-        }
         ## trying to parse JSON data
         ## json.data <- fromJSON(url.data, unexpected.escape = "skip")
         json.data <- httr::content(url.data)
         if (length(json.data$error)!=0){
             message(url.data)
-            stop("error! Last cursor: ", cursor)
+            stop("error!")
         }
         ## writing to disk
         conn <- file(filename, "a")

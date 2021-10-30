@@ -4,8 +4,14 @@
 \alias{getStatuses}
 \title{Downloads tweets by their ID from REST API and saves to a json file}
 \usage{
-getStatuses(ids = NULL, filename, oauth, tweet_mode = "extended",
-  verbose = TRUE, sleep = 1)
+getStatuses(
+  ids = NULL,
+  filename,
+  oauth,
+  tweet_mode = "extended",
+  verbose = TRUE,
+  sleep = 1
+)
 }
 \arguments{
 \item{ids}{list of tweet IDs to be downloaded}
@@ -25,6 +31,16 @@ with the format: consumer_key, consumer_secret, access_token, access_token_secre
 \description{
 Downloads tweets by their ID from REST API and saves to a json file
 }
-\author{
-Pablo Barbera \email{pbarbera@usc.edu}
+\examples{
+\dontrun{
+## Creating OAuth token
+ my_oauth <- list(consumer_key = "CONSUMER_KEY",
+   consumer_secret = "CONSUMER_SECRET",
+   access_token="ACCESS_TOKEN",
+   access_token_secret = "ACCESS_TOKEN_SECRET")
+## Download list of recent user IDs retweeting a tweet by Hillary Clinton
+ getStatuses(ids=c('1454115859534950406', '1452687910055002115',
+      '1451896893743767555'), filename='example-tweets.json', oauth=my_oauth)
+}
+
 }

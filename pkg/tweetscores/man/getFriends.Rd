@@ -4,8 +4,14 @@
 \alias{getFriends}
 \title{Returns the list of user IDs a given Twitter user follows}
 \usage{
-getFriends(screen_name = NULL, oauth, cursor = -1, user_id = NULL,
-  verbose = TRUE, sleep = 1)
+getFriends(
+  screen_name = NULL,
+  oauth,
+  cursor = -1,
+  user_id = NULL,
+  verbose = TRUE,
+  sleep = 1
+)
 }
 \arguments{
 \item{screen_name}{user name of the Twitter user for which their friends
@@ -40,7 +46,4 @@ use of multiple OAuth token to make the process more efficient.
  friends <- getFriends(screen_name="p_barbera", oauth=my_oauth)
 }
 
-}
-\author{
-Pablo Barbera \email{P.Barbera@lse.ac.uk}
 }

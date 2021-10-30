@@ -4,9 +4,6 @@
 #' @title
 #' Converts from Facebook date format to R date format
 #'
-#' @author
-#' Pablo Barbera \email{P.Barbera@@lse.ac.uk}
-#'
 #' @param datestring Date string in Facebook format
 #'
 #' @param format Either "date", for Date format; or "datetime" for POSIX.

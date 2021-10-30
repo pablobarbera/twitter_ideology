@@ -4,8 +4,13 @@
 \alias{estimateIdeology2}
 \title{Estimates ideology for a given Twitter user}
 \usage{
-estimateIdeology2(user, friends, verbose = TRUE, exact = FALSE,
-  replace_outliers = FALSE)
+estimateIdeology2(
+  user,
+  friends,
+  verbose = TRUE,
+  exact = FALSE,
+  replace_outliers = FALSE
+)
 }
 \arguments{
 \item{user}{screen name of user for which ideology is to be estimated.}
@@ -26,7 +31,7 @@ for details.}
 \item{replace_outliers}{logical, default is \code{FALSE}, which will not replace any
 values that are estimated to be -Inf or Inf. These values will correspond to users with
 an ideology estimate outside the range of the users in the original training set (from -2.32
-to 2.32). If \code{TRUE}, the -Inf or Inf values will be replaced with a random sample from 
+to 2.32). If \code{TRUE}, the -Inf or Inf values will be replaced with a random sample from
 the normal distribution below -2.32 (for -Inf) or above 2.32 (for Inf).}
 }
 \value{
@@ -54,7 +59,4 @@ estimates in the paper. The values are then normalized to a N(0,1) distribution.
  results <- estimateIdeology2(friends)
 }
 
-}
-\author{
-Pablo Barbera \email{P.Barbera@lse.ac.uk}
 }

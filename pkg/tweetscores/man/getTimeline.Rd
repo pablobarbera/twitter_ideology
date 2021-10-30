@@ -4,9 +4,17 @@
 \alias{getTimeline}
 \title{Returns up to 3,200 recent tweets from a given user}
 \usage{
-getTimeline(filename, n = 3200, oauth, screen_name = NULL, id = NULL,
-  since_id = NULL, trim_user = "false", tweet_mode = "extended",
-  sleep = 0.5, verbose = FALSE)
+getTimeline(
+  filename,
+  n = 3200,
+  oauth,
+  screen_name = NULL,
+  id = NULL,
+  since_id = NULL,
+  trim_user = "false",
+  sleep = 0.5,
+  verbose = FALSE
+)
 }
 \arguments{
 \item{filename}{file where tweets will be stored (in json format)}
@@ -30,8 +38,6 @@ date.}
 \item{trim_user}{if "true", downloaded tweets will include user object
 embedded. If "false", only tweet information will be downloaded.}
 
-\item{tweet_mode}{if "extended", will return up to 280 characters per tweet.}
-
 \item{sleep}{numeric, number of seconds between API calls. Higher number
 will increase reliability of API calls; lower number will increase speed.}
 
@@ -46,10 +52,7 @@ by this user is less than 3,200 tweets, it will return all tweets.
 \examples{
 \dontrun{
 ## Download recent tweets by user "p_barbera"
- friends <- getTimeline(screen_name="p_barbera", oauth=my_oauth)
+ getTimeline(filename='p_barbera.json', screen_name='p_barbera', oauth=my_oauth)
 }
 
-}
-\author{
-Pablo Barbera \email{P.Barbera@lse.ac.uk}
 }

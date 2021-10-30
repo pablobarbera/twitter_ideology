@@ -4,9 +4,6 @@
 #' @title
 #' Converts from Twitter date format to R date format
 #'
-#' @author
-#' Pablo Barbera \email{P.Barbera@@lse.ac.uk}
-#'
 #' @param datestring Date string in Twitter format
 #'
 #' @param format Either "date", for Date format; or "datetime" for POSIX.

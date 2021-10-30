@@ -9,9 +9,6 @@
 #' list of followers of a given user. Note that this function allows the
 #' use of multiple OAuth token to make the process more efficient.
 #'
-#' @author
-#' Pablo Barbera \email{P.Barbera@@lse.ac.uk}
-#'
 #' @param screen_name user name of the Twitter user for which their followers
 #' will be downloaded
 #'
@@ -42,7 +39,8 @@
 #' }
 #'
 
-getFollowers <- function(screen_name=NULL, oauth, cursor=-1, user_id=NULL, verbose=TRUE, sleep=1, file=NULL){
+getFollowers <- function(screen_name=NULL, oauth, cursor=-1,
+                         user_id=NULL, verbose=TRUE, sleep=1, file=NULL){
 
   ## loading credentials
   my_oauth <- getOAuth(oauth, verbose=verbose)
@@ -64,10 +62,10 @@ getFollowers <- function(screen_name=NULL, oauth, cursor=-1, user_id=NULL, verbo
   ## url to call
   url <- "https://api.twitter.com/1.1/followers/ids.json"
   ## empty list for followers
-  if (is.null(file)) followers <- c()
+  count <- 0
+  if (is.null(file)) followers <- list()
   if (!is.null(file)){
     con <- file(file, "a")
-    count <- 0
   }
   ## while there's more data to download...
   while (cursor!=0){
@@ -78,19 +76,21 @@ getFollowers <- function(screen_name=NULL, oauth, cursor=-1, user_id=NULL, verbo
     if (!is.null(user_id)){
       params <- list(user_id = user_id, cursor = cursor, stringify_ids="true")
     }
-    url.data <- my_oauth$OAuthRequest(URL=url, params=params, method="GET",
-                                      cainfo=system.file("CurlSSL", "cacert.pem", package = "RCurl"))
+    query <- lapply(params, function(x) URLencode(as.character(x)))
+    url.data <- httr::GET(url, query=query, httr::config(token=my_oauth))
     Sys.sleep(sleep)
     ## one API call less
     limit <- limit - 1
     ## trying to parse JSON data
-    json.data <- jsonlite::fromJSON(url.data)
+    json.data <- httr::content(url.data)
     if (length(json.data$error)!=0){
       if(verbose){message(url.data)}
       stop("error! Last cursor: ", cursor)
     }
     ## adding new IDS
-    if (is.null(file)) followers <- c(followers, as.character(json.data$ids))
+    if (is.null(file)){
+      followers[[length(followers)+1]] <- as.character(json.data$ids)
+    }
     if (!is.null(file)){
       followers <- as.character(json.data$ids)
       writeLines(followers, con=con)
@@ -101,11 +101,8 @@ getFollowers <- function(screen_name=NULL, oauth, cursor=-1, user_id=NULL, verbo
     ## next cursor
     cursor <- json.data$next_cursor_str
     ## giving info
-    if (is.null(file)) message(length(followers), " followers. Next cursor: ", cursor)
-    if (!is.null(file)){
-      count <- count + length(followers)
-      message(count, " followers. Next cursor: ", cursor)
-    }
+    count <- count + length(json.data$ids)
+    message(count, " followers. Next cursor: ", cursor)
 
     ## changing oauth token if we hit the limit
     if (verbose){message(limit, " API calls left")}
@@ -121,7 +118,9 @@ getFollowers <- function(screen_name=NULL, oauth, cursor=-1, user_id=NULL, verbo
       if (verbose){message(limit, " API calls left")}
     }
   }
-  if (is.null(file)) return(followers)
+  if (is.null(file)){
+    return(unlist(followers))
+  }
   if (!is.null(file)) close(con)
 }
 

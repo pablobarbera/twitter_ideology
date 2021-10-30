@@ -9,9 +9,6 @@
 #' list of user IDs a given user follows. Note that this function allows the
 #' use of multiple OAuth token to make the process more efficient.
 #'
-#' @author
-#' Pablo Barbera \email{P.Barbera@@lse.ac.uk}
-#'
 #' @param screen_name user name of the Twitter user for which their friends
 #' will be downloaded
 #'
@@ -71,13 +68,13 @@ getFriends <- function(screen_name=NULL, oauth, cursor=-1, user_id=NULL, verbose
     if (!is.null(user_id)){
       params <- list(user_id = user_id, cursor = cursor, stringify_ids="true")
     }
-    url.data <- my_oauth$OAuthRequest(URL=url, params=params, method="GET",
-                                      cainfo=system.file("CurlSSL", "cacert.pem", package = "RCurl"))
+    query <- lapply(params, function(x) URLencode(as.character(x)))
+    url.data <- httr::GET(url, query=query, httr::config(token=my_oauth))
     Sys.sleep(sleep)
     ## one API call less
     limit <- limit - 1
     ## trying to parse JSON data
-    json.data <- jsonlite::fromJSON(url.data)
+    json.data <- httr::content(url.data)
     if (length(json.data$error)!=0){
       if (verbose){message(url.data)}
       stop("error! Last cursor: ", cursor)

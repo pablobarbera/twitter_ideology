@@ -2,7 +2,7 @@
 #' @export
 #'
 #' @title
-#' Scrape the social mediaaccounts of Members of US Congress
+#' Scrape the social media accounts of Members of US Congress
 #'
 #' @description
 #' \code{scrapeCongressData} downloads the list of social media accounts

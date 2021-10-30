@@ -9,9 +9,6 @@
 #' Metropolis algorithm developed in Barbera (2015). It takes as argument
 #' of the function a list of user IDs indicating who a given user follows.
 #'
-#' @author
-#' Pablo Barbera \email{P.Barbera@@lse.ac.uk}
-#'
 #' @param user screen name of user for which ideology is to be estimated.
 #'
 #' @param friends vector of user IDs that the user for which ideology wants

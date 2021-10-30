@@ -9,9 +9,6 @@
 #' objects (user information) for Twitter users, based on their
 #' screen names or user IDs
 #'
-#' @author
-#' Pablo Barbera \email{P.Barbera@@lse.ac.uk}
-#'
 #' @param screen_names user names of the Twitter users
 #'
 #' @param ids ids of Twitter users
@@ -151,16 +148,8 @@ getUsers <- function(oauth="~/credentials", screen_names=NULL,
     params <- list(user_id=ids, include_entities=include_entities)
   }
 
-  options("httr_oauth_cache"=FALSE)
-  app <- httr::oauth_app("twitter", key = my_oauth$consumerKey,
-                         secret = my_oauth$consumerSecret)
-  credentials <- list(oauth_token = my_oauth$oauthKey,
-                      oauth_token_secret = my_oauth$oauthSecret)
-  twitter_token <- httr::Token1.0$new(endpoint = NULL, params = list(as_header = TRUE),
-                                app = app, credentials = credentials)
-
   query <- lapply(params, function(x) URLencode(as.character(x)))
-  url.data <- httr::GET(url, query=query, httr::config(token=twitter_token))
+  url.data <- httr::GET(url, query=query, httr::config(token=my_oauth))
   json.data <- httr::content(url.data)
   return(json.data)
 }

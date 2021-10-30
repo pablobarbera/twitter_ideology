@@ -14,5 +14,5 @@ in Barbera (2015, Political Analysis).
 \code{\link{estimateIdeology}}, \code{\link{getFriends}},
 }
 \author{
-Pablo Barbera \email{P.Barbera@lse.ac.uk}
+Pablo Barbera \email{pbarbera@usc.edu}
 }

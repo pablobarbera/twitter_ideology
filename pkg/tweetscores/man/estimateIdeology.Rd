@@ -4,8 +4,16 @@
 \alias{estimateIdeology}
 \title{Estimates ideology for a given Twitter user}
 \usage{
-estimateIdeology(user, friends, verbose = TRUE, method = "MCMC",
-  iters = 5000, n.warmup = 1000, thin = 20, ...)
+estimateIdeology(
+  user,
+  friends,
+  verbose = TRUE,
+  method = "MCMC",
+  iters = 5000,
+  n.warmup = 1000,
+  thin = 20,
+  ...
+)
 }
 \arguments{
 \item{user}{screen name of user for which ideology is to be estimated.}
@@ -56,7 +64,4 @@ of the function a list of user IDs indicating who a given user follows.
  results['theta', 'mean']
 }
 
-}
-\author{
-Pablo Barbera \email{P.Barbera@lse.ac.uk}
 }

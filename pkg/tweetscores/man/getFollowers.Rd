@@ -4,8 +4,15 @@
 \alias{getFollowers}
 \title{Returns the list of user IDs that correspond to a given user's follower}
 \usage{
-getFollowers(screen_name = NULL, oauth, cursor = -1, user_id = NULL,
-  verbose = TRUE, sleep = 1, file = NULL)
+getFollowers(
+  screen_name = NULL,
+  oauth,
+  cursor = -1,
+  user_id = NULL,
+  verbose = TRUE,
+  sleep = 1,
+  file = NULL
+)
 }
 \arguments{
 \item{screen_name}{user name of the Twitter user for which their followers
@@ -43,7 +50,4 @@ use of multiple OAuth token to make the process more efficient.
  followers <- getFollowers(screen_name="p_barbera", oauth=my_oauth)
 }
 
-}
-\author{
-Pablo Barbera \email{P.Barbera@lse.ac.uk}
 }

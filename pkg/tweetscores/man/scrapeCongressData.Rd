@@ -2,7 +2,7 @@
 % Please edit documentation in R/scrape-congress.R
 \name{scrapeCongressData}
 \alias{scrapeCongressData}
-\title{Scrape the social mediaaccounts of Members of US Congress}
+\title{Scrape the social media accounts of Members of US Congress}
 \usage{
 scrapeCongressData(commit = "master")
 }
