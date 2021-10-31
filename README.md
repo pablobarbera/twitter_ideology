@@ -5,34 +5,36 @@ This GitHub repository contains code and materials related to the article "[Bird
 
 The original replication code can be found in the `replication` folder. See also [Dataverse](https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/26589) for the full replication materials, including data and output.
 
+For updated versions of the code, that implement a more computationally efficient approach introduced in [Barberá et al (2015, Psychological Science)](https://journals.sagepub.com/doi/abs/10.1177/0956797615594620), see the folders [2016-update/](https://github.com/pablobarbera/twitter_ideology/tree/master/2016-update), [2018-update/](https://github.com/pablobarbera/twitter_ideology/tree/master/2018-update), and [2020-update/](https://github.com/pablobarbera/twitter_ideology/tree/master/2020-update).
+
 As an application of the method, in June 2015 I wrote a blog post on The Monkey Cage / Washington Post entitled ["Who is the most conservative Republican candidate for president?."](http://www.washingtonpost.com/blogs/monkey-cage/wp/2015/06/16/who-is-the-most-conservative-republican-candidate-for-president/) The replication code for the figure in the post is available in the `primary` folder.
 
-Finally, this repository also contains an R package (`tweetscores`) with several functions to facilitate the application of this method in future research. The rest of this README file provides a tutorial with instructions showing how to use it
+Finally, this repository also contains an R package (`tweetscores`) with several functions to facilitate the application of this method in future research. The rest of this README file provides a tutorial with instructions showing how to use it.
 
-<h3>Authentication</h3>
-<p>In order to download data from Twitter’s API, the first step is to create an authentication token. In order to do so, it’s necessary to follow these steps:</p>
-<p>1 - Go to apps.twitter.com and sign in</p>
-<p>2 - Click on “Create New App”</p>
-<p>3 - Fill name, description, and website (it can be anything, even google.com), and make sure you leave ‘Callback URL’ empty</p>
-<p>4 - Agree to user conditions</p>
-<p>5 - Copy consumer key and consumer secret and paste below</p>
-<pre class="r"><code>install.packages(&quot;ROAuth&quot;)
-library(ROAuth)
-requestURL &lt;- &quot;https://api.twitter.com/oauth/request_token&quot;
-accessURL &lt;- &quot;https://api.twitter.com/oauth/access_token&quot;
-authURL &lt;- &quot;https://api.twitter.com/oauth/authorize&quot;
-consumerKey &lt;- &quot;XXXXXXXXXXXX&quot;
-consumerSecret &lt;- &quot;YYYYYYYYYYYYYYYYYYY&quot;
-my_oauth &lt;- OAuthFactory$new(consumerKey=consumerKey, consumerSecret=consumerSecret, 
-    requestURL=requestURL, accessURL=accessURL, authURL=authURL)</code></pre>
-<p>6 - Run this line and go to the URL that appears on screen</p>
-<pre class="r"><code>my_oauth$handshake(cainfo = system.file(&quot;CurlSSL&quot;, &quot;cacert.pem&quot;, package = &quot;RCurl&quot;))</code></pre>
-<p>7 - Copy and paste the PIN number (6 digits) on the R console</p>
-<p>8 - Change current folder into a folder where you will save all your tokens</p>
-<pre class="r"><code>setwd(&quot;~/Dropbox/credentials/twitter&quot;)</code></pre>
-<p>9 - Now you can save oauth token for use in future sessions with R</p>
-<pre class="r"><code>save(my_oauth, file=&quot;my_oauth&quot;)</code></pre>
-</div>
+**NOTE**: the package currently only support v1.1 of Twitter's API, which at some point in the near future will be deprecated. This package is not currently maintained, so use at your own risk.
+
+### Authentication
+
+In order to download data from Twitter’s API, you will first need to create a developer account in [developer.twitter.com](developer.twitter.com). After receiving your approval, it’s necessary to follow these steps:
+
+1. Go to [Twitter's Developer Portal](https://developer.twitter.com/en/portal/dashboard) and sign in
+2. Click on "Overview", then “Create New App”
+3. Follow the instructions.
+4. Copy the API Key and Secret, as well as the Access Token and Secret, and paste them below:
+```
+my_oauth <- list(consumer_key = "CONSUMER_KEY",
+    consumer_secret = "CONSUMER_SECRET",
+    access_token="ACCESS_TOKEN",
+    access_token_secret = "ACCESS_TOKEN_SECRET")
+```
+5. Change current folder into a folder where you will save all your tokens
+```
+setwd("~/Dropbox/credentials/twitter&quot")
+```
+6. Now you can save oauth token for use in future sessions with R
+```
+save(my_oauth, file="my_oauth")
+```
 <div id="installing-tweetscores-package" class="section level3">
 <h3>Installing the <code>tweetscores</code> package</h3>
 <p>The following code will install the <code>tweetscores</code> package, as well as all other R packages necessary for the functions to run.</p>
@@ -108,10 +110,10 @@ results &lt;- estimateIdeology2(user, friends)</code></pre>
 <ul>
 <li><code>scrapeCongressData</code> is a scraper of the list of Twitter accounts for Members of the US congress from the <code>unitedstates</code> Github account.</li>
 <li><code>getUsersBatch</code> scrapes user information for more than 100 Twitter users from Twitter’s REST API.</li>
-<li><code>getFollower</code> scrapes followers lists from Twitter’ REST API.</li>
+<li><code>getFollowers</code> scrapes followers lists from Twitter’ REST API.</li>
+<li><code>getTimeline</code> downloads up to 3,200 most recent tweets for any given Twitter user.</li>
 <li><code>CA</code> is a modified version of the <code>ca</code> function in the <code>ca</code> package (available on CRAN) that computes simple correspondence analysis with a much lower memory usage.</li>
 <li><code>supplementaryColumns</code> and <code>supplementaryRows</code> takes additional columns of a follower matrix and projects them to the latent ideological space using the parameters of an already-fitted correspondence analysis model.</li>
-<li><code>getCreated</code> returns the approximate date in which a Twitter account was created based on its Twitter ID. In combination with <code>estimatePastFollowers</code> and <code>estimateDateBreaks</code>, it can be used to infer past Twitter follower networks.</li>
 </ul>
 </div>
 
