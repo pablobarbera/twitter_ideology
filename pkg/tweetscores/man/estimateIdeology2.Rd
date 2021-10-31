@@ -35,9 +35,8 @@ to 2.32). If \code{TRUE}, the -Inf or Inf values will be replaced with a random 
 the normal distribution below -2.32 (for -Inf) or above 2.32 (for Inf).}
 }
 \value{
-The function returns a matrix with summary statistics of the posterior
-distribution of the two estimated parameters, beta (political interest) and
-theta (ideology).
+The function returns \code{theta}, the ideology estimate based on
+the provided list of friends for a given user.
 }
 \description{
 \code{estimateIdeology2} estimates ideology for a given user using the

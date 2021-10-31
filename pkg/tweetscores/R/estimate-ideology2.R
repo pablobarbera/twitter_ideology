@@ -32,9 +32,8 @@
 #' to 2.32). If \code{TRUE}, the -Inf or Inf values will be replaced with a random sample from
 #' the normal distribution below -2.32 (for -Inf) or above 2.32 (for Inf).
 #'
-#' @return The function returns a matrix with summary statistics of the posterior
-#' distribution of the two estimated parameters, beta (political interest) and
-#' theta (ideology).
+#' @return The function returns \code{theta}, the ideology estimate based on
+#' the provided list of friends for a given user.
 #'
 #' @examples \dontrun{
 #' ## Creating OAuth token
